@@ -1,40 +1,69 @@
-import React from 'react'
-import Indicator from 'react-carousel-indicator'
-import "react-carousel-indicator/dist/index.css";
-import main from '../../../assets/home/main.png'
-import main1 from '../../../assets/home/main1.png'
-import main2 from '../../../assets/home/main2.png'
-import main3 from '../../../assets/home/main3.png'
-import './Carousel.css'
+import React from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
-export const Carousel = () => {
+import main from "../../../assets/home/main.png";
+import main1 from "../../../assets/home/main1.png";
+import main2 from "../../../assets/home/main2.png";
+import main3 from "../../../assets/home/main3.png";
+
+import "./Carousel.css";
+
+export const MyCarousel = () => {
   return (
-    <Indicator itemsPerSlide={1} itemGap={10}>
-    <div>
-      <img className='carouselImg'
-        src={main}
-        alt="first"
-      />
-    </div>
-    <div>
-      <img className='carouselImg'
-        src={main1}
-        alt="first"
-      />
-    </div>
-    <div>
-      <img className='carouselImg'
-        src={main2}
-        alt="first"
-      />
-    </div>
-    <div>
-      <img className='carouselImg'
-        src={main3}
-        alt="first"
-      />
-    </div>
-  </Indicator>
-
-  )
-}
+    <Carousel showThumbs={false} autoplay>
+      <div>
+        <div
+          style={{ backgroundImage: `url(${main})` }}
+          className="carousel_block"
+        >
+          <h1>All existing and newly added spare parts can be found</h1>
+          <p>
+            The automotive industry is strong, and drivers will always need a
+            trustworthy partner for their automotive needs.
+          </p>
+          <button>Catalogue</button>
+        </div>
+      </div>
+      <div>
+        <div
+          style={{ backgroundImage: `url(${main1})` }}
+          className="carousel_block"
+        >
+          <h1>All existing and newly added spare parts can be found</h1>
+          <p>
+            The automotive industry is strong, and drivers will always need a
+            trustworthy partner for their automotive needs.
+          </p>
+          <button>Catalogue</button>
+        </div>
+      </div>
+      <div>
+        <div
+          style={{ backgroundImage: `url(${main2})` }}
+          className="carousel_block"
+        >
+          <h1>All existing and newly added spare parts can be found</h1>
+          <p>
+            The automotive industry is strong, and drivers will always need a
+            trustworthy partner for their automotive needs.
+          </p>
+          <button>Catalogue</button>
+        </div>
+      </div>
+      <div>
+        <div
+          style={{ backgroundImage: `url(${main3})` }}
+          className="carousel_block"
+        >
+          <h1>All existing and newly added spare parts can be found</h1>
+          <p>
+            The automotive industry is strong, and drivers will always need a
+            trustworthy partner for their automotive needs.
+          </p>
+          <button>Catalogue</button>
+        </div>
+      </div>
+    </Carousel>
+  );
+};

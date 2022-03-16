@@ -1,0 +1,55 @@
+.select_css {
+  display: block;
+  font-family: sans-serif;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  width: 150px;
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  background-image: url("../assets/home/vectorBlack.png");
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  margin-left: 20px;
+  border: none;
+  height: 100%;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #000000;
+}
+.select_css::-ms-expand {
+  display: none;
+}
+
+/* Focus style */
+.select_css:focus {
+  outline: none;
+}
+
+/* Set options to normal weight */
+.select_css option {
+  font-weight: normal;
+}
+
+*[dir="rtl"] .select_css,
+:root:lang(ar) .select_css,
+:root:lang(iw) .select_css {
+  background-position: left 0.7em top 50%, 0 0;
+  padding: 0.6em 0.8em 0.5em 1.4em;
+}
+
+@media (min-width:0) and (max-width:549.9px) {
+  .select_css {
+    padding: 0.6em 1.4em 0.5em 0.8em;
+    width: 100px;
+    margin-left: 20px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+}

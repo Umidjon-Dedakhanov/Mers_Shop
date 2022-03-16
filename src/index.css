@@ -3,12 +3,16 @@ body {
 }
 
 ::-webkit-scrollbar{
-  height: 2px;
-  width: 2px;
+  height: 6px;
+  width: 6px;
   background-color: #fff;
 }
 
 ::-webkit-scrollbar-thumb{
   background: linear-gradient(to bottom, #000000, #00c3ff);
   border-radius: 5px;
+}
+
+.thumbs-wrapper.axis-vertical{
+  display: none;
 }

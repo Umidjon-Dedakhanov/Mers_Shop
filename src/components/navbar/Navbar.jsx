@@ -47,7 +47,7 @@ export const Navbar = () => {
           <li>
             <NavLink to="/contact">Contact Us</NavLink>
           </li>
-          <li>
+          <li  className={style.forSearch}>
             <Search />
           </li>
           <li>

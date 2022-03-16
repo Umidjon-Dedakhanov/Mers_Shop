@@ -1,14 +1,18 @@
 import React from "react";
 import { HeaderOrder } from "./headerOrder/HeaderOrder";
 import { Navbar } from "./../navbar/Navbar";
-import { Carousel } from "./carousel/Carousel";
+import { MyCarousel } from "./carousel/Carousel";
+import { Selects } from "./selects/Selects";
 
 export const Home = () => {
+
+
   return (
-    <>
+    <div style={{marginBottom:'3rem'}}>
       <HeaderOrder />
       <Navbar />
-      <Carousel/>
-    </>
+      <MyCarousel/>
+      <Selects/>
+    </div>
   );
 };

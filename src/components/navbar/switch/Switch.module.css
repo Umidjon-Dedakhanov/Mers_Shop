@@ -54,7 +54,7 @@
   height: 100%;
   padding: 30px;
 }
-@media (min-width: 779px) and (max-width: 980.9px) {
+@media (min-width: 760px) and (max-width: 980.9px) {
   .switch {
     width: 80px;
     height: 30px;

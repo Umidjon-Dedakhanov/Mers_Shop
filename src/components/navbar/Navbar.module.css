@@ -96,7 +96,7 @@ button:hover {
   color: #0088a9;
 }
 
-@media (min-width: 779px) and (max-width: 980.9px) {
+@media (min-width: 760px) and (max-width: 980.9px) {
   .logo {
     width: 10%;
   }
@@ -117,9 +117,13 @@ button:hover {
     width: 85%;
     justify-content: flex-end;
   }
+
+  .forSearch{
+    width: 200px;
+  }
 }
 
-@media (min-width: 981px) and (max-width: 1300px) {
+@media (min-width: 981px) and (max-width: 1449px) {
   .logo {
     width: 10%;
   }
@@ -127,6 +131,29 @@ button:hover {
   .navbar a {
     font-size: 10px;
     width: 50px;
+  }
+
+  .menu_items li,
+  button {
+    margin-left: 10px;
+  }
+  .container {
+    width: 95%;
+  }
+  .menu_items {
+    width: 85%;
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1450px) and (max-width: 1500px) {
+  .logo {
+    width: 10%;
+  }
+
+  .navbar a {
+    font-size: 14px;
+    width: 70px;
   }
 
   .menu_items li,
