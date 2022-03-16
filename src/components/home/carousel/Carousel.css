@@ -1,0 +1,22 @@
+._Indicator-module__Indicators__2vhHh button {
+  padding: 0;
+}
+
+._Indicator-module__Indicators__2vhHh {
+  display: flex;
+  justify-content: center;
+}
+
+._Indicator-module__Indicators__2vhHh button {
+  margin-left: 0;
+}
+
+.carouselImg {
+  object-fit: cover;
+  height: 85vh;
+  width: 100%;
+}
+._Indicator-module__IndicatorContent__3kdsN div{
+  margin-right: 0 !important;
+  min-width: 100% !important;
+}
