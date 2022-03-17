@@ -3,6 +3,10 @@ import { HeaderOrder } from "./headerOrder/HeaderOrder";
 import { Navbar } from "./../navbar/Navbar";
 import { MyCarousel } from "./carousel/Carousel";
 import { Selects } from "./selects/Selects";
+import { AllMachineParts } from "./machineParts/AllMachineParts";
+import { PopularProducts } from './popularProduct/PopularProducts';
+import { System } from "./sytem/System";
+
 
 export const Home = () => {
 
@@ -13,6 +17,9 @@ export const Home = () => {
       <Navbar />
       <MyCarousel/>
       <Selects/>
+      <AllMachineParts/>
+      <PopularProducts/>
+      <System />
     </div>
   );
 };
