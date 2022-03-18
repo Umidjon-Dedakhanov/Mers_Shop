@@ -43,8 +43,7 @@ export const MachineParts = ({
 
 // home/card
 
-export const CardProduct = ({ img, startNum = 2, desc, price }) => {
-  console.log(startNum.toPrecision);
+export const CardProduct = ({ img, desc, price }) => {
   return (
     <div className={style.CardProduct}>
       <div className={style.btnGroup}>
@@ -76,7 +75,10 @@ export const CardProduct = ({ img, startNum = 2, desc, price }) => {
 
 export const SystemBigBox = ({ title, link, img }) => {
   return (
-    <div style={{ backgroundImage: `url(${img})` }} className={style.SystemBigBox}>
+    <div
+      style={{ backgroundImage: `url(${img})` }}
+      className={style.SystemBigBox}
+    >
       <h1>{title}</h1>
       <NavLink to={link}>
         <button>Browse all</button>
@@ -87,13 +89,57 @@ export const SystemBigBox = ({ title, link, img }) => {
 
 // home/systemSmallBox
 
-
-export const SystemSmallBox = ({img, desc, price}) => {
+export const SystemSmallBox = ({ img, desc, price }) => {
   return (
     <div className={style.SystemSmallBox}>
-      <img src={img} alt=''/>
+      <img src={img} alt="" />
       <h3>{desc}</h3>
       <strong>{price}</strong>
     </div>
-  )
-}
+  );
+};
+
+// products
+
+export const Products = ({ title, desc }) => {
+  return (
+    <div className={style.title}>
+      <h1>{title}</h1>
+      <h2>{desc}</h2>
+    </div>
+  );
+};
+
+export const ProductCarousel = ({ desc, price }) => {
+  return (
+    <div className={style.productCarousel}>
+      <h3>{desc}</h3>
+      <p>{price}</p>
+    </div>
+  );
+};
+
+// home/information
+
+export const InformationCard = ({ img, title, desc }) => {
+  return (
+    <div className={style.InformationCard}>
+      <img src={img} alt="" />
+      <h1>{title}</h1>
+      <p>{desc}</p>
+    </div>
+  );
+};
+
+// footer/links
+
+export const LinksFooter = ({ title, links }) => {
+  return (
+    <div className={style.LinksFooter}>
+      <h1>{title}</h1>
+      {links.map((l) => (
+        <NavLink key={l.id} to={l.path}>{l.name}</NavLink>
+      ))}
+    </div>
+  );
+};

@@ -198,8 +198,6 @@
   font-weight: 700;
   font-size: 48px;
   line-height: 59px;
-  /* identical to box height */
-
   text-transform: uppercase;
 
   color: #ffffff;
@@ -249,6 +247,109 @@
   color: #000000;
 }
 
+/* products */
+
+.title {
+  width: 30%;
+}
+
+.title h1 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  color: #000000;
+}
+
+.title h2 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  width: 252px;
+  color: #000000;
+  margin-top: 10px;
+}
+
+/* productCarousel */
+.productCarousel {
+  width: 80%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.productCarousel h3 {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+.productCarousel p {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+.InformationCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.InformationCard h1 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+  margin: 5px 0px;
+}
+
+.InformationCard p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #6a7d8e;
+  margin: 5px 0px;
+  width: 202px;
+}
+
+.LinksFooter {
+  display: flex;
+  flex-direction: column;
+  width: 18%;
+}
+
+.LinksFooter h1 {
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 25px;
+  letter-spacing: -0.231818px;
+  color: #ffffff;
+  margin: 0 0 17px 0;
+}
+
+.LinksFooter a {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.204545px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
 @media (min-width: 0) and (max-width: 549.9px) {
   .select_css {
     padding: 0.6em 1.4em 0.5em 0.8em;
@@ -263,11 +364,153 @@
     width: 95%;
     margin-bottom: 20px;
   }
+
+  .CardProduct {
+    width: 80%;
+    padding: 25px;
+    margin: 0 15px;
+  }
+
+  .stars {
+    font-size: 20px;
+  }
+
+  .CardProduct h1 {
+    font-size: 12px;
+    width: 80%;
+    line-height: 16px;
+  }
+
+  .CardProduct h2 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .btnGroup a img {
+    height: 18px;
+  }
+
+  /* SystemBigBox */
+  .SystemBigBox {
+    width: 95%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  /* SystemSmallBox */
+  .SystemSmallBox {
+    width: 45%;
+  }
+
+  .SystemBigBox h1 {
+    font-size: 40px;
+    line-height: 45px;
+  }
+
+  /* products */
+  .title {
+    width: 50%;
+  }
+  .title h1 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .title h2 {
+    width: 80%;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .InformationCard {
+    width: 80%;
+    margin-bottom: 3rem;
+  }
+
+  .LinksFooter {
+    width: 80%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 980.9px) {
+  .LinksFooter {
+    width: 40%;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 501px) and (max-width: 800.9px) {
   .body {
     width: 48%;
     margin: 0 1% 2%;
+  }
+
+  .CardProduct {
+    width: 50%;
+  }
+
+  .SystemBigBox {
+    height: 280px;
+    margin-bottom: 2rem;
+  }
+
+  .SystemBigBox h1 {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 40px;
+    text-transform: uppercase;
+
+    color: #ffffff;
+  }
+
+  /* products */
+
+  .title {
+    width: 40%;
+  }
+
+  .title h2 {
+    width: 90%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 715px) {
+  .CardProduct {
+    width: 68%;
+  }
+}
+
+@media (min-width: 715px) and (max-width: 800.9px) {
+  .CardProduct {
+    width: 55%;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1111.9px) {
+  .CardProduct {
+    width: 45%;
+  }
+
+  .SystemBigBox {
+    height: 330px;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1112px) and (max-width: 1299.9px) {
+  .SystemBigBox {
+    height: 350px;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1112px) and (max-width: 1380.9px) {
+  .CardProduct {
+    width: 30%;
   }
 }

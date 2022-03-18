@@ -1,23 +1,14 @@
 import React from "react";
 
-import { CardProduct } from "../../../utils/helpers";
+import { CardProduct, Products } from "../../../utils/helpers";
 import card1 from "../../../assets/home/card1.png";
 
 import style from "./PopularProducts.module.css";
-// import ProductList, { Pagination } from './Paginator';
 
 export const PopularProducts = () => {
   return (
     <div className={style.body}>
-      <div className={style.title}>
-        <h1>Popular products</h1>
-        <h2>
-          Sooner or later your car’s engine accessory drive belts, timing belts,
-          and coolant hoses will dry out and crack.
-        </h2>
-        {/* <ProductList/> */}
-        
-      </div>
+        <Products title={'Popular products'} desc={'Sooner or later your car’s engine accessory drive belts, timing belts, and coolant hoses will dry out and crack.'}/>
       <div className={style.scroll}>
         <CardProduct
           desc={"Customized Front Carbon Brake Disc"}

@@ -5,26 +5,6 @@
   box-sizing: border-box;
 }
 
-.title {
-  width: 30%;
-}
-
-.title h1 {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 39px;
-  color: #000000;
-}
-
-.title h2 {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  width: 252px;
-  color: #000000;
-  margin-top: 10px;
-}
-
 .scroll {
   overflow: auto;
   display: flex;

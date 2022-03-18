@@ -75,6 +75,7 @@ button {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease-in-out;
+  font-size: 16px;
 }
 
 button {
@@ -129,7 +130,7 @@ button:hover {
   }
 
   .navbar a {
-    font-size: 10px;
+    font-size: 64%;
     width: 50px;
   }
 
