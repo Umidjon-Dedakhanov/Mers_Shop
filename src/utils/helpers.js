@@ -138,8 +138,48 @@ export const LinksFooter = ({ title, links }) => {
     <div className={style.LinksFooter}>
       <h1>{title}</h1>
       {links.map((l) => (
-        <NavLink key={l.id} to={l.path}>{l.name}</NavLink>
+        <NavLink key={l.id} to={l.path}>
+          {l.name}
+        </NavLink>
       ))}
     </div>
   );
 };
+
+// about/title
+
+export const TitleAbout = ({ title, desc }) => {
+  return (
+    <div className={style.body_about}>
+      <h1>{title}</h1>
+      <p>{desc}</p>
+    </div>
+  );
+};
+
+
+// about/skills
+
+export const SkillsAbout = ({title, num, img, desc, readMore_link='/'}) => {
+  return (
+    <div className={style.Skills_about}>
+      <h1>{title}</h1>
+      <p>{num}</p>
+      <img src={img} alt=''/>
+      <h2>{desc}</h2>
+      <NavLink to={readMore_link}>Read More ➡</NavLink>
+    </div>
+  )
+}
+
+// about/options
+
+export const BlockOptions = ({num, title, desc}) =>{
+  return (
+    <div className={style.BlockOptions}>
+      <strong>{num}</strong>
+      <h2>{title}</h2>
+      <p>{desc}</p>
+    </div>
+  )
+}
