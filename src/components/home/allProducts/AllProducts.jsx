@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { CardProduct } from "./../../../utils/helpers";
+import { CardProduct } from "../../../utils/helpers";
 import picture1 from "../../../assets/home/card1.png";
 
 import style from "./AllProducts.module.css";

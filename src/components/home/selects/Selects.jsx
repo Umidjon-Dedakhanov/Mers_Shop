@@ -4,11 +4,11 @@ import style from './Selects.module.css'
 
 export const Selects = () => {
     const names = [
-        {id: 1, name:'All Categories'},
-        {id: 2, name:'Brake Discs'},
-        {id: 3, name:'Brake Pads'},
-        {id: 4, name:'Brake Drums'},
-        {id: 5, name:'Hot Products'},
+        {id: 1, name:'All Categories', link:'all', path:'/all'},
+        {id: 2, name:'Brake Discs', link:'brakeDiscs', path:'/brakeDisc'},
+        {id: 3, name:'Brake Pads', link:'brakePads', path:'brakePads'},
+        {id: 4, name:'Brake Drums', link:'brakeDrums', path:'brakeDrums'},
+        {id: 5, name:'Hot Products', link:'hotProducts', path:'hotProducts'},
       ]
     
   return (
@@ -20,7 +20,6 @@ export const Selects = () => {
       <SelectNav names={names}/>
       <SelectNav names={names}/>
       <SelectNav names={names}/>
-
     </div>
   )
 }

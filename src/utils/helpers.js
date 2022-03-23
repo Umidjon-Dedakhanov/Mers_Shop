@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import korzina from "../assets/home/korzina.png";
 import favorite from "../assets/home/favorite.png";
@@ -7,12 +7,31 @@ import favorite from "../assets/home/favorite.png";
 import style from "./Helpers.module.css";
 
 export const SelectNav = ({ names }) => {
+  const [brandId, setBrandId] = useState("");
+  const navigate = useNavigate();
+
   return (
-    <select className={style.select_css}>
-      {names.map((n) => (
-        <option key={n.id}>{n.name}</option>
-      ))}
-    </select>
+    <>
+      <select
+        className={style.select_css}
+        onChange={(e) => {
+          const id = e.target.value.split("**")[0];
+          setBrandId(id);
+        }}
+      >
+        {names.map((n) => {
+          return (
+            <option
+              value={n.id + "**" + n.name}
+              key={n.id}
+              onClick={() => alert("hello")}
+            >
+             {n.name}
+            </option>
+          );
+        })}
+      </select>
+    </>
   );
 };
 
@@ -157,29 +176,28 @@ export const TitleAbout = ({ title, desc }) => {
   );
 };
 
-
 // about/skills
 
-export const SkillsAbout = ({title, num, img, desc, readMore_link='/'}) => {
+export const SkillsAbout = ({ title, num, img, desc, readMore_link = "/" }) => {
   return (
     <div className={style.Skills_about}>
       <h1>{title}</h1>
       <p>{num}</p>
-      <img src={img} alt=''/>
+      <img src={img} alt="" />
       <h2>{desc}</h2>
       <NavLink to={readMore_link}>Read More ➡</NavLink>
     </div>
-  )
-}
+  );
+};
 
 // about/options
 
-export const BlockOptions = ({num, title, desc}) =>{
+export const BlockOptions = ({ num, title, desc }) => {
   return (
     <div className={style.BlockOptions}>
       <strong>{num}</strong>
       <h2>{title}</h2>
       <p>{desc}</p>
     </div>
-  )
-}
+  );
+};

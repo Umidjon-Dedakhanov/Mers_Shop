@@ -32,7 +32,7 @@ export const Navbar = () => {
         </div>
         <ul className={style.menu_items}>
           <li>
-            <NavLink to="/home">Home</NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
             <NavLink to="/about">About Us</NavLink>
