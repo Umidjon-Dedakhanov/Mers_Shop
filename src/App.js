@@ -12,16 +12,21 @@ import { Login } from "./components/login/Login";
 function App() {
   return (
     <div className="App">
-      <HeaderOrder />
-      <Navbar />
+     
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<Login />} />
+        <Route path='/home' element={<> 
+        <HeaderOrder />
+        <Navbar />
+        <Home />
+        <Footer />
+  
+       </>} />
         <Route path="/about" element={<About />} />
         <Route path="engine" element={<EngineRepair />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="login" element={<Login />} />
+        <Route path="*" element={<Login />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

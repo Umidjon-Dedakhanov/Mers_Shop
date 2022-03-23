@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 import korzina from "../assets/home/korzina.png";
 import favorite from "../assets/home/favorite.png";
@@ -7,16 +7,16 @@ import favorite from "../assets/home/favorite.png";
 import style from "./Helpers.module.css";
 
 export const SelectNav = ({ names }) => {
-  const [brandId, setBrandId] = useState("");
-  const navigate = useNavigate();
+  // const [brandId, setBrandId] = useState("");
+  // const navigate = useNavigate();
 
   return (
     <>
       <select
         className={style.select_css}
         onChange={(e) => {
-          const id = e.target.value.split("**")[0];
-          setBrandId(id);
+          // const id = e.target.value.split("**")[0];
+          // setBrandId(id);
         }}
       >
         {names.map((n) => {
@@ -26,7 +26,7 @@ export const SelectNav = ({ names }) => {
               key={n.id}
               onClick={() => alert("hello")}
             >
-             {n.name}
+              {n.name}
             </option>
           );
         })}
