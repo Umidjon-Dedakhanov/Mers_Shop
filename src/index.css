@@ -1,5 +1,20 @@
-body {
+@font-face {
   font-family: "Calibri";
+  src: url('./assets//fonts/Calibri\ Regular.ttf');
+}
+
+@font-face {
+  font-family: "Calibri Bold";
+  src: url('./assets//fonts/Calibri\ Bold.TTF');
+}
+
+:root{
+  --main-font-family: "Calibri";
+  --main-font-family-bold: "Calibri Bold";
+}
+
+body {
+  font-family: var(--main-font-family);
   overflow-x: hidden;
 }
 

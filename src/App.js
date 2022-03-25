@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import { Footer } from "./components/footer/Footer";
 import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
@@ -8,20 +8,32 @@ import { About } from "./components/about/About";
 import { EngineRepair } from "./components/engineRepair/EngineRepair";
 import { Contact } from './components/contact/Contact';
 import { Login } from "./components/login/Login";
+import Karzinka from "./routes/karzinka/Karzinka";
+import KarzinkaSubmission from "./routes/karzinka-submission/KarzinkaSubmission";
 
 function App() {
+  const {pathname } = useLocation(); 
+  console.log(pathname)
   return (
     <div className="App">
-      <HeaderOrder />
-      <Navbar />
+      {!pathname.includes("/karzinka") && 
+        <>
+          <HeaderOrder />
+          <Navbar />
+        </>
+      }
       <Routes>
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="engine" element={<EngineRepair />} />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<Login />} />
+        <Route path="/karzinka" element={<Karzinka />} />
+        <Route path="/karzinka/submission" element={<KarzinkaSubmission />} />
       </Routes>
-      <Footer />
+      {!pathname.includes("/karzinka") && 
+        <Footer/>
+      }
     </div>
   );
 }
