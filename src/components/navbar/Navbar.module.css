@@ -60,11 +60,11 @@
   order: 1;
   font-size: 1.8rem;
 }
-
+/* button is effecting all buttons needs to be fixed */
 .menu_items li,
 button {
   list-style: none;
-  margin-left: 1.5rem;
+  /* margin-left: 1.5rem; */
   font-size: 1.1rem;
   display: flex;
   align-items: center;
