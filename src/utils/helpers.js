@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import korzina from "../assets/home/korzina.png";
 import favorite from "../assets/home/favorite.png";
@@ -7,8 +7,8 @@ import favorite from "../assets/home/favorite.png";
 import style from "./Helpers.module.css";
 
 export const SelectNav = ({ names }) => {
+  //eslint-disable-next-line
   const [brandId, setBrandId] = useState("");
-  const navigate = useNavigate();
 
   return (
     <>
@@ -26,7 +26,7 @@ export const SelectNav = ({ names }) => {
               key={n.id}
               onClick={() => alert("hello")}
             >
-             {n.name}
+              {n.name}
             </option>
           );
         })}
