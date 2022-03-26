@@ -9,6 +9,8 @@ import { Switch } from "./switch/Switch";
 
 import style from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { setAuthAC } from "../../redux/auth-reducer";
 
 export const Navbar = () => {
   const [scroll, setScroll] = useState();
@@ -21,6 +23,7 @@ export const Navbar = () => {
     }
   });
 
+  const { isAuth } = useSelector((state) => state.auth);
   return (
     <nav className={style.navbar + " " + scroll}>
       <div className={style.navbar_container + " " + style.container}>
@@ -33,26 +36,29 @@ export const Navbar = () => {
         <ul className={style.menu_items}>
           <li>
             <NavLink to="/">Home</NavLink>
+
           </li>
           <li>
             <NavLink to="/about">About Us</NavLink>
-            
           </li>
           <li>
             <NavLink to="/product">Products</NavLink>
           </li>
           <li>
-            <NavLink to="/new">News</NavLink>
+            <NavLink to="/news">News</NavLink>
           </li>
           <li>
             <NavLink to="/contact">Contact Us</NavLink>
           </li>
-          <li  className={style.forSearch}>
+          <li className={style.forSearch}>
             <Search />
           </li>
           <li>
             <Select />
-            <img src={person} alt="" />
+            {isAuth
+              ?<img src={person} alt="" />
+              : <NavLink to={'/login'}>Login</NavLink>
+            } 
           </li>
           <li>
             <Switch />

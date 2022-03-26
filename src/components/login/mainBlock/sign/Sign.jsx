@@ -1,14 +1,11 @@
 import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import { LoginHelpers } from "./../../../UI/login/LoginHelpers";
 
-import style from './Sign.module.css'
+import style from "./Sign.module.css";
+import { useSelector } from 'react-redux';
 
 function SignUpForm() {
-  const navigate = useNavigate();
 
-  const onClick = () => {
-    navigate("/home");
-  };
   return (
     <div className={style.main}>
       <label htmlFor="">First name *</label>
@@ -21,7 +18,7 @@ function SignUpForm() {
       <input type="email" />
       <label htmlFor="">Create password *</label>
       <input type="password" />
-      <button onClick={onClick}>Sign Up</button>
+      <button>Sign Up</button>
       <hr />
     </div>
   );
@@ -29,9 +26,17 @@ function SignUpForm() {
 
 function SignInForm() {
   const navigate = useNavigate();
+  const {isAuth} = useSelector((state) => state.auth);
+
+  if (isAuth) {
+    navigate("/");
+  }
 
   const onClick = () => {
-    navigate("/home");
+    if (!isAuth) {
+    } else {
+      navigate("/");
+    }
   };
   return (
     <div className={style.main}>
@@ -51,7 +56,7 @@ export function Sign() {
     <>
       <div className={style.title}>
         <div className={style.title2}>
-          <NavLink to={'/' || "/signIn"}>Sign In</NavLink>
+          <NavLink to={"/" || "/signIn"}>Sign In</NavLink>
           <NavLink to={"/signUp"}>Sign Up</NavLink>
         </div>
       </div>
@@ -67,10 +72,7 @@ export function Sign() {
             path="/signIn"
             element={<LoginHelpers inUp="In" display="none" />}
           />
-          <Route
-            index
-            element={<LoginHelpers inUp="In" display="none" />}
-          />
+          <Route index element={<LoginHelpers inUp="In" display="none" />} />
         </Routes>
       </div>
     </>

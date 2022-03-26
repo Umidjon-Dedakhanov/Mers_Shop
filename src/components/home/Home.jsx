@@ -9,8 +9,8 @@ import { FeaturedProducts } from "./featuredProducts/FeaturedProducts";
 import { AllProducts } from "./allProducts/AllProducts";
 import { Information } from "./information/Information";
 import { Route, Routes } from "react-router-dom";
-import { BrakeDiscMachineParts } from './machineParts/BrakeDiscMachineParts';
-import { BrakeDiscProducts } from './popularProduct/BrakeDiscProducts';
+import { BrakeDiscMachineParts } from "./machineParts/BrakeDiscMachineParts";
+import { BrakeDiscProducts } from "./popularProduct/BrakeDiscProducts";
 
 export const Home = () => {
   return (
@@ -19,7 +19,7 @@ export const Home = () => {
       <Selects />
       <Routes>
         <Route
-          path="/"
+          path="/all"
           element={
             <>
               <AllMachineParts />
@@ -33,6 +33,44 @@ export const Home = () => {
             <>
               <BrakeDiscMachineParts />
               <BrakeDiscProducts />
+            </>
+          }
+        />
+        <Route
+          path="/brakePads"
+          element={
+            <>
+              <BrakeDiscMachineParts />
+              <BrakeDiscProducts />
+            </>
+          }
+        />
+
+        <Route
+          path="/brakeDrums"
+          element={
+            <>
+              <AllMachineParts />
+              <PopularProducts />
+            </>
+          }
+        />
+        <Route
+          path="/hotProducts"
+          element={
+            <>
+              <BrakeDiscMachineParts />
+              <BrakeDiscProducts />
+            </>
+          }
+        />
+
+        <Route
+          path="/popularProducts"
+          element={
+            <>
+              <AllMachineParts />
+              <PopularProducts />
             </>
           }
         />
