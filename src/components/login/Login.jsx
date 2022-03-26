@@ -1,11 +1,13 @@
-import React from 'react'
-import LoginWithGoogle from './LoginWithGoogle'
+import React from "react";
+
+import { Header } from './header/Header';
+import { MainBlock } from "./mainBlock/MainBlock";
 
 export const Login = () => {
   return (
     <div>
-        Login
-        <LoginWithGoogle />
+      <Header />
+      <MainBlock />
     </div>
-  )
-}
+  );
+};

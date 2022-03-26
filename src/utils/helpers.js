@@ -15,8 +15,8 @@ export const SelectNav = ({ names }) => {
       <select
         className={style.select_css}
         onChange={(e) => {
-          const id = e.target.value.split("**")[0];
-          setBrandId(id);
+          // const id = e.target.value.split("**")[0];
+          // setBrandId(id);
         }}
       >
         {names?.map((n) => {
