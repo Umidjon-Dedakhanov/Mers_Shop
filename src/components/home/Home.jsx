@@ -8,7 +8,7 @@ import { System } from "./sytem/System";
 import { FeaturedProducts } from "./featuredProducts/FeaturedProducts";
 import { AllProducts } from "./allProducts/AllProducts";
 import { Information } from "./information/Information";
-import { Route, Routes } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { BrakeDiscMachineParts } from './machineParts/BrakeDiscMachineParts';
 import { BrakeDiscProducts } from './popularProduct/BrakeDiscProducts';
 
@@ -17,7 +17,7 @@ export const Home = () => {
     <div style={{ marginBottom: "3rem" }}>
       <MyCarousel />
       <Selects />
-      <Routes>
+      <Switch>
         <Route
           path="/"
           element={
@@ -36,7 +36,7 @@ export const Home = () => {
             </>
           }
         />
-      </Routes>
+      </Switch>
 
       <System />
       <FeaturedProducts />

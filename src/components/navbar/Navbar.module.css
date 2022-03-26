@@ -62,20 +62,25 @@
 }
 /* button is effecting all buttons needs to be fixed */
 .menu_items li,
-button {
+.menu_items button {
   list-style: none;
-  /* margin-left: 1.5rem; */
+  margin-left: 1.5rem;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
 }
 
-.navbar a {
+.item__inactive {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease-in-out;
   font-size: 16px;
+  border-bottom: 3px solid transparent;
+}
+
+.item__active{
+  border-bottom: 3px solid #fff;
 }
 /* 
 button {

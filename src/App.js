@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import { Footer } from "./components/footer/Footer";
 import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
@@ -11,6 +11,7 @@ import { Login } from "./components/login/Login";
 import Karzinka from "./routes/karzinka/Karzinka";
 import KarzinkaSubmission from "./routes/karzinka-submission/KarzinkaSubmission";
 import KarzinkaPayment from "./routes/karzinka-payment/KarzinkaPayment";
+import Account from "./routes/account/Account";
 
 function App() {
   const {pathname } = useLocation(); 
@@ -23,16 +24,17 @@ function App() {
           <Navbar />
         </>
       }
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/engine" element={<EngineRepair />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/karzinka" element={<Karzinka />} />
-        <Route path="/karzinka/submission" element={<KarzinkaSubmission />} />
-        <Route path="/karzinka/payment" element={<KarzinkaPayment />} />
-      </Routes>
+      <Switch>
+        <Route exact path="/" component={() => <Home />} />
+        <Route path="/about" component={() => <About />} />
+        <Route path="/engine" component={() => <EngineRepair />} />
+        <Route path="/contact" component={() => <Contact />} />
+        <Route path="/login" component={() => <Login />} />
+        <Route path="/karzinka" component={() => <Karzinka />} />
+        <Route path="/karzinka/submission" component={() => <KarzinkaSubmission />} />
+        <Route path="/karzinka/payment" component={() => <KarzinkaPayment />} />
+        <Route path="/account/myaccount" component={() => <Account />} />
+      </Switch>
       {!pathname.includes("/karzinka") && 
         <Footer/>
       }

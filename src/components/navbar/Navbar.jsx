@@ -8,10 +8,11 @@ import { Select } from "./select/Select";
 import { Switch } from "./switch/Switch";
 
 import style from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
   const [scroll, setScroll] = useState();
+  const { pathname } = useLocation();
 
   window.addEventListener("scroll", () => {
     if (window.scrollY < 40) {
@@ -22,7 +23,7 @@ export const Navbar = () => {
   });
 
   return (
-    <nav className={style.navbar + " " + scroll}>
+    <nav className={style.navbar + " " + scroll} style={pathname.includes("account") ? {background: "#333"} : null}>
       <div className={style.navbar_container + " " + style.container}>
         <input type="checkbox" name="" id="" />
         <div className={style.hamburger_lines}>
@@ -32,20 +33,20 @@ export const Navbar = () => {
         </div>
         <ul className={style.menu_items}>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active} to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/about">About Us</NavLink>
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/about">About Us</NavLink>
             
           </li>
           <li>
-            <NavLink to="/product">Products</NavLink>
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/product">Products</NavLink>
           </li>
           <li>
-            <NavLink to="/new">News</NavLink>
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/new">News</NavLink>
           </li>
           <li>
-            <NavLink to="/contact">Contact Us</NavLink>
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/contact">Contact Us</NavLink>
           </li>
           <li  className={style.forSearch}>
             <Search />
