@@ -1,11 +1,14 @@
-import { NavLink, Route, Switch } from "react-router-dom";
+import { NavLink, Route, Switch, useHistory } from "react-router-dom";
 import { LoginHelpers } from "./../../../UI/login/LoginHelpers";
 
 import style from "./Sign.module.css";
-import { useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
 
 function SignUpForm() {
+  const history = useHistory();
+
+  const onClick = () => {
+    history.push("/home");
+  };
   return (
     <div className={style.main}>
       <label htmlFor="">First name *</label>
@@ -18,24 +21,17 @@ function SignUpForm() {
       <input type="email" />
       <label htmlFor="">Create password *</label>
       <input type="password" />
-      <button>Sign Up</button>
+      <button onClick={onClick}>Sign Up</button>
       <hr />
     </div>
   );
 }
 
 function SignInForm() {
-  const { isAuth } = useSelector((state) => state.auth);
-
-  if (isAuth) {
-    <Redirect to={"/"} />;
-  }
+  const history = useHistory();
 
   const onClick = () => {
-    if (!isAuth) {
-    } else {
-      <Redirect to={"/"} />;
-    }
+    history.push("/home");
   };
   return (
     <div className={style.main}>
@@ -60,18 +56,18 @@ export function Sign() {
         </div>
       </div>
       <Switch>
-        <Route path="/signUp" render={()=><SignUpForm />} />
-        <Route path="/signIn" render={()=><SignInForm />} />
-        <Route path={'*'} render={()=><SignInForm />} />
+        <Route path="/signUp" element={<SignUpForm />} />
+        <Route path="/signIn" element={<SignInForm />} />
+        <Route index element={<SignInForm />} />
       </Switch>
       <div className={style.helpers}>
         <Switch>
-          <Route path="/signUp" render={()=><LoginHelpers inUp="Up" />} />
+          <Route path="/signUp" element={<LoginHelpers inUp="Up" />} />
           <Route
             path="/signIn"
-            render={()=><LoginHelpers inUp="In" display="none" />}
+            element={<LoginHelpers inUp="In" display="none" />}
           />
-          <Route path={'*'} render={()=><LoginHelpers inUp="In" display="none" />} />
+          <Route index element={<LoginHelpers inUp="In" display="none" />} />
         </Switch>
       </div>
     </>

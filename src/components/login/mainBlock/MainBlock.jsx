@@ -10,7 +10,7 @@ export const MainBlock = () => {
     <div className={style.body}>
       <div className={style.box}>
         <Switch>
-          <Route path={"/"} render={() => <Sign />} />
+          <Route index element={<Sign />} />
           <Route
             path="/forgetPassword"
             render={() => {
@@ -44,7 +44,7 @@ export const MainBlock = () => {
               />;
             }}
           />
-          <Route path="*" render={() => <Sign />} />
+          <Route path="*" element={<Sign />} />
         </Switch>
       </div>
     </div>

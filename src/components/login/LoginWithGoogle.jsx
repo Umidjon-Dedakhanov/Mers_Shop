@@ -1,5 +1,6 @@
-import React from "react";
-import { GoogleLogin } from "react-google-login";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
 
 // refresh token
 import { refreshTokenSetup } from "../../utils/refreshToken";
@@ -10,9 +11,15 @@ const clientId =
   "707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com";
 
 function LoginWithGoogle() {
-
+  const history = useHistory();
   const onSuccess = (res) => {
-    console.log("Login Success: currentUser:", res.profileObj);
+    console.log('Login Success: currentUser:', res.profileObj);
+    alert(
+      `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
+    );
+
+    history.push('/home')
+    
     refreshTokenSetup(res);
   };
 
