@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import style from "./MainBlock.module.css";
 import { Sign } from "./sign/Sign";
@@ -9,11 +9,11 @@ export const MainBlock = () => {
   return (
     <div className={style.body}>
       <div className={style.box}>
-        <Routes>
-          <Route index element={<Sign />} />
+        <Switch>
+          <Route path={"/"} render={() => <Sign />} />
           <Route
             path="/forgetPassword"
-            element={
+            render={() => {
               <Password
                 pathname={"/enterCode"}
                 title={"Account Setting"}
@@ -21,31 +21,31 @@ export const MainBlock = () => {
                   "Forget your password? Please enter your phone number or email address. You will resive a link to create a new password via email"
                 }
                 btnText={"Reset password"}
-              />
-            }
+              />;
+            }}
           />
           <Route
             path="/enterCode"
-            element={
+            render={() => {
               <Password
                 pathname={"/save"}
                 title={"Enter code"}
                 btnText={"Submit"}
-              />
-            }
+              />;
+            }}
           />
           <Route
             path="/save"
-            element={
+            render={() => {
               <Password
                 pathname={"/enterCode"}
                 title={"You changed the password"}
                 btnText={"Go previous page"}
-              />
-            }
+              />;
+            }}
           />
-          <Route path="*" element={<Sign />} />
-        </Routes>
+          <Route path="*" render={() => <Sign />} />
+        </Switch>
       </div>
     </div>
   );

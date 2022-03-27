@@ -8,11 +8,12 @@ import { Select } from "./select/Select";
 import { Switch } from "./switch/Switch";
 
 import style from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { NavLink, useLocation } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 export const Navbar = () => {
   const [scroll, setScroll] = useState();
+  const { pathname } = useLocation();
 
   window.addEventListener("scroll", () => {
     if (window.scrollY < 40) {
@@ -24,7 +25,7 @@ export const Navbar = () => {
 
   const { isAuth } = useSelector((state) => state.auth);
   return (
-    <nav className={style.navbar + " " + scroll}>
+    <nav className={style.navbar + " " + scroll} style={pathname.includes("account") ? {background: "#333"} : null}>
       <div className={style.navbar_container + " " + style.container}>
         <input type="checkbox" name="" id="" />
         <div className={style.hamburger_lines}>
@@ -34,20 +35,20 @@ export const Navbar = () => {
         </div>
         <ul className={style.menu_items}>
           <li>
-            <NavLink to="/">Home</NavLink>
-
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active} to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/about">About Us</NavLink>
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/about">About Us</NavLink>
+            
           </li>
           <li>
-            <NavLink to="/product">Products</NavLink>
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/product">Products</NavLink>
           </li>
           <li>
-            <NavLink to="/news">News</NavLink>
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/new">News</NavLink>
           </li>
           <li>
-            <NavLink to="/contact">Contact Us</NavLink>
+            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/contact">Contact Us</NavLink>
           </li>
           <li className={style.forSearch}>
             <Search />
@@ -56,7 +57,7 @@ export const Navbar = () => {
             <Select />
             {isAuth
               ?<img src={person} alt="" />
-              : <NavLink to={'/login'}>Login</NavLink>
+              : <NavLink exact to={'/login'}>Login</NavLink>
             } 
           </li>
           <li>

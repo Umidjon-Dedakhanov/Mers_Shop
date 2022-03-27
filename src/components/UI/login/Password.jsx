@@ -1,13 +1,12 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 import style from './Password.module.css'
 
 export const Password = ({pathname, title, desc, btnText}) => {
-  const navigate = useNavigate();
 
   const onClick = () => {
-    navigate({pathname});
+    <Redirect to={pathname}/>
   };
 
   return (

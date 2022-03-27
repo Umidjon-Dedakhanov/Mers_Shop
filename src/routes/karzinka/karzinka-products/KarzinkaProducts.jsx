@@ -7,7 +7,7 @@ const KarzinkaProducts = ({img, title, price, counters, initialAmount, checkBox}
     return (
         <tr className={classes.product__item}>
             <td  className={classes.product__cell}>{!checkBox && <div className={classes.cell__check}><input type="checkbox" /></div>}</td>
-            <td style={checkBox ? {paddingLeft: "10px"} : null} className={classes.product__cell}> <div><img src={img} alt=""/> <p>{title}</p></div> </td>
+            <td style={checkBox ? {paddingLeft: "1e0px"} : null} className={classes.product__cell}> <div><img src={img} alt=""/> <p>{title}</p></div> </td>
             <td className={classes.product__cell}><div className={classes.cell__info}>{price}</div></td>
             <td className={classes.product__cell}> <div className={classes.cell__counter}>{counters && <button onClick={() => setInitialProductAmount(prev => prev - 1)}>-</button>} {initialProductAmount} {counters && <button onClick={() => setInitialProductAmount(prev => prev + 1)}>+</button>}</div></td>
             <td className={classes.product__cell}><div className={classes.cell__info}>{price * initialProductAmount}</div></td>

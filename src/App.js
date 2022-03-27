@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import { Footer } from "./components/footer/Footer";
 import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
@@ -8,38 +8,46 @@ import { About } from "./components/about/About";
 import { Login } from "./components/login/Login";
 import Karzinka from "./routes/karzinka/Karzinka";
 import KarzinkaSubmission from "./routes/karzinka-submission/KarzinkaSubmission";
-import { Home } from './components/home/Home';
-import { EngineRepair } from './components/engineRepair/EngineRepair';
-import { News } from './components/news/News';
-import { Products } from './components/products/Products';
+import KarzinkaPayment from "./routes/karzinka-payment/KarzinkaPayment";
+import Account from "./routes/account/Account";
+import { EngineRepair } from "./components/engineRepair/EngineRepair";
+import { Products } from "./components/products/Products";
+import { Home } from "./components/home/Home";
+import { News } from "./components/news/News";
 
 function App() {
-  const {pathname } = useLocation(); 
-  console.log(pathname)
+  const { pathname } = useLocation();
+  console.log(pathname);
   return (
     <div className="App">
-      {!pathname.includes("/karzinka") && 
+      {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
         <>
           <HeaderOrder />
           <Navbar />
         </>
-      }
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="engine" element={<EngineRepair />} />
-        <Route path="news" element={<News />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="product/*" element={<Products />} />
-        <Route path="login" element={<Login />} />
-        <Route path="/karzinka" element={<Karzinka />} />
-        <Route path="/karzinka/submission" element={<KarzinkaSubmission />} />
-        <Route path="*" element={<Home />} />
+      )}
+      <Switch>
+        <Route exact path="/" component={() => <Home />} />
 
-      </Routes>
-      {!pathname.includes("/karzinka") && 
-        <Footer/>
-      }
+
+        <Route path="/about" component={() => <About />} />
+        <Route path="/engine" component={() => <EngineRepair />} />
+        <Route path="/product" component={() => <Products />} />
+        <Route path="/contact" component={() => <Contact />} />
+        <Route path="/new" component={() => <News />} />
+        <Route path="/karzinka" component={() => <Karzinka />} />
+        <Route
+          path="/karzinka/submission"
+          component={() => <KarzinkaSubmission />}
+        />
+        <Route path="/karzinka/payment" component={() => <KarzinkaPayment />} />
+        <Route path="/account/myaccount" component={() => <Account />} />
+        <Route path="*" component={() => <Login />} />
+
+      </Switch>
+      {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
+        <Footer />
+      )}
     </div>
   );
 }

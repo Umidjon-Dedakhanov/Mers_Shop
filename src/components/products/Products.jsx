@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import { Selects } from "./../home/selects/Selects";
 import { BrakeDiscMachineParts } from "./../home/machineParts/BrakeDiscMachineParts";
@@ -18,86 +18,94 @@ export const Products = () => {
   return (
     <div className={style.body}>
       <Heading title={"ABOUT US"} routePathName="About" img={img} />
-      <Selects />
+      <Selects
+        to1="/product/all"
+        to2="/product/brakeDiscs"
+        to3="/product/brakePads"
+        to4="/product/brakeDrums"
+        to5="/product/hotProducts"
+        to6="/product/popularProducts"
+        to7="/product/brakeDisc"
+      />
       <div className={style.box}>
-        <Routes>
+        <Switch>
           <Route
             path="/"
-            element={
+            render={() => {
               <>
-                <PopularProducts color="#fff"/>
+                <PopularProducts color="#fff" />
                 <FeaturedProducts />
-              </>
-            }
+              </>;
+            }}
           />
           <Route
             path="all"
-            element={
+            render={() => {
               <>
-                <PopularProducts color="#fff"/>
+                <PopularProducts color="#fff" />
                 <FeaturedProducts />
-              </>
-            }
+              </>;
+            }}
           />
           <Route
             path="all"
-            element={
+            render={() => {
               <>
-                <PopularProducts color="#fff"/>
+                <PopularProducts color="#fff" />
                 <FeaturedProducts />
-              </>
-            }
+              </>;
+            }}
           />
           <Route
             path="brakeDisc"
-            element={
+            render={() => {
               <>
-                <BrakeDiscProducts color="#fff"/>
+                <BrakeDiscProducts color="#fff" />
                 <FeaturedProducts />
-              </>
-            }
+              </>;
+            }}
           />
           <Route
             path="brakePads"
-            element={
+            render={() => {
               <>
-                <BrakeDiscProducts color="#fff"/>
+                <BrakeDiscProducts color="#fff" />
                 <BrakeDiscMachineParts />
-              </>
-            }
+              </>;
+            }}
           />
 
           <Route
             path="brakeDrums"
-            element={
+            render={() => {
               <>
-                <PopularProducts color="#fff"/>
+                <PopularProducts color="#fff" />
                 <FeaturedProducts />
-              </>
-            }
+              </>;
+            }}
           />
           <Route
             path="hotProducts"
-            element={
+            render={() => {
               <>
-                <BrakeDiscProducts color="#fff"/>
+                <BrakeDiscProducts color="#fff" />
                 <FeaturedProducts />
-              </>
-            }
+              </>;
+            }}
           />
 
           <Route
             path="popularProducts"
-            element={
+            render={() => {
               <>
                 <PopularProducts color="#fff" />
                 <FeaturedProducts />
-              </>
-            }
+              </>;
+            }}
           />
-        </Routes>
+        </Switch>
       </div>
-      <PopularProducts color="#fff"/>
+      <PopularProducts color="#fff" />
       <FeaturedProducts />
       <Information />
     </div>

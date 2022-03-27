@@ -1,11 +1,11 @@
-import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 import { LoginHelpers } from "./../../../UI/login/LoginHelpers";
 
 import style from "./Sign.module.css";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 function SignUpForm() {
-
   return (
     <div className={style.main}>
       <label htmlFor="">First name *</label>
@@ -25,17 +25,16 @@ function SignUpForm() {
 }
 
 function SignInForm() {
-  const navigate = useNavigate();
-  const {isAuth} = useSelector((state) => state.auth);
+  const { isAuth } = useSelector((state) => state.auth);
 
   if (isAuth) {
-    navigate("/");
+    <Redirect to={"/"} />;
   }
 
   const onClick = () => {
     if (!isAuth) {
     } else {
-      navigate("/");
+      <Redirect to={"/"} />;
     }
   };
   return (
@@ -60,20 +59,20 @@ export function Sign() {
           <NavLink to={"/signUp"}>Sign Up</NavLink>
         </div>
       </div>
-      <Routes>
-        <Route path="/signUp" element={<SignUpForm />} />
-        <Route path="/signIn" element={<SignInForm />} />
-        <Route index element={<SignInForm />} />
-      </Routes>
+      <Switch>
+        <Route path="/signUp" render={()=><SignUpForm />} />
+        <Route path="/signIn" render={()=><SignInForm />} />
+        <Route path={'*'} render={()=><SignInForm />} />
+      </Switch>
       <div className={style.helpers}>
-        <Routes>
-          <Route path="/signUp" element={<LoginHelpers inUp="Up" />} />
+        <Switch>
+          <Route path="/signUp" render={()=><LoginHelpers inUp="Up" />} />
           <Route
             path="/signIn"
-            element={<LoginHelpers inUp="In" display="none" />}
+            render={()=><LoginHelpers inUp="In" display="none" />}
           />
-          <Route index element={<LoginHelpers inUp="In" display="none" />} />
-        </Routes>
+          <Route path={'*'} render={()=><LoginHelpers inUp="In" display="none" />} />
+        </Switch>
       </div>
     </>
   );

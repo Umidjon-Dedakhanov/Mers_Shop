@@ -19,7 +19,7 @@ export const SelectNav = ({ names }) => {
           // setBrandId(id);
         }}
       >
-        {names.map((n) => {
+        {names?.map((n) => {
           return (
             <option
               value={n.id + "**" + n.name}

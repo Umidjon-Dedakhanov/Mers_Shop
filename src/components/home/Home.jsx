@@ -1,4 +1,5 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 
 import { MyCarousel } from "./carousel/Carousel";
 import { Selects } from "./selects/Selects";
@@ -8,16 +9,15 @@ import { System } from "./sytem/System";
 import { FeaturedProducts } from "./featuredProducts/FeaturedProducts";
 import { AllProducts } from "./allProducts/AllProducts";
 import { Information } from "./information/Information";
-import { Route, Routes } from "react-router-dom";
-import { BrakeDiscMachineParts } from "./machineParts/BrakeDiscMachineParts";
-import { BrakeDiscProducts } from "./popularProduct/BrakeDiscProducts";
+import { BrakeDiscMachineParts } from './machineParts/BrakeDiscMachineParts';
+import { BrakeDiscProducts } from './popularProduct/BrakeDiscProducts';
 
 export const Home = () => {
   return (
     <div style={{ marginBottom: "3rem" }}>
       <MyCarousel />
       <Selects />
-      <Routes>
+      <Switch>
         <Route
           path="/all"
           element={
@@ -36,45 +36,7 @@ export const Home = () => {
             </>
           }
         />
-        <Route
-          path="/brakePads"
-          element={
-            <>
-              <BrakeDiscMachineParts />
-              <BrakeDiscProducts />
-            </>
-          }
-        />
-
-        <Route
-          path="/brakeDrums"
-          element={
-            <>
-              <AllMachineParts />
-              <PopularProducts />
-            </>
-          }
-        />
-        <Route
-          path="/hotProducts"
-          element={
-            <>
-              <BrakeDiscMachineParts />
-              <BrakeDiscProducts />
-            </>
-          }
-        />
-
-        <Route
-          path="/popularProducts"
-          element={
-            <>
-              <AllMachineParts />
-              <PopularProducts />
-            </>
-          }
-        />
-      </Routes>
+      </Switch>
 
       <System />
       <FeaturedProducts />
