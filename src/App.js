@@ -28,8 +28,6 @@ function App() {
       )}
       <Switch>
         <Route exact path="/" component={() => <Home />} />
-
-
         <Route path="/about" component={() => <About />} />
         <Route path="/engine" component={() => <EngineRepair />} />
         <Route path="/product" component={() => <Products />} />
@@ -43,7 +41,6 @@ function App() {
         <Route path="/karzinka/payment" component={() => <KarzinkaPayment />} />
         <Route path="/account/myaccount" component={() => <Account />} />
         <Route path="*" component={() => <Login />} />
-
       </Switch>
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
         <Footer />
