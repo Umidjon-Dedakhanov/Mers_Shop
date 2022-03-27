@@ -21,13 +21,13 @@ export const Selects = () => {
       <SelectNav names={names}/>
       <SelectNav names={names}/>
       <SelectNav names={names}/> */}
-      <NavLink to={'/all'}>All Categories</NavLink>
-      <NavLink to={'/brakeDisc'}>Brake Discs</NavLink>
-      <NavLink to={'/brakePads'}>Brake Pads</NavLink>
-      <NavLink to={'/brakeDrums'}>Brake Drums</NavLink>
-      <NavLink to={'/hotProducts'}>Hot Products</NavLink>
-      <NavLink to={'/popularProducts'}>Popular products</NavLink>
-      <NavLink to={'/brakeDisc'}>Brake Discs</NavLink>
+      <NavLink to={'all'}>All Categories</NavLink>
+      <NavLink to={'brakeDisc'}>Brake Discs</NavLink>
+      <NavLink to={'brakePads'}>Brake Pads</NavLink>
+      <NavLink to={'brakeDrums'}>Brake Drums</NavLink>
+      <NavLink to={'hotProducts'}>Hot Products</NavLink>
+      <NavLink to={'popularProducts'}>Popular products</NavLink>
+      <NavLink to={'brakeDisc'}>Brake Discs</NavLink>
     </div>
   )
 }

@@ -7,8 +7,8 @@ import favorite from "../assets/home/favorite.png";
 import style from "./Helpers.module.css";
 
 export const SelectNav = ({ names }) => {
+  //eslint-disable-next-line
   // const [brandId, setBrandId] = useState("");
-  // const navigate = useNavigate();
 
   return (
     <>

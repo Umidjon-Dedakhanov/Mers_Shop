@@ -6,7 +6,6 @@ import location from "../../../assets/contact/location.png";
 import clock from "../../../assets/contact/clock.png";
 
 import style from "./MainBlock.module.css";
-import { NavLink } from 'react-router-dom';
 import YandexMap from "./map/Map";
 
 export const MainBlock = () => {

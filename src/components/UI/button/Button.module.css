@@ -1,0 +1,12 @@
+.button{
+    padding: 10px 0px;
+    width: 100%;
+    background-color: #152A59;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 24px;
+    border: none;
+    justify-content: center;
+}

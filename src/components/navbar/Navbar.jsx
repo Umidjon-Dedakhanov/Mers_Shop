@@ -10,7 +10,6 @@ import { Switch } from "./switch/Switch";
 import style from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { setAuthAC } from "../../redux/auth-reducer";
 
 export const Navbar = () => {
   const [scroll, setScroll] = useState();
@@ -64,7 +63,7 @@ export const Navbar = () => {
             <Switch />
           </li>
         </ul>
-        <img src={logo} alt="" className={style.logo} />
+        <NavLink to={'/'}><img src={logo} alt="" className={style.logo} /></NavLink>
       </div>
     </nav>
   );

@@ -26,8 +26,8 @@ export class Switch extends React.Component {
             onChange={this.handleChange}
             hidden
           />
-          <span className={checked ? "" : style.active}>PRIVATE</span>
-          <span className={checked ? style.active : ""}>PUBLIC</span>
+          <span className={checked ? "" : style.active}>Services</span>
+          <span className={checked ? style.active : ""}>Market</span>
         </label>
       </div>
     );
