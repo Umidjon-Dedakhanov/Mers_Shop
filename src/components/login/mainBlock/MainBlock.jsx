@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import style from "./MainBlock.module.css";
 import { Sign } from "./sign/Sign";
@@ -9,7 +9,7 @@ export const MainBlock = () => {
   return (
     <div className={style.body}>
       <div className={style.box}>
-        <Routes>
+        <Switch>
           <Route index element={<Sign />} />
           <Route
             path="/forgetPassword"
@@ -45,7 +45,7 @@ export const MainBlock = () => {
             }
           />
           <Route path="*" element={<Sign />} />
-        </Routes>
+        </Switch>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 
 // refresh token
@@ -11,14 +11,14 @@ const clientId =
   '707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com';
 
 function LoginWithGoogle() {
-  const navigate = useNavigate();
+  const history = useHistory();
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
     alert(
       `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
     );
 
-    navigate('/home')
+    history.push('/home')
 
     refreshTokenSetup(res);
   };

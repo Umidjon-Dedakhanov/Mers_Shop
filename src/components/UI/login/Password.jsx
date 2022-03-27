@@ -1,13 +1,13 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import style from './Password.module.css'
 
 export const Password = ({pathname, title, desc, btnText}) => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const onClick = () => {
-    navigate({pathname});
+    history.push({pathname});
   };
 
   return (

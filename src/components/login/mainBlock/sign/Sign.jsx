@@ -1,13 +1,13 @@
-import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { NavLink, Route, Switch, useHistory } from "react-router-dom";
 import { LoginHelpers } from "./../../../UI/login/LoginHelpers";
 
 import style from './Sign.module.css'
 
 function SignUpForm() {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const onClick = () => {
-    navigate("/home");
+    history.push("/home");
   };
   return (
     <div className={style.main}>
@@ -28,10 +28,10 @@ function SignUpForm() {
 }
 
 function SignInForm() {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const onClick = () => {
-    navigate("/home");
+    history.push("/home");
   };
   return (
     <div className={style.main}>
@@ -55,13 +55,13 @@ export function Sign() {
           <NavLink to={"/signUp"}>Sign Up</NavLink>
         </div>
       </div>
-      <Routes>
+      <Switch>
         <Route path="/signUp" element={<SignUpForm />} />
         <Route path="/signIn" element={<SignInForm />} />
         <Route index element={<SignInForm />} />
-      </Routes>
+      </Switch>
       <div className={style.helpers}>
-        <Routes>
+        <Switch>
           <Route path="/signUp" element={<LoginHelpers inUp="Up" />} />
           <Route
             path="/signIn"
@@ -71,7 +71,7 @@ export function Sign() {
             index
             element={<LoginHelpers inUp="In" display="none" />}
           />
-        </Routes>
+        </Switch>
       </div>
     </>
   );
