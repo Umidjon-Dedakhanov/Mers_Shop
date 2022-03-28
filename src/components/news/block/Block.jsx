@@ -14,7 +14,7 @@ export const Block = () => {
     <div className={style.body}>
         <div className={style.row}>
           <div style={{backgroundImage: `url(${jumbotronPost})`}} className={style.jumbotronPost}>
-            <Link to="blog" className={style.link}>
+            <Link to="/new/1" className={style.link}>
               <div className={style.jumbotronPostDesc}>
                   <h3>
                     <b>These were just promises, he needs to get the bill through congress. </b>

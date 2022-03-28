@@ -14,6 +14,7 @@ export const PopularProducts = ({color='#f8f8f8'}) => {
           desc={"Customized Front Carbon Brake Disc"}
           img={card1}
           price={"$122.56"}
+          path={'/product/1'}
         />
         <CardProduct
           desc={"Customized Front Carbon Brake Disc"}

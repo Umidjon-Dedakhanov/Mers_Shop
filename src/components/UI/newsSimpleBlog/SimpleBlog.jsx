@@ -18,12 +18,12 @@ export const SimpleBlogBlock = ({
     <div className={style.block}>
       <div className={style.parent}>
         <div className={style.imgParent}>
-          <NavLink to="blog" className={style.link}>
+          <NavLink to="/new/1" className={style.link}>
             <img src={img1} alt="Blog 1" />
           </NavLink>
         </div>
         <div>
-          <NavLink to="blog" className={style.link}>
+          <NavLink to="/new/1" className={style.link}>
             <h2 className={style.title}>
               <b>{title1}</b>
             </h2>
@@ -34,12 +34,12 @@ export const SimpleBlogBlock = ({
       </div>
       <div className={style.parent} style={{display: dN}}>
         <div className={style.imgParent}>
-          <NavLink to="blog" className={style.link}>
+          <NavLink to="/new/1" className={style.link}>
             <img src={img2} alt="Blog 1" />
           </NavLink>
         </div>
         <div>
-          <NavLink to="blog" className={style.link}>
+          <NavLink to="/new/1" className={style.link}>
             <h2 className={style.title}>
               <b>{title2}</b>
             </h2>

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 import korzina from "../assets/home/korzina.png";
 import favorite from "../assets/home/favorite.png";
@@ -62,9 +62,15 @@ export const MachineParts = ({
 
 // home/card
 
-export const CardProduct = ({ img, desc, price }) => {
+export const CardProduct = ({ img, desc, price, path='/product/1' }) => {
+  const history = useHistory();
+
+  const onClick = () =>{
+    history.push(path)
+  }
+
   return (
-    <div className={style.CardProduct}>
+    <div className={style.CardProduct} onClick={onClick}>
       <div className={style.btnGroup}>
         <NavLink to={"/"}>
           {" "}

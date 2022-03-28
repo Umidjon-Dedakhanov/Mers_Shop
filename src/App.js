@@ -14,9 +14,11 @@ import { EngineRepair } from "./components/engineRepair/EngineRepair";
 import { Products } from "./components/products/Products";
 import { Home } from "./components/home/Home";
 import { News } from "./components/news/News";
+import { Card } from "./components/news/card/Card";
 
 function App() {
   const { pathname } = useLocation();
+
   console.log(pathname);
   return (
     <div className="App">
@@ -26,13 +28,15 @@ function App() {
           <Navbar />
         </>
       )}
+      <Card />
       <Switch>
         <Route exact path="/" component={() => <Home />} />
         <Route path="/about" component={() => <About />} />
         <Route path="/engine" component={() => <EngineRepair />} />
         <Route path="/product" component={() => <Products />} />
         <Route path="/contact" component={() => <Contact />} />
-        <Route path="/new" component={() => <News />} />
+        
+        <Route exact path="/new" component={() => <News />} />
         <Route path="/karzinka" component={() => <Karzinka />} />
         <Route
           path="/karzinka/submission"
@@ -40,7 +44,7 @@ function App() {
         />
         <Route path="/karzinka/payment" component={() => <KarzinkaPayment />} />
         <Route path="/account/myaccount" component={() => <Account />} />
-        <Route path="*" component={() => <Login />} />
+        <Route path="/login" component={() => <Login />} />
       </Switch>
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
         <Footer />

@@ -7,7 +7,7 @@ function SignUpForm() {
   const history = useHistory();
 
   const onClick = () => {
-    history.push("/home");
+    history.push("/");
   };
   return (
     <div className={style.main}>
@@ -31,7 +31,7 @@ function SignInForm() {
   const history = useHistory();
 
   const onClick = () => {
-    history.push("/home");
+    history.push("/");
   };
   return (
     <div className={style.main}>
@@ -56,18 +56,18 @@ export function Sign() {
         </div>
       </div>
       <Switch>
-        <Route path="/signUp" element={<SignUpForm />} />
-        <Route path="/signIn" element={<SignInForm />} />
-        <Route index element={<SignInForm />} />
+        <Route path="/signUp" render={()=><SignUpForm />} />
+        <Route path="/signIn" render={()=><SignInForm />} />
+        <Route path={'/'} render={()=><SignInForm />} />
       </Switch>
       <div className={style.helpers}>
         <Switch>
-          <Route path="/signUp" element={<LoginHelpers inUp="Up" />} />
+          <Route path="/signUp" render={()=><LoginHelpers inUp="Up" />} />
           <Route
             path="/signIn"
-            element={<LoginHelpers inUp="In" display="none" />}
+            render={()=><LoginHelpers inUp="In" display="none" />}
           />
-          <Route index element={<LoginHelpers inUp="In" display="none" />} />
+          <Route path='*' render={()=><LoginHelpers inUp="In" display="none" />} />
         </Switch>
       </div>
     </>
