@@ -5,7 +5,8 @@ import classes from './FilterNavbar.module.css';
 const FilterNavbar = ({filterNavData}) => {
     const [selectedFilterId, setSelectedFilterId] = useState('');
     const [selectedFilterType, setSelectedFilterType] = useState('');
-    console.log(selectedFilterId, selectedFilterType)
+    /*@canbe used for API req */
+    // console.log(selectedFilterId, selectedFilterType)
     return (
         <div className={classes.filter__navbar}>
             {

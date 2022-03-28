@@ -15,7 +15,6 @@ import Account from "./routes/account/Account";
 
 function App() {
   const {pathname } = useLocation(); 
-  console.log(pathname)
   return (
     <div className="App">
       {!pathname.includes("/karzinka") && 
@@ -25,15 +24,15 @@ function App() {
         </>
       }
       <Switch>
-        <Route exact path="/" component={() => <Home />} />
-        <Route path="/about" component={() => <About />} />
-        <Route path="/engine" component={() => <EngineRepair />} />
-        <Route path="/contact" component={() => <Contact />} />
-        <Route path="/login" component={() => <Login />} />
-        <Route path="/karzinka" component={() => <Karzinka />} />
-        <Route path="/karzinka/submission" component={() => <KarzinkaSubmission />} />
-        <Route path="/karzinka/payment" component={() => <KarzinkaPayment />} />
-        <Route path="/account/myaccount" component={() => <Account />} />
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/engine" component={EngineRepair} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/login" component={Login} />
+        <Route exact path="/karzinka" component={Karzinka} />
+        <Route path="/karzinka/submission" component={KarzinkaSubmission} />
+        <Route path="/karzinka/payment" component={KarzinkaPayment} />
+        <Route path="/account" component={Account} />
       </Switch>
       {!pathname.includes("/karzinka") && 
         <Footer/>

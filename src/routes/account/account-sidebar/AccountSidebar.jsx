@@ -6,7 +6,7 @@ const AccountSidebar = () => {
     const { url } = useRouteMatch();
     return (
         <div className={classes.account__sidebar}>
-            <NavLink to={`${url}`} activeClassName={classes.sidebar__link} className={classes.sidebar__linkinactive}>
+            <NavLink to={`${url}/myaccount`} activeClassName={classes.sidebar__link} className={classes.sidebar__linkinactive}>
                 <p> Мой аккаунт</p>
                 <div className={classes.line}></div>
             </NavLink>
@@ -23,7 +23,7 @@ const AccountSidebar = () => {
                 <li><NavLink exact activeClassName={classes.active__sidebarlink} className={classes.link} to={`${url}/personalinfo`}>Личная информация </NavLink></li>
                 <li><NavLink exact activeClassName={classes.active__sidebarlink} className={classes.link} to={`${url}/address`}>Адресная книга</NavLink></li>
                 <li><NavLink exact activeClassName={classes.active__sidebarlink} className={classes.link} to={`${url}/favourites`}>Мое избранное </NavLink></li>
-                <li><NavLink exact activeClassName={classes.active__sidebarlink} className={classes.link} to={`${url}/editpassword`}>Изменить пароль </NavLink></li>
+                <li><NavLink exact activeClassName={classes.active__sidebarlink} className={classes.link} to={`${url}/resetpassword`}>Изменить пароль </NavLink></li>
             </ul>
         </div>
     )
