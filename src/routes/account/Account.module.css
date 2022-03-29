@@ -2,13 +2,12 @@
     margin-top: 96px;
     width: 100%;
     height: auto;
-    background-color: green;
 }
 
 .account__container{
     width: 94%;
     height: 1218px;
-    background-color: #f4f4f4;
+    background-color: #fff;
     margin: 40px auto 75px auto;
     display: flex;
 }

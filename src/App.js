@@ -16,8 +16,7 @@ import { Home } from "./components/home/Home";
 import { News } from "./components/news/News";
 
 function App() {
-  const { pathname } = useLocation();
-  console.log(pathname);
+  const {pathname } = useLocation(); 
   return (
     <div className="App">
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
@@ -27,20 +26,17 @@ function App() {
         </>
       )}
       <Switch>
-        <Route exact path="/" component={() => <Home />} />
-        <Route path="/about" component={() => <About />} />
-        <Route path="/engine" component={() => <EngineRepair />} />
-        <Route path="/product" component={() => <Products />} />
-        <Route path="/contact" component={() => <Contact />} />
-        <Route path="/new" component={() => <News />} />
-        <Route path="/karzinka" component={() => <Karzinka />} />
-        <Route
-          path="/karzinka/submission"
-          component={() => <KarzinkaSubmission />}
-        />
-        <Route path="/karzinka/payment" component={() => <KarzinkaPayment />} />
-        <Route path="/account/myaccount" component={() => <Account />} />
-        <Route path="*" component={() => <Login />} />
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/engine" component={EngineRepair} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/news" component={News} />
+        <Route path="/products" component={Products} />
+        <Route path="/login" component={Login} />
+        <Route exact path="/karzinka" component={Karzinka} />
+        <Route path="/karzinka/submission" component={KarzinkaSubmission} />
+        <Route path="/karzinka/payment" component={KarzinkaPayment} />
+        <Route path="/account" component={Account} />
       </Switch>
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
         <Footer />
