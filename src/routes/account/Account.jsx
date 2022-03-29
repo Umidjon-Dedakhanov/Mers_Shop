@@ -14,6 +14,7 @@ import AccountPersonal from './account-personal/AccountPersonal';
 import AccountBook from './account-book/AccountBook';
 import AccountFavourites from './account-favourites/AccountFavourites';
 import AccountResetPwd from './account-resetpwd/AccountResetPwd';
+import ProductDetails from './product-details/ProductDetails';
 
 const Account = () => { 
     const filter_items = [
@@ -24,6 +25,7 @@ const Account = () => {
     ]
 
     const { path } = useRouteMatch();
+    console.log(path)
     return (
         <div>
             <div className={classes.account__main}>
@@ -34,7 +36,7 @@ const Account = () => {
                         <Route path={`${path}/sending`}>
                             <AccountSending/>    
                         </Route> 
-                        <Route path={`${path}/myaccount`}>
+                        <Route exact path={`${path}/myaccount`}>
                             <AccountMyaccount/>    
                         </Route> 
                         <Route path={`${path}/all`}>
@@ -60,6 +62,9 @@ const Account = () => {
                         </Route> 
                         <Route path={`${path}/resetpassword`}>
                             <AccountResetPwd/>  
+                        </Route> 
+                        <Route path={`${path}/myaccount/details/:productId`}>
+                            <ProductDetails/>  
                         </Route> 
                     </Switch>
                 </div>

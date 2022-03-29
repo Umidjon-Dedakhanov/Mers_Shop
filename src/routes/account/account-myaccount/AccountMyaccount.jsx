@@ -35,16 +35,16 @@ const AccountMyaccount = () => {
       </div>
       <ul className={classes.myaccount__options}>
         <li className={classes.option__item}>
-          <Link> <Bag/> <p>Корзина</p> </Link>
+          <Link to="/"> <Bag/> <p>Корзина</p> </Link>
         </li>
         <li className={classes.option__item}>
-            <Link> <File/> <p>Разместить заказ</p> </Link>
+            <Link to="/"> <File/> <p>Разместить заказ</p> </Link>
         </li>
         <li className={classes.option__item}>
-            <Link> <Card/> <p>Платить</p> </Link>
+            <Link to="/"> <Card/> <p>Платить</p> </Link>
         </li>
         <li className={classes.option__item}>
-            <Link> <Box/> <p>Заказ выполнен</p> </Link>
+            <Link to="/"> <Box/> <p>Заказ выполнен</p> </Link>
         </li>
       </ul>
       <div className={classes.myaccount__header}>
@@ -52,7 +52,7 @@ const AccountMyaccount = () => {
       </div>
       {/*@tableHeaders => requires array for th if no tableHeaders only delete and basket appear  */}
       {/*@AccountProduct fully reusable */}
-      <AccountProduct data={data} tableHeaders={["Продукты", "Количество", "Статус заказа", "Опции"]}/>
+      <AccountProduct data={data}/>
     </div>
   );
 };

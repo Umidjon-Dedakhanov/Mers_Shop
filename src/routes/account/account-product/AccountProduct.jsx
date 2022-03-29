@@ -2,10 +2,12 @@ import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { FiTrash2, FiShoppingBag } from 'react-icons/fi';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import classes from './AccountProduct.module.css';
 
-const AccountProduct = ({data, tableHeaders}) => {
+const AccountProduct = ({data, tableHeaders, details}) => {
+    const { url } = useRouteMatch();
+    console.log(url)
     return (
         <div className={classes.account__product}>
             <table className={classes.account__table}>
@@ -21,7 +23,7 @@ const AccountProduct = ({data, tableHeaders}) => {
                 <tbody>
                     {
                         data?.map(table__item => 
-                            <tr className={classes.product__item}>
+                            <tr key={table__item.id} className={classes.product__item}>
                                 <td className={classes.product__datacell}>
                                     <div className={classes.product__wrapper}>
                                         <img src={table__item.productImage}  alt="" />
@@ -35,24 +37,24 @@ const AccountProduct = ({data, tableHeaders}) => {
                                                     ) : <></>
                                                 }
                                             </div>
-                                            <p className={classes.product__cost}>${table__item.productCost}  {tableHeaders ? <p style={{paddingLeft: "20px", fontWeight: "300"}}>x{table__item.productCount}</p> : <></>}</p> 
+                                            <p className={classes.product__cost}>${table__item.productCost}  {tableHeaders && !details ? <p style={{paddingLeft: "20px", fontWeight: "300"}}>x{table__item.productCount}</p> : <></>}</p> 
                                         </div>
                                     </div>
                                 </td>
                                 {tableHeaders ? <td className={classes.product__datacell}>
                                         <div className={classes.product__option}>
-                                            <p className={classes.product__count}> $ {table__item.productCount * table__item.productCost}</p>
+                                           {!details ? <p className={classes.product__count}> $ {table__item.productCount * table__item.productCost}</p> : <p>{table__item.id}</p>}
                                         </div>
                                     </td> : <></>
                                 }
                                 <td className={classes.product__datacell}>
                                     <div className={classes.product__option}>
-                                        {!tableHeaders ?  <><FiTrash2/> <p> Удалить</p></>  : <div className={classes.product__details}> <p>ожидается платеж</p>  <Link>Деталь заказа</Link> </div>}
+                                        {!tableHeaders ?  <><FiTrash2/> <p> Удалить</p></>  :(!details ? <div className={classes.product__details}> <p>ожидается платеж</p>  <Link to={`${url}/details/${table__item.id}`}>Деталь заказа</Link> </div> : <p>x{table__item.productCount}</p>)}
                                     </div>
                                 </td>
                                 <td className={classes.product__datacell}>
                                     <div className={classes.product__option}>
-                                        {!tableHeaders ? <><FiShoppingBag/> <p> Добавить в корзину</p></> : <> <FiTrash2/> <p> Удалить</p></>}
+                                        {!tableHeaders ? <><FiShoppingBag/> <p> Добавить в корзину</p></> : (!details ? <> <FiTrash2/> <p> Удалить</p></> : <p>${table__item.productCost}</p>)}
                                     </div>
                                 </td>
                             </tr>    
@@ -66,7 +68,8 @@ const AccountProduct = ({data, tableHeaders}) => {
 
 AccountProduct.propTypes = {
     data: PropTypes.array,
-    tableHeaders: PropTypes.array
+    tableHeaders: PropTypes.array,
+    details: PropTypes.bool
 }
 
 export default AccountProduct
