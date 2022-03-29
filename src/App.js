@@ -14,6 +14,7 @@ import { EngineRepair } from "./components/engineRepair/EngineRepair";
 import { Products } from "./components/products/Products";
 import { Home } from "./components/home/Home";
 import { News } from "./components/news/News";
+import { Card } from "./components/news/card/Card";
 
 function App() {
   const {pathname } = useLocation(); 
@@ -25,18 +26,23 @@ function App() {
           <Navbar />
         </>
       )}
+      <Card />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/engine" component={EngineRepair} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/news" component={News} />
-        <Route path="/products" component={Products} />
-        <Route path="/login" component={Login} />
-        <Route exact path="/karzinka" component={Karzinka} />
-        <Route path="/karzinka/submission" component={KarzinkaSubmission} />
-        <Route path="/karzinka/payment" component={KarzinkaPayment} />
-        <Route path="/account" component={Account} />
+        <Route exact path="/" component={() => <Home />} />
+        <Route path="/about" component={() => <About />} />
+        <Route path="/engine" component={() => <EngineRepair />} />
+        <Route path="/product" component={() => <Products />} />
+        <Route path="/contact" component={() => <Contact />} />
+        
+        <Route exact path="/new" component={() => <News />} />
+        <Route path="/karzinka" component={() => <Karzinka />} />
+        <Route
+          path="/karzinka/submission"
+          component={() => <KarzinkaSubmission />}
+        />
+        <Route path="/karzinka/payment" component={() => <KarzinkaPayment />} />
+        <Route path="/account/myaccount" component={() => <Account />} />
+        <Route path="/login" component={() => <Login />} />
       </Switch>
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
         <Footer />

@@ -8,7 +8,7 @@ import style from "./NewsBlock.module.css";
 export const NewsBlock = ({img, title, date}) => {
   return (
     <div className={style.parent}>
-      <NavLink className={style.link} to={"/news"}>
+      <NavLink className={style.link} to={"/new/1"}>
         <div className={style.img}>
           <img src={img} alt="Slide" />
         </div>
@@ -31,12 +31,12 @@ export function JumbotronPosts({ title, img, date, desc }) {
   return (
     <>
       <div className={style.jumbotronPostsImage}>
-        <NavLink to="blog" className={style.link}>
+        <NavLink to="/new/1" className={style.link}>
           <img src={img} alt="Jumbotron post 1" />
         </NavLink>
       </div>
       <div className={style.jumbotronPostsAbout}>
-        <Link to="blog" className={style.link}>
+        <Link to="/new/1" className={style.link}>
           <p>
             <b>
               {title}

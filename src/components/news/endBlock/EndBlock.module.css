@@ -1,5 +1,6 @@
 .mainBody {
   display: flex;
+  margin-bottom: 2rem
 }
 
 .subscribeBackground {
