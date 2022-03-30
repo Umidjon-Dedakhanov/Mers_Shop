@@ -23,7 +23,7 @@ export const Navbar = () => {
     }
   });
 
-  const { isAuth } = useSelector((state) => state.auth);
+  const { isAuthenticated } = useSelector(state => state.authReducer);
   return (
     <nav className={style.navbar + " " + scroll} style={pathname.includes("account") ? {background: "#333"} : null}>
       <div className={style.navbar_container + " " + style.container}>
@@ -55,7 +55,7 @@ export const Navbar = () => {
           </li>
           <li>
             <Select />
-            {isAuth
+            {isAuthenticated
               ?<img src={person} alt="" />
               : <NavLink exact to={'/login'}>Login</NavLink>
             } 

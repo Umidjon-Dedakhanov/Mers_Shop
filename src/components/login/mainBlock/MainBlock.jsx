@@ -12,7 +12,7 @@ export const MainBlock = () => {
         <Switch>
           <Route path={'/'} render={()=><Sign />} />
           <Route
-            path="/forgetPassword"
+            path="/login/forgetPassword"
             render={() => {
               <Password
                 pathname={"/enterCode"}
@@ -25,7 +25,7 @@ export const MainBlock = () => {
             }}
           />
           <Route
-            path="/enterCode"
+            path="/login/enterCode"
             render={() => {
               <Password
                 pathname={"/save"}
@@ -35,7 +35,7 @@ export const MainBlock = () => {
             }}
           />
           <Route
-            path="/save"
+            path="/login/save"
             render={() => {
               <Password
                 pathname={"/enterCode"}
