@@ -39,7 +39,7 @@ function SignInForm() {
       <input autoFocus type="email" />
       <label htmlFor="">Password</label>
       <input type="password" />
-      <NavLink to={"/forgetPassword"}>Forget password?</NavLink>
+      <NavLink to={"/login/forgetPassword"}>Forget password?</NavLink>
       <button onClick={onClick}>Sign In</button>
       <hr />
     </div>
@@ -51,20 +51,20 @@ export function Sign() {
     <>
       <div className={style.title}>
         <div className={style.title2}>
-          <NavLink to={"/" || "/signIn"}>Sign In</NavLink>
-          <NavLink to={"/signUp"}>Sign Up</NavLink>
+          <NavLink to={"login/" || "/login/signIn"}>Sign In</NavLink>
+          <NavLink to={"/login/signUp"}>Sign Up</NavLink>
         </div>
       </div>
       <Switch>
-        <Route path="/signUp" render={()=><SignUpForm />} />
-        <Route path="/signIn" render={()=><SignInForm />} />
+        <Route path="/login/signUp" render={()=><SignUpForm />} />
+        <Route path="/login/signIn" render={()=><SignInForm />} />
         <Route path={'/'} render={()=><SignInForm />} />
       </Switch>
       <div className={style.helpers}>
         <Switch>
-          <Route path="/signUp" render={()=><LoginHelpers inUp="Up" />} />
+          <Route path="/login/signUp" render={()=><LoginHelpers inUp="Up" />} />
           <Route
-            path="/signIn"
+            path="/login/signIn"
             render={()=><LoginHelpers inUp="In" display="none" />}
           />
           <Route path='*' render={()=><LoginHelpers inUp="In" display="none" />} />
