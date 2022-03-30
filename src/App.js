@@ -33,6 +33,7 @@ function App() {
         <Route path="/engine" component={() => <EngineRepair />} />
         <Route path="/product" component={() => <Products />} />
         <Route path="/contact" component={() => <Contact />} />
+        
         <Route exact path="/new" component={() => <News />} />
         <Route path="/karzinka" component={() => <Karzinka />} />
         <Route
