@@ -1,14 +1,9 @@
-import { NavLink, Route, Switch, useHistory } from "react-router-dom";
+import { NavLink, Switch, Route, useHistory } from "react-router-dom";
 import { LoginHelpers } from "./../../../UI/login/LoginHelpers";
 
 import style from "./Sign.module.css";
 
 function SignUpForm() {
-  const history = useHistory();
-
-  const onClick = () => {
-    history.push("/");
-  };
   return (
     <div className={style.main}>
       <label htmlFor="">First name *</label>
@@ -21,7 +16,7 @@ function SignUpForm() {
       <input type="email" />
       <label htmlFor="">Create password *</label>
       <input type="password" />
-      <button onClick={onClick}>Sign Up</button>
+      <button >Sign Up</button>
       <hr />
     </div>
   );
