@@ -32,18 +32,24 @@ export function Sign() {
         </div>
       </div>
       <Switch>
-        <Route path="/login/signUp" render={()=><SignUpForm />} />
-        <Route path="/login/signIn" render={()=><SignInForm />} />
-        <Route path={'/'} render={()=><SignInForm />} />
+        <Route path="/login/signUp" render={() => <SignUpForm />} />
+        <Route path="/login/signIn" render={() => <SignInForm />} />
+        <Route path={"/"} render={() => <SignInForm />} />
       </Switch>
       <div className={style.helpers}>
         <Switch>
-          <Route path="/login/signUp" render={()=><LoginHelpers inUp="Up" />} />
+          <Route
+            path="/login/signUp"
+            render={() => <LoginHelpers inUp="Up" />}
+          />
           <Route
             path="/login/signIn"
-            render={()=><LoginHelpers inUp="In" display="none" />}
+            render={() => <LoginHelpers inUp="In" display="none" />}
           />
-          <Route path='*' render={()=><LoginHelpers inUp="In" display="none" />} />
+          <Route
+            path="*"
+            render={() => <LoginHelpers inUp="In" display="none" />}
+          />
         </Switch>
       </div>
     </>
