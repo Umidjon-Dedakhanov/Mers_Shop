@@ -133,3 +133,17 @@
 .end .networkLink{
     width: 46%;
 }
+
+@media (min-width:0) and (max-width:769.9px) {
+  .headerBLock {
+    flex-direction: column;
+  }
+  
+  .headerText h1 {
+    font-size: 30px;
+    line-height: 40px;
+    margin-top: 2rem;
+    width: 70%;
+  }
+  
+}

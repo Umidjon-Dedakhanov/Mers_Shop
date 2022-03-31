@@ -83,6 +83,13 @@
   color: #c0c0c0;
 }
 
+@media (min-width: 0) and (max-width: 769.9px) {
+  .search_block {
+    margin: 0 0 3rem 0;
+  }
+  
+}
+
 @media (min-width: 760px) and (max-width: 980.9px) {
   .search_block {
     width: 100px;

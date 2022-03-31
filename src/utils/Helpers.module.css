@@ -503,6 +503,7 @@
   /* SystemSmallBox */
   .SystemSmallBox {
     width: 45%;
+    margin: 10px 0;
   }
 
   .SystemBigBox h1 {

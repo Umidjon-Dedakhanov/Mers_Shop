@@ -1,13 +1,94 @@
 import React from "react";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 import style from "./Popular.module.css";
-import 'swiper/css'
-
+import "swiper/css";
 
 export const Popular = () => {
+  const data = [
+    {
+      id: 1,
+      link: "toLink",
+      redTxt: "Featured",
+      title: "The mystery of the home where the Queen was born",
+      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
+    },
+    {
+      id: 2,
+      link: "toLink",
+      redTxt: "Featured",
+      title: "The mystery of the home where the Queen was born",
+      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
+    },
+    {
+      id: 3,
+      link: "toLink",
+      redTxt: "Featured",
+      title: "The mystery of the home where the Queen was born",
+      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
+    },
+    {
+      id: 4,
+      link: "toLink",
+      redTxt: "Featured",
+      title: "The mystery of the home where the Queen was born",
+      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
+    },
+    {
+      id: 5,
+      link: "toLink",
+      redTxt: "Featured",
+      title: "The mystery of the home where the Queen was born",
+      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
+    },
+    {
+      id: 6,
+      link: "toLink",
+      redTxt: "Featured",
+      title: "The mystery of the home where the Queen was born",
+      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
+    },
+    {
+      id: 7,
+      link: "toLink",
+      redTxt: "Featured",
+      title: "The mystery of the home where the Queen was born",
+      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
+    },
+    {
+      id: 8,
+      link: "toLink",
+      redTxt: "Featured",
+      title: "The mystery of the home where the Queen was born",
+      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
+    },
+    {
+      id: 9,
+      link: "toLink",
+      redTxt: "Featured",
+      title: "The mystery of the home where the Queen was born",
+      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
+    },
+  ];
+
+  const dataMap = data.map((d) => (
+    <SwiperSlide key={d.id}>
+      <div className={style.featured}>
+        <NavLink to={d.link} className={style.link}>
+          <p className={style.featuredRed}>
+            <b>{d.redTxt}</b>
+          </p>
+          <p className={style.featuredTitle}>
+            <b>{d.title}</b>
+          </p>
+          <p className={style.featuredText}>{d.txt}</p>
+        </NavLink>
+      </div>
+    </SwiperSlide>
+  ));
+
   return (
     <>
       <div className={style.container}>
@@ -67,331 +148,34 @@ export const Popular = () => {
           </div>
         </div>
       </div>
-      <div
-        className={style.featuredParent}
-      >
-            <Swiper
-              slidesPerView={6}
-              modules={[Navigation]}
-              navigation={{
-                prevEl: ".swiperprev",
-                nextEl: ".swipernext",
-              }}
-              breakpoints={{
-                423: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                700: {
-                  slidesPerView: 4,
-                  spaceBetween: 20,
-                },
-                1245: {
-                  slidesPerView: 6,
-                  spaceBetween: 20,
-                },
-              }}
-            >
-              <SwiperSlide>
-                <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-              <div className={style.featured}>
-                  <NavLink to={'toLink'} className={style.link}>
-                    <p className={style.featuredRed}>
-                      <b>Featured</b>
-                    </p>
-                    <p className={style.featuredTitle}>
-                      <b>The mystery of the home where the Queen was born</b>
-                    </p>
-                    <p className={style.featuredText}>Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.</p>
-                  </NavLink>
-                </div>
-              </SwiperSlide>
-            </Swiper>
+      <div className={style.featuredParent}>
+        <Swiper
+          slidesPerView={window.innerWidth <= 769 ?2 : 6}
+          modules={[Navigation]}
+          navigation={{
+            prevEl: ".swiperprev",
+            nextEl: ".swipernext",
+          }}
+          breakpoints={{
+            423: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            700: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+            1245: {
+              slidesPerView: 6,
+              spaceBetween: 20,
+            },
+          }}
+        >
+          {/*      {window.innerWidth <= 769 ? null : <Search />} */}
+         {dataMap}
+         {dataMap}
+         {dataMap}
+        </Swiper>
       </div>
     </>
   );

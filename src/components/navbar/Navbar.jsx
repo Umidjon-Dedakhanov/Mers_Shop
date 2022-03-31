@@ -51,7 +51,8 @@ export const Navbar = () => {
             <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/contact">Contact Us</NavLink>
           </li>
           <li className={style.forSearch}>
-            <Search />
+          {window.innerWidth <= 769 ? null : <Search />}
+
           </li>
           <li>
             <Select />

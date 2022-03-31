@@ -101,13 +101,48 @@ svg.bi.bi-bookmark {
   width: 41.66666667%;
 }
 
-.jumbotronPostsAbout{
-    padding-right: 1rem!important;
-    padding-left: 1rem!important;
-    justify-content: center!important;
-    flex-direction: column!important;
+.jumbotronPostsAbout {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  justify-content: center !important;
+  flex-direction: column !important;
 
-    display: flex!important;
-    flex: 0 0 auto;
-    width: 58.33333333%;
+  display: flex !important;
+  flex: 0 0 auto;
+  width: 58.33333333%;
+}
+
+@media (min-width: 0) and (max-width: 769.9px) {
+  .title {
+    font-size: 8px;
+    line-height: 10px;
+  }
+
+  .date {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  .jumbotronPostsImage {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .jumbotronPostsAbout {
+    width: 80%;
+    margin: 1rem 0;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 1111.9px) {
+  .title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .date {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 0px;
+  }
 }

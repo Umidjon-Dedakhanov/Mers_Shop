@@ -16,8 +16,17 @@
   color: #000000;
 }
 
-@media (min-width: 0) {
+@media (min-width: 0) and (max-width: 769.9px) {
   .body {
+    background: transparent;
     overflow: auto;
+    height: 140px;
+    justify-content: inherit;
+  }
+
+  .body a {
+    font-size: 10px;
+    margin: 0 17.5px;
+    text-align: center;
   }
 }

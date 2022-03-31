@@ -19,62 +19,63 @@ export const AllProducts = () => {
   return (
     <div className={style.body}>
       <h1 className={style.title}> All Products</h1>
-      <div className={style.card_group}>
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
-      </div>
+      <div>
+        <div className={style.card_group}>
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+        </div>
 
-      <div className={style.card_group}>
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
-        <CardProduct
-          desc={"Customized Front Carbon Brake Disc"}
-          img={picture1}
-          price={"$122.56"}
-        />
+        <div className={style.card_group}>
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+          <CardProduct
+            desc={"Customized Front Carbon Brake Disc"}
+            img={picture1}
+            price={"$122.56"}
+          />
+        </div>
       </div>
-
       {!show ? (
         <button className={style.seeMore} onClick={showClick}>
           Load more

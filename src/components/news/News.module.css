@@ -19,8 +19,8 @@
 .textBlock .main {
   width: 67%;
   position: absolute;
-  height: 250px;
-  padding: 43px 70px 0;
+  height: auto;
+  padding: 43px 70px 2rem;
   background-color: #fff;
 }
 
@@ -58,4 +58,32 @@
   font-size: 16px;
   line-height: 20px;
   color: #6a7d8e;
+}
+
+@media (min-width: 0) and (max-width: 769.9px) {
+  .body {
+    height: 50vh;
+  }
+
+  .textBlock .main {
+    width: 95%;
+    padding: 20px 40px 2rem;
+    height: auto;
+  }
+
+  .textBlock {
+    font-size: 14px;
+    line-height: 38px;
+  }
+
+  .infoMain {
+    width: 76%;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 1111.9px) {
+  .textBlock {
+    font-size: 18px;
+    line-height: 45px;
+  }
 }

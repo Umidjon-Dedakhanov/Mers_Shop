@@ -8,6 +8,7 @@ import main2 from "../../../assets/home/main2.png";
 import main3 from "../../../assets/home/main3.png";
 
 import "./Carousel.css";
+import { Search } from "./../../navbar/search/Search";
 
 export const MyCarousel = () => {
   return (
@@ -17,6 +18,8 @@ export const MyCarousel = () => {
           style={{ backgroundImage: `url(${main})` }}
           className="carousel_block"
         >
+          {window.innerWidth <= 769 ? <Search /> : null}
+
           <h1>All existing and newly added spare parts can be found</h1>
           <p>
             The automotive industry is strong, and drivers will always need a
