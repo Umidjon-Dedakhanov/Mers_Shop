@@ -17,9 +17,7 @@ import { News } from "./components/news/News";
 import { Card } from "./components/news/card/Card";
 
 function App() {
-  const { pathname } = useLocation();
-
-  console.log(pathname);
+  const {pathname } = useLocation(); 
   return (
     <div className="App">
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (

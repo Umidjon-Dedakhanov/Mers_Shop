@@ -2,9 +2,9 @@ import React from 'react';
 import classes from './KarzinkaProcess.module.css';
 import { FiShoppingBag, FiFileText, FiCreditCard, FiArchive } from 'react-icons/fi';
 
-const KarzinkaProcess = ({activeColor, lineColor}) => {
+const KarzinkaProcess = ({procCss, activeColor, lineColor}) => {
     return (
-        <div className={classes.karzinka__process}>
+        <div className={classes.karzinka__process} style={procCss}>
             <ul className={classes.karzinka__collection}>
                 <li style={{color: activeColor}} className={classes.collection__item}>
                     <FiShoppingBag/>
