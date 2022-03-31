@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import FacebookLogin from "react-facebook-login";
-import { setAuthAC } from "../../redux/auth-reducer";
 
 import style from './LoginWith.module.css'
 
@@ -29,7 +28,6 @@ export default class LoginWithFacebook extends Component {
 
   componentClicked = () => {
     console.log("clicked");
-    setAuthAC(true)
   };
 
   render() {
