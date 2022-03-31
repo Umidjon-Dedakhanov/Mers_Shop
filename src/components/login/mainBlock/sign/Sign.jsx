@@ -51,7 +51,7 @@ export function Sign() {
     <>
       <div className={style.title}>
         <div className={style.title2}>
-          <NavLink to={"login/" || "/login/signIn"}>Sign In</NavLink>
+          <NavLink to={"/login/" || "/login/signIn"}>Sign In</NavLink>
           <NavLink to={"/login/signUp"}>Sign Up</NavLink>
         </div>
       </div>
