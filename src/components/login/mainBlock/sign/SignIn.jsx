@@ -1,0 +1,94 @@
+import { useState, useEffect } from "react";
+import { NavLink, useHistory } from "react-router-dom";
+import style from "./Sign.module.css";
+import authApiInstance from '../../../../api/authApi';
+import { useDispatch } from "react-redux";
+import { authUser } from '../../../../redux/actions/index';
+const LOGIN_ENDPOINT = "LoginAPI";
+const TEST_EMAIL_REGX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+const TEST_PASSWORD_REGX = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])([a-zA-Z0-9@$!%*?&]{8,})$/;
+
+function SignInForm() {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('')
+    const [isValidEmail, setIsValidEmail] = useState(false);
+    const [isValidPassword, setIsValidPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const emailRGXTest = TEST_EMAIL_REGX.test(email);
+        setIsValidEmail(emailRGXTest);
+    }, [email])
+
+    useEffect(() => {
+        const passwordRGXTest = TEST_PASSWORD_REGX.test(password);
+        setIsValidPassword(passwordRGXTest)
+    }, [password])
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+         // Check if XSS occures ( ? Button enabled)
+         const dbCheckEmail = TEST_EMAIL_REGX.test(email);
+         const dbCheckPassword = TEST_PASSWORD_REGX.test(password);
+
+        if(dbCheckEmail && dbCheckPassword){
+            setLoading(true);
+            try{
+                const response = await authApiInstance.post(LOGIN_ENDPOINT, null, {
+                    params: {
+                        email,
+                        password
+                    }
+                })
+                setLoading(false);
+                dispatch(authUser(response.data));
+                history.push("/account/myaccount");
+            }
+            catch(err){
+                if (!err?.response) {
+                    setError('No Server Response');
+                } 
+                else if (err.response?.status === 404) {
+                    setError('Username not found');
+                } 
+                else {
+                    setError('Registration Failed')
+                }
+                setLoading(false);
+            }
+        }
+        else{
+            setError("Invalid data!");
+            return;
+        }
+    }
+
+    console.log(loading);
+
+    return (
+      <div className={style.main}>
+        <form onSubmit={handleLogin}>
+            {
+                error && <p>{error}</p>
+            }
+            <label htmlFor="email">Email*</label>
+            <input autoFocus id="email" type="email" value={email} onChange={e => setEmail(e.target.value)}/>
+            {
+                !isValidEmail && email.length > 0 ? <p className={style.instructor}>Email is invalid</p> : <></>
+            }
+            <label htmlFor="password">Password*</label>
+            <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)}/>
+            {
+                !isValidPassword && password.length > 0 ? <p className={style.instructor}>Password is invalid!</p> : <></>
+            }
+            <NavLink to={"/login/forgetPassword"}>Forgot password?</NavLink>
+            <button>Sign In</button>
+        </form>
+      </div>
+    );
+}
+
+export default SignInForm;

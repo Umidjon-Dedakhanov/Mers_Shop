@@ -5,8 +5,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 
 
 const persistConfig = {
-    key: 'root',
-    blacklist: ["authReducer"],
+    key: 'user',
     storage,
 }
   
