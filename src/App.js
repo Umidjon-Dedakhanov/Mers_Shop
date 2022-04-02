@@ -18,7 +18,7 @@ import { Card } from "./components/news/card/Card";
 import Private from "./routes/private/PrivateRoute";
 
 function App() {
-  const {pathname } = useLocation(); 
+  const { pathname } = useLocation();
   return (
     <div className="App">
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
@@ -33,12 +33,12 @@ function App() {
         <Route path="/about" component={() => <About />} />
         <Route path="/engine" component={() => <EngineRepair />} />
         <Route path="/product" component={() => <Products />} />
-        <Route path="/contact" component={() => <Contact />} /> 
+        <Route path="/contact" component={() => <Contact />} />
         <Route exact path="/new" component={() => <News />} />
-        <Private path="/account" component={Account}/>
-        <Private path="/karzinka/payment" component={KarzinkaPayment}/>
-        <Private path="/karzinka" component={Karzinka}/>
-        <Private path="/karzinka/submission" component={KarzinkaSubmission}/>
+        <Private path="/account" component={Account} />
+        <Private path="/karzinka/payment" component={KarzinkaPayment} />
+        <Private path="/karzinka" component={Karzinka} />
+        <Private path="/karzinka/submission" component={KarzinkaSubmission} />
         <Route path="/login" component={() => <Login />} />
       </Switch>
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (

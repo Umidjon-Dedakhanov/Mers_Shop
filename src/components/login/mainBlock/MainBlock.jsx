@@ -11,10 +11,10 @@ export const MainBlock = () => {
       <div className={style.box}>
         <Switch>
           <Route
-            path="/login/forgetPassword"
+            path="/forget-password"
             render={() => {
               <Password
-                pathname={"/login/enterCode"}
+                pathname={"/login/enter-code"}
                 title={"Account Setting"}
                 desc={
                   "Forget your password? Please enter your phone number or email address. You will resive a link to create a new password via email"
@@ -24,7 +24,7 @@ export const MainBlock = () => {
             }}
           />
           <Route
-            path="/login/enterCode"
+            path="/login/enter-code"
             render={() => {
               <Password
                 pathname={"/login/save"}
@@ -37,14 +37,13 @@ export const MainBlock = () => {
             path="/login/save"
             render={() => {
               <Password
-                pathname={"/login/enterCode"}
+                pathname={"/login/enter-code"}
                 title={"You changed the password"}
                 btnText={"Go previous page"}
               />;
             }}
           />
-          <Route path={'*'} render={()=><Sign />} />
-
+          <Route path={"*"} render={() => <Sign />} />
         </Switch>
       </div>
     </div>

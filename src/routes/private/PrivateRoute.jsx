@@ -3,15 +3,15 @@ import { useSelector } from "react-redux";
 import { Route, Redirect, useLocation } from "react-router-dom";
 
 const Private = (props) => {
-    const user = useSelector(state => state.authReducer);
+  const user = useSelector((state) => state.authReducer);
+  const location = useLocation();
 
-    const location = useLocation();
-  return user.isAuthenticated && user  ? (
+  return user.isAuthenticated && user ? (
     <Route {...props} />
   ) : (
     <Redirect
       to={{
-        pathname: "/login/forgetPassword",
+        pathname: "/forgetPassword",
         state: {
           from: location.pathname,
         },

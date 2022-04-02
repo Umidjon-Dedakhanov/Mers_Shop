@@ -30,20 +30,23 @@ export function Sign() {
     <>
       <div className={style.title}>
         <div className={style.title2}>
-          <NavLink to={"/sign-in"}>Sign In</NavLink>
-          <NavLink to={"/sign-up"}>Sign Up</NavLink>
+          <NavLink to={"/login/sign-in"}>Sign In</NavLink>
+          <NavLink to={"/login/sign-up"}>Sign Up</NavLink>
         </div>
       </div>
       <Switch>
-        <Route path="/sign-up" render={() => <SignUpForm />} />
-        <Route path="/sign-in" render={() => <SignInForm />} />
+        <Route path="/login/sign-up" render={() => <SignUpForm />} />
+        <Route path="/login/sign-in" render={() => <SignInForm />} />
         <Route path={"/"} render={() => <SignInForm />} />
       </Switch>
       <div className={style.helpers}>
         <Switch>
-          <Route path="/sign-up" render={() => <LoginHelpers inUp="Up" />} />
           <Route
-            path="/sign-in"
+            path="/login/sign-up"
+            render={() => <LoginHelpers inUp="Up" />}
+          />
+          <Route
+            path="/login/sign-in"
             render={() => <LoginHelpers inUp="In" display="none" />}
           />
           <Route
