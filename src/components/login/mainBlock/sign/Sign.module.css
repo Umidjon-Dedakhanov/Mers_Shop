@@ -27,6 +27,12 @@
   align-content: flex-start;
 }
 
+.main > form{
+  width: 100%;
+  display: grid;
+  align-content: flex-start;
+}
+
 .main a {
   text-decoration: none;
   font-style: normal;
@@ -58,6 +64,10 @@
   height: 35px;
   outline: none;
   padding: 0 0.5rem;
+}
+
+.main input::-webkit-inner-spin-button{
+  display: none;
 }
 
 .main button {
@@ -95,6 +105,10 @@
 
 .helpers {
   width: 40%;
+}
+
+.instructor{
+  padding-top: 10px;
 }
 
 @media (min-width: 0) and (max-width: 500.9px) {
