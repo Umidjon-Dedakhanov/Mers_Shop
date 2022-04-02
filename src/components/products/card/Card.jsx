@@ -1,7 +1,7 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
 import style from './Card.module.css'
-import { NavLink } from 'react-router-dom';
 
 export const Card = ({ img, sortBy, title, txt, one, two, three, four }) => {
   return (

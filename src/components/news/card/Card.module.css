@@ -117,33 +117,32 @@
   width: 60% !important;
 }
 
-.imgLeft{
-    margin-right: auto;
+.imgLeft {
+  margin-right: auto;
 }
 
-.img2Txt{
-    border-left: 2px solid black;
+.img2Txt {
+  border-left: 2px solid black;
 }
 
-.end{
-    width: 42%;
-    margin-bottom: 2rem;
+.end {
+  width: 42%;
+  margin-bottom: 2rem;
 }
 
-.end .networkLink{
-    width: 46%;
+.end .networkLink {
+  width: 46%;
 }
 
-@media (min-width:0) and (max-width:769.9px) {
+@media (min-width: 0) and (max-width: 769.9px) {
   .headerBLock {
     flex-direction: column;
   }
-  
+
   .headerText h1 {
     font-size: 30px;
     line-height: 40px;
     margin-top: 2rem;
     width: 70%;
   }
-  
 }

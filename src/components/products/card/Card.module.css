@@ -101,3 +101,51 @@
   margin-left: 80px;
   text-decoration: none;
 }
+
+@media (min-width: 0) and (max-width: 769.9px) {
+  .body {
+    padding: 20px;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+
+  .block1 {
+    flex-direction: column;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .block1 img {
+    width: 70%;
+    margin: 0 0 1rem;
+  }
+
+  .block1 .info {
+    width: 80%;
+  }
+
+  .pctGroup {
+    width: 100%;
+    overflow: auto;
+  }
+
+  .block1 h1 {
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.01em;
+  }
+
+  .block2 {
+    flex-direction: column;
+  }
+
+  .block2 a {
+    padding: 15px 40px;
+
+    width: 80%;
+    height: 54px;
+    font-size: 20px;
+    line-height: 24px;
+    margin-left: 0;
+  }
+}
