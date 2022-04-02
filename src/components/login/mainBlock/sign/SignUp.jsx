@@ -1,14 +1,16 @@
 import style from "./Sign.module.css";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import authApi from '../../../../api/authApi';
 
 // TEST regex
-const REGISTRATION_ENDPOINT = "Regsiter";
-const TEST_PHONENUMBER_REGX = /^\d{12,}$/; //with international format 13 symbol
+const REGISTRATION_ENDPOINT = "Register";
+const TEST_PHONENUMBER_REGX = /^\d{12,12}$/; //with international format 13 symbol
 const TEST_EMAIL_REGX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 const TEST_PASSWORD_REGX = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])([a-zA-Z0-9@$!%*?&]{8,})$/;
 
 function SignUpForm() {
+    const history = useHistory();
     const [fName, setFName] = useState('');
     const [sName, setSName] = useState('');
     const [email, setEmail] = useState('');
@@ -19,9 +21,9 @@ function SignUpForm() {
     const [isValidEmail, setIsValidEmail] = useState(false);
     const [isValidPassword, setIsValidPassword] = useState(false);
     const [isValidPhone, setIsValidPhone] = useState(false);
-    const [user, setUser] = useState(null);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
  
     /**@email__validation - with strict check*/
     useEffect(() => {
@@ -52,6 +54,7 @@ function SignUpForm() {
         const dbCheckPassword = TEST_PASSWORD_REGX.test(password);
         const dbCheckPhone = TEST_PHONENUMBER_REGX.test(phone);
         if(dbCheckEmail && dbCheckPassword && dbCheckPhone && matched){
+            setLoading(true);
             try{
                 const response = await authApi.post(REGISTRATION_ENDPOINT, 
                     {
@@ -63,15 +66,17 @@ function SignUpForm() {
                         confirmPassword
                     }
                 );
-                setUser(response.data);
+                setLoading(false);
                 setSuccess(true);
                 setFName("");
                 setSName("");
                 setEmail("");
+                setPhone("");
                 setPassword("");
                 setConfirmPassword("");
-                if(success && user){
-                    //push to route
+                console.log(response);
+                if(response && success){
+                    history.push("/login/signIn");
                 }
             }
             catch(err){
@@ -82,8 +87,9 @@ function SignUpForm() {
                     setError('Username Taken');
                 } 
                 else {
-                    setError('Registration Failed')
+                    setError('Registration Failed');
                 }
+                setLoading(false);
             }
         }
         else{
@@ -92,6 +98,8 @@ function SignUpForm() {
         }
         
     }
+
+    console.log(loading);
     return (
       <div className={style.main}>
         <form onSubmit={handleUserRegistration}>
