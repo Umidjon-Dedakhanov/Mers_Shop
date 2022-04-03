@@ -44,8 +44,9 @@ function SignInForm() {
                     }
                 })
                 setLoading(false);
+                console.log(response.data)
                 dispatch(authUser(response.data));
-                history.push("/account/myaccount");
+                // history.push("/account/myaccount");
             }
             catch(err){
                 if (!err?.response) {
