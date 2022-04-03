@@ -43,6 +43,7 @@ function App() {
         <Route path="/karzinka/payment" component={() => <KarzinkaPayment />} />
         <Route path="/account/myaccount" component={() => <Account />} />
         <Route path="/login" component={() => <Login />} />
+        <Route path="*" component={() => <Login />} />
       </Switch>
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
         <Footer />

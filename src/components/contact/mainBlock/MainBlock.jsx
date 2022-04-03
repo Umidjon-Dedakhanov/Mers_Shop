@@ -4,9 +4,9 @@ import { Title } from "../../UI/mainBlock/Title";
 import message from "../../../assets/contact/message.png";
 import location from "../../../assets/contact/location.png";
 import clock from "../../../assets/contact/clock.png";
+import YandexMap from "./map/Map";
 
 import style from "./MainBlock.module.css";
-import YandexMap from "./map/Map";
 
 export const MainBlock = () => {
   const data = [

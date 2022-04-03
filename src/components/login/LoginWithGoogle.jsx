@@ -18,7 +18,7 @@ function LoginWithGoogle() {
       `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
     );
 
-    history.push('/home')
+    history.push('/')
     
     refreshTokenSetup(res);
   };

@@ -15,7 +15,7 @@ function SignInForm() {
       <input autoFocus type="email" />
       <label htmlFor="">Password</label>
       <input type="password" />
-      <NavLink to={"/login/forgetPassword"}>Forget password?</NavLink>
+      <NavLink exact to={"/login/forgetPassword"}>Forget password?</NavLink>
       <button onClick={onClick}>Sign In</button>
       <hr />
     </div>
@@ -27,8 +27,8 @@ export function Sign() {
     <>
       <div className={style.title}>
         <div className={style.title2}>
-          <NavLink to={"/login/" || "/login/signIn"}>Sign In</NavLink>
-          <NavLink to={"/login/signUp"}>Sign Up</NavLink>
+          <NavLink exact to={"/login/" || "/login/signIn"}>Sign In</NavLink>
+          <NavLink exact to={"/login/signUp"}>Sign Up</NavLink>
         </div>
       </div>
       <Switch>
