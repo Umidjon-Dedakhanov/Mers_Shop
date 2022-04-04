@@ -12,10 +12,10 @@ export const MainBlock = () => {
       <div className={style.box}>
         <Switch>
           <Route
-            path="/forget-password"
-            render={() => (
+            path="/login/forgetPassword"
+            component={() => (
               <Password
-                pathname={"/login/enter-code"}
+                pathname={"/login/enterCode"}
                 title={"Account Setting"}
                 desc={
                   "Forget your password? Please enter your phone number or email address. You will resive a link to create a new password via email"
@@ -25,8 +25,8 @@ export const MainBlock = () => {
             )}
           />
           <Route
-            path="/login/enter-code"
-            render={() => (
+            path="/login/enterCode"
+            component={() => (
               <Password
                 pathname={"/login/save"}
                 title={"Enter code"}
@@ -38,7 +38,7 @@ export const MainBlock = () => {
             path="/login/save"
             component={() => (
               <Password
-                pathname={"/login/enter-code"}
+                pathname={"/login/enterCode"}
                 title={"You changed the password"}
                 btnText={"Go previous page"}
               />
