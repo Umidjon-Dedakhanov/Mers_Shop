@@ -80,7 +80,7 @@
   align-items: center;
 }
 
-.block2 a {
+.btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -100,4 +100,144 @@
   color: #ffffff;
   margin-left: 80px;
   text-decoration: none;
+}
+
+.sm_pct {
+  display: none;
+}
+
+.lg_pct {
+  display: inherit;
+}
+
+.sm_btn {
+  display: none;
+}
+
+.lg_btn {
+  display: inherit;
+}
+
+@media (min-width: 0) and (max-width: 769.9px) {
+  .lg_btn {
+    display: none;
+  }
+  .sm_btn {
+    display: inherit;
+  }
+  .body {
+    padding: 20px;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+
+  .block1 {
+    flex-direction: column;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .sm_pct {
+    display: inherit;
+  }
+
+  .lg_pct {
+    display: none !important;
+  }
+
+  .block1 img {
+    width: 70%;
+    margin: 0 0 1rem;
+  }
+
+  .block1 .info {
+    width: 80%;
+  }
+
+  .pctGroup {
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .pctGroup img {
+    width: 100%;
+  }
+
+  .block1 h1 {
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.01em;
+  }
+
+  .block2 {
+    flex-direction: column;
+  }
+
+  .btn {
+    padding: 15px 40px;
+
+    width: 80%;
+    height: 54px;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 2rem auto 0;
+  }
+
+  .info select {
+    margin: 2rem 35% 0;
+    text-align: center;
+    width: 30%;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 1200.9px) {
+  .block1 img {
+    object-fit: contain;
+  }
+  .block1 h2 {
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 5px;
+  }
+
+  .block1 h1 {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .stars {
+    font-size: 20px;
+    margin: 0 0 5px 0;
+  }
+
+  .block1 p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .lg_pct {
+    overflow: auto;
+    width: 36%;
+    display: flex;
+  }
+
+  .btn {
+    padding: 15px 40px;
+
+    width: 30%;
+    height: 54px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .block1,
+  .block2{
+    justify-content: space-evenly;
+  }
+
+  .block2{
+    width: 100%;
+  }
 }

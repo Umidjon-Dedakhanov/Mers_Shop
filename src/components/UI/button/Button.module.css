@@ -10,3 +10,10 @@
     border: none;
     justify-content: center;
 }
+
+@media (min-width:0) and (max-width:700.9px) {
+    .button{
+        margin: 0 auto 1rem;
+        margin-left: auto !important;
+    }
+}

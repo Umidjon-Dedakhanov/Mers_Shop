@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from 'react-redux';
 import App from "./App";
-import { store, persistor } from "./redux/store";
+import { store, persistor } from "./redux/store/index";
 import "./index.css";
 
 ReactDOM.render(

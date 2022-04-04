@@ -48,3 +48,9 @@
 .desc a{
     color: black;
 }
+
+@media (min-width:0) and (max-width:500.9px) {
+  .body img{
+    display: none;
+  }
+}

@@ -25,7 +25,7 @@ const Account = () => {
     ]
 
     const { path } = useRouteMatch();
-    console.log(path)
+    // console.log(path)
     return (
         <div>
             <div className={classes.account__main}>

@@ -30,3 +30,13 @@
     text-align: center;
   }
 }
+
+@media (min-width: 770px) and (max-width: 1200.9px) {
+  .body {
+    overflow: auto;
+    display: flex;
+  }
+  .body a {
+    width: 40%;
+  }
+}
