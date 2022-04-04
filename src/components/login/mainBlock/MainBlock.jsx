@@ -13,7 +13,7 @@ export const MainBlock = () => {
         <Switch>
           <Route
             path="/forget-password"
-            render={() => {
+            render={() => (
               <Password
                 pathname={"/login/enter-code"}
                 title={"Account Setting"}
@@ -24,10 +24,9 @@ export const MainBlock = () => {
               />
             )}
           />
-
           <Route
             path="/login/enter-code"
-            render={() => {
+            render={() => (
               <Password
                 pathname={"/login/save"}
                 title={"Enter code"}
