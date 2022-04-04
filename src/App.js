@@ -16,7 +16,6 @@ import { Home } from "./components/home/Home";
 import { News } from "./components/news/News";
 import { Card } from "./components/news/card/Card";
 import Private from "./routes/private/PrivateRoute";
-
 function App() {
   const { pathname } = useLocation();
   return (

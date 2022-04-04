@@ -1,33 +1,29 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
-
-// refresh token
+import { connect } from "react-redux";
+import {
+  authUserWithGoogle,
+  authUserWithGoogleFail,
+} from "../../redux/actions";
 import { refreshTokenSetup } from "../../utils/refreshToken";
-
 import style from "./LoginWith.module.css";
+const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
-const clientId =
-  "707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com";
-
-function LoginWithGoogle() {
-  const history = useHistory();
+function LoginWithGoogle(props) {
   const onSuccess = (res) => {
-    console.log("Login Success: currentUser:", res.profileObj);
-    alert(
-      `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-    );
-
-    history.push("/");
-
+    const { accessToken, ...profileObj } = res;
+    const gUser = {
+      accessToken: accessToken,
+      user: profileObj,
+      message: "Successfully Logged in!",
+      code: 200,
+    };
+    props.authUserWithGoogle(gUser);
     refreshTokenSetup(res);
   };
 
-  const onFailure = (res) => {
-    console.log("Login failed: res:", res);
-    alert(
-      `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
-    );
+  const onFailure = () => {
+    props.authUserWithGoogleFail({ message: "Failed to Login!" });
   };
 
   return (
@@ -39,11 +35,12 @@ function LoginWithGoogle() {
         onFailure={onFailure}
         cookiePolicy={"single_host_origin"}
         style={{ marginTop: "100px" }}
-        isSignedIn={true}
         className={style.google}
       />
     </div>
   );
 }
 
-export default LoginWithGoogle;
+export default connect(null, { authUserWithGoogle, authUserWithGoogleFail })(
+  LoginWithGoogle
+);
