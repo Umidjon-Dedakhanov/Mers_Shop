@@ -11,12 +11,27 @@ import { AllProducts } from "./allProducts/AllProducts";
 import { Information } from "./information/Information";
 import { BrakeDiscMachineParts } from './machineParts/BrakeDiscMachineParts';
 import { BrakeDiscProducts } from './popularProduct/BrakeDiscProducts';
+import FilterNavbar from './../UI/filter-navbar/FilterNavbar';
 
 export const Home = () => {
+  const filter_items = [
+    ["All products", "products", "Lorem 1"],
+    ["All products", "products", "Lorem 1"],
+    ["All products", "products", "Lorem 1"],
+    ["All products", "products", "Lorem 1"],
+    ["All products", "products", "Lorem 1"],
+    ["All products", "products", "Lorem 1"],
+    ["All products", "products", "Lorem 1"],
+    ["All products", "products", "Lorem 1"],
+    ["All products", "products", "Lorem 1"],
+]
+
   return (
     <div style={{ marginBottom: "3rem" }}>
       <MyCarousel />
-      <Selects />
+      {/* <Selects /> */}
+      <FilterNavbar  filterNavData={filter_items}/>
+
       <Switch>
         <Route
           path="/all"

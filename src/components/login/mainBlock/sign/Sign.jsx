@@ -1,29 +1,32 @@
-import { NavLink, Route, Switch, useHistory } from "react-router-dom";
+import {
+  NavLink,
+  Route,
+  Switch,
+  useLocation,
+  useRouteMatch,
+} from "react-router-dom";
+import SignInForm from "./SignIn";
 import { LoginHelpers } from "./../../../UI/login/LoginHelpers";
 import SignUpForm from "./SignUp";
 import style from "./Sign.module.css";
-
-function SignInForm() {
-  const history = useHistory();
-
-  const onClick = () => {
-    history.push("/");
-  };
-  return (
-    <div className={style.main}>
-      <label htmlFor="">Email</label>
-      <input autoFocus type="email" />
-      <label htmlFor="">Password</label>
-      <input type="password" />
-      <NavLink exact to={"/login/forgetPassword"}>Forget password?</NavLink>
-      <button onClick={onClick}>Sign In</button>
-      <hr />
-    </div>
-  );
-}
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 export function Sign() {
-  return (
+  const { url, path } = useRouteMatch();
+  const { pathname } = useLocation();
+  console.log(url, path);
+  const user = useSelector((state) => state.authReducer);
+  return user.isAuthenticated && user ? (
+    <Redirect
+      to={{
+        pathname: "/account/myaccount",
+        state: {
+          from: pathname,
+        },
+      }}
+    />
+  ) : (
     <>
       <div className={style.title}>
         <div className={style.title2}>
@@ -32,18 +35,18 @@ export function Sign() {
         </div>
       </div>
       <Switch>
-        <Route path="/login/signUp" render={() => <SignUpForm />} />
-        <Route path="/login/signIn" render={() => <SignInForm />} />
+        <Route path="/login/sign-up" render={() => <SignUpForm />} />
+        <Route path="/login/sign-in" render={() => <SignInForm />} />
         <Route path={"/"} render={() => <SignInForm />} />
       </Switch>
       <div className={style.helpers}>
         <Switch>
           <Route
-            path="/login/signUp"
+            path="/login/sign-up"
             render={() => <LoginHelpers inUp="Up" />}
           />
           <Route
-            path="/login/signIn"
+            path="/login/sign-in"
             render={() => <LoginHelpers inUp="In" display="none" />}
           />
           <Route

@@ -15,7 +15,7 @@ export const MainBlock = () => {
             path="/login/forgetPassword"
             component={() => (
               <Password
-                pathname={"/login/enterCode"}
+                pathname={"/login/enter-code"}
                 title={"Account Setting"}
                 desc={
                   "Forget your password? Please enter your phone number or email address. You will resive a link to create a new password via email"
@@ -39,7 +39,7 @@ export const MainBlock = () => {
             path="/login/save"
             component={() => (
               <Password
-                pathname={"/login/enterCode"}
+                pathname={"/login/enter-code"}
                 title={"You changed the password"}
                 btnText={"Go previous page"}
               />
