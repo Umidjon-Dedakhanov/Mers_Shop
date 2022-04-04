@@ -1,31 +1,26 @@
 import React from 'react';
 import { GoogleLogin } from 'react-google-login';
-import { authUser } from "../../redux/actions";
-import { useDispatch } from "react-redux";
-
-// refresh token
+import { connect } from "react-redux";
+import { authUserWithGoogle, authUserWithGoogleFail } from "../../redux/actions";
 import { refreshTokenSetup } from "../../utils/refreshToken";
-
 import style from "./LoginWith.module.css";
-
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
-function LoginWithGoogle() {
-  const dispatch = useDispatch();
+function LoginWithGoogle(props) {
   const onSuccess = (res) => {
     const {accessToken, ...profileObj} = res;
     const gUser = {
       accessToken: accessToken,
-      user: profileObj
+      user: profileObj,
+      message: "Successfully Logged in!",
+      code: 200
     }
-    dispatch(authUser(gUser));
+    props.authUserWithGoogle(gUser);
     refreshTokenSetup(res);
   };
 
   const onFailure = () => {
-    alert(
-      "Failed to login."
-    );
+    props.authUserWithGoogleFail({message: "Failed to Login!"})
   };
 
   return (
@@ -43,4 +38,4 @@ function LoginWithGoogle() {
   );
 }
 
-export default LoginWithGoogle;
+export default connect(null, { authUserWithGoogle, authUserWithGoogleFail })(LoginWithGoogle);

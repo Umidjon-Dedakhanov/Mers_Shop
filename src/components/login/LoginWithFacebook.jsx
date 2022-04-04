@@ -1,22 +1,25 @@
 import React from "react";
-import { authUser } from "../../redux/actions";
-import { useDispatch } from "react-redux";
-
+import { authUserWithFacebook, authUserWithFacebookFail } from "../../redux/actions";
+import { connect } from "react-redux";
 import FacebookLogin from "react-facebook-login";
 
 import style from "./LoginWith.module.css";
 
-const LoginWithFacebook = () => {
-  const dispatch = useDispatch();
+const LoginWithFacebook = (props) => {
   const responseFacebook = (response) => {
     const {accessToken, ...user} = response;
 
     const fbUser = {
       accessToken: accessToken,
-      user: user
+      user: user,
+      message: "Successfully Logged in!",
+      code: 200
     }
     if (response.status !== "unknown") {
-        dispatch(authUser(fbUser))
+        props.authUserWithFacebook(fbUser);
+    }
+    else{
+      props.authUserWithFacebookFail({message: "Failed to Login"})
     }
   };
 
@@ -32,7 +35,7 @@ const LoginWithFacebook = () => {
       }}
     >
       <FacebookLogin
-        appId="3125775214337180"
+        appId={process.env.REACT_APP_FACEBOOK_APP_ID}
         fields="name,email,picture"
         onClick={componentClicked}
         callback={responseFacebook}
@@ -45,4 +48,4 @@ const LoginWithFacebook = () => {
   );
 };
 
-export default LoginWithFacebook;
+export default connect(null, { authUserWithFacebook, authUserWithFacebookFail })(LoginWithFacebook);
