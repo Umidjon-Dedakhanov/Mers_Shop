@@ -1,23 +1,30 @@
+import { lazy } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-import "./App.css";
-import { Footer } from "./components/footer/Footer";
-import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
-import { Contact } from "./components/contact/Contact";
-import { Navbar } from "./components/navbar/Navbar";
-import { About } from "./components/about/About";
-import { Login } from "./components/login/Login";
-import Karzinka from "./routes/karzinka/Karzinka";
+
 import KarzinkaSubmission from "./routes/karzinka-submission/KarzinkaSubmission";
+import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
 import KarzinkaPayment from "./routes/karzinka-payment/KarzinkaPayment";
-import Account from "./routes/account/Account";
 import { EngineRepair } from "./components/engineRepair/EngineRepair";
 import { Products } from "./components/products/Products";
-import { Home } from "./components/home/Home";
-import { News } from "./components/news/News";
-import { Card } from "./components/news/card/Card";
+import { Contact } from "./components/contact/Contact";
 import Private from "./routes/private/PrivateRoute";
+import { Footer } from "./components/footer/Footer";
+import { Navbar } from "./components/navbar/Navbar";
+import { Card } from "./components/news/card/Card";
+import Karzinka from "./routes/karzinka/Karzinka";
+import { About } from "./components/about/About";
+import { Login } from "./components/login/Login";
+import Account from "./routes/account/Account";
+import { News } from "./components/news/News";
+
+import "./App.css";
 
 function App() {
+  const Home = lazy(() =>
+    import("./components/home/Home").then((module) => ({
+      default: module.OtherComponent,
+    }))
+  );
   const { pathname } = useLocation();
   return (
     <div className="App">
