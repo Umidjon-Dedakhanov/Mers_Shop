@@ -7,7 +7,6 @@ import classes from './AccountProduct.module.css';
 
 const AccountProduct = ({data, tableHeaders, details}) => {
     const { url } = useRouteMatch();
-    console.log(url)
     return (
         <div className={classes.account__product}>
             <table className={classes.account__table}>
