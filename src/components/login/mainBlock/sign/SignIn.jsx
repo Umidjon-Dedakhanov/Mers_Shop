@@ -95,7 +95,7 @@ function SignInForm() {
         ) : (
           <></>
         )}
-        <NavLink to={"/forget-password"}>Forgot password?</NavLink>
+        <NavLink to={"/login/forgetPassword"}>Forgot password?</NavLink>
         <button>Sign In</button>
       </form>
     </div>

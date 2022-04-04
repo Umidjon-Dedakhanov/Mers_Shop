@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import { MyCarousel } from "./carousel/Carousel";
-import { Selects } from "./selects/Selects";
 import { AllMachineParts } from "./machineParts/AllMachineParts";
 import { PopularProducts } from "./popularProduct/PopularProducts";
 import { System } from "./sytem/System";
