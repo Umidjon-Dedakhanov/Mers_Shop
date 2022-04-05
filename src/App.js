@@ -10,9 +10,7 @@ import { Navbar } from "./components/navbar/Navbar";
 import { Card } from "./components/news/card/Card";
 import Karzinka from "./routes/karzinka/Karzinka";
 import { withSuspense } from "./hoc/withSuspense";
-import { Login } from "./components/login/Login";
 import Account from "./routes/account/Account";
-import { News } from "./components/news/News";
 
 import "./App.css";
 
@@ -53,8 +51,6 @@ function App() {
     }))
   );
 
-
-
   const { pathname } = useLocation();
   return (
     <div className="App">
@@ -78,7 +74,10 @@ function App() {
         <Route path="/account" render={withSuspense(EngineRepair)} />
         <Route path="/karzinka/payment" render={withSuspense(EngineRepair)} />
         <Route path="/karzinka" render={withSuspense(EngineRepair)} />
-        <Route path="/karzinka/submission" render={withSuspense(EngineRepair)} />
+        <Route
+          path="/karzinka/submission"
+          render={withSuspense(EngineRepair)}
+        />
         <Route path="/login" render={withSuspense(Login)} />
         <Route path="/" render={withSuspense(Home)} />
 
