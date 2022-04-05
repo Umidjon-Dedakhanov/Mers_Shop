@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {
   authUserWithGoogle,
   authUserWithGoogleFail,
-} from "../../redux/actions";
+} from "../../redux/actions/authActions";
 import { refreshTokenSetup } from "../../utils/refreshToken";
 import style from "./LoginWith.module.css";
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
