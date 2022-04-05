@@ -5,7 +5,9 @@ const authApiInstance = axios.create({
     baseURL: process.env.REACT_APP_API_BASEURL,
     headers: { 
         'Content-Type': 'application/json',
-        'Authorization' : authHeaders()
+        'Authorization' : authHeaders(),
+        "Accept": "*/*",
+        "Access-Control-Allow-Origin" : "*"
     },
     withCredentials: true
 })

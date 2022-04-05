@@ -1,5 +1,5 @@
 import React from "react";
-import { authUserWithFacebook, authUserWithFacebookFail } from "../../redux/actions";
+import { authUserWithFacebook, authUserWithFacebookFail } from "../../redux/actions/authActions";
 import { connect } from "react-redux";
 import FacebookLogin from "react-facebook-login";
 
