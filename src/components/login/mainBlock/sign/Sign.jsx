@@ -1,10 +1,4 @@
-import {
-  NavLink,
-  Route,
-  Switch,
-  useLocation,
-  useRouteMatch,
-} from "react-router-dom";
+import { NavLink, Route, Switch, useLocation } from "react-router-dom";
 import SignInForm from "./SignIn";
 import { LoginHelpers } from "./../../../UI/login/LoginHelpers";
 import SignUpForm from "./SignUp";
@@ -13,9 +7,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 export function Sign() {
-  const { url, path } = useRouteMatch();
   const { pathname } = useLocation();
-  console.log(url, path);
   const user = useSelector((state) => state.authReducer);
   return user.isAuthenticated && user ? (
     <Redirect
@@ -30,8 +22,8 @@ export function Sign() {
     <>
       <div className={style.title}>
         <div className={style.title2}>
-          <NavLink exact to={"/login/" || "/login/signIn"}>Sign In</NavLink>
-          <NavLink exact to={"/login/signUp"}>Sign Up</NavLink>
+          <NavLink to={"/login/sign-in"}>Sign In</NavLink>
+          <NavLink to={"/login/sign-up"}>Sign Up</NavLink>
         </div>
       </div>
       <Switch>

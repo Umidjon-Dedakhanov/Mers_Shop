@@ -1,6 +1,6 @@
 import React from "react";
 
-import img from "../../assets/home/main.png";
+import img from "../../assets/home/main.webp";
 import picture from "../../assets/about/picture.png";
 
 import { Information } from "./../home/information/Information";

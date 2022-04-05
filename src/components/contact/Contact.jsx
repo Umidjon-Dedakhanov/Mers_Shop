@@ -1,6 +1,6 @@
 import React from "react";
 
-import main from "../../assets/home/main.png";
+import main from "../../assets/home/main.webp";
 
 import { Heading } from "../UI/Heading";
 import { MainBlock } from "./mainBlock/MainBlock";

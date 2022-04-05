@@ -24,7 +24,6 @@ export const MainBlock = () => {
               />
             )}
           />
-
           <Route
             path="/login/enterCode"
             component={() => (

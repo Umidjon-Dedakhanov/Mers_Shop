@@ -2,9 +2,9 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
-import main from "../../../assets/home/main.png";
-import main1 from "../../../assets/home/main1.png";
-import main2 from "../../../assets/home/main2.png";
+import main from "../../../assets/home/main.webp";
+import main1 from "../../../assets/home/main1.webp";
+import main2 from "../../../assets/home/main2.webp";
 import main3 from "../../../assets/home/main3.png";
 
 import "./Carousel.css";

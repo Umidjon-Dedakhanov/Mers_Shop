@@ -6,7 +6,7 @@ import { BrakeDiscMachineParts } from "./../home/machineParts/BrakeDiscMachinePa
 import { BrakeDiscProducts } from "./../home/popularProduct/BrakeDiscProducts";
 import { PopularProducts } from "./../home/popularProduct/PopularProducts";
 
-import img from "../../assets/home/main1.png";
+import img from "../../assets/home/main1.webp";
 import mainProduct from "../../assets/products/1.png";
 import one from "../../assets/products/1_1.png";
 import two from "../../assets/products/1_2.png";

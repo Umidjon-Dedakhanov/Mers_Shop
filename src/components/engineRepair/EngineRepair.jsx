@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import main from "../../assets/home/main.png";
+import main from "../../assets/home/main.webp";
 import img from "../../assets/engineRepair/img.png";
 import { Heading } from "./../UI/Heading";
 import { Title } from "./../UI/engineRepair/Title";
