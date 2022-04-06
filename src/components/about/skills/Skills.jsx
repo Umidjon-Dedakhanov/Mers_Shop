@@ -1,45 +1,31 @@
 import React from "react";
-
-import one from "../../../assets/about/skills1.png";
-import two from "../../../assets/about/skills2.png";
-import three from "../../../assets/about/skills3.png";
-
 import { SkillsAbout } from "./../../../utils/helpers";
-
 import style from "./Skills.module.css";
+import useFetch from '../../../hooks/useFetch';
+const ABOUT_MAINS_ENDPOINT = "aboutMains";
 
-export const Skills = () => {
+const Skills = () => {
+  const {data} = useFetch(ABOUT_MAINS_ENDPOINT, null);
   return (
     <div className={style.body}>
-      <SkillsAbout
-        title={"Slick range of labels"}
-        num={"01"}
-        img={one}
-        desc={
-          "As well as our roster of ASOS Brands, we’ve also got a slick range of labels you won’t find anywhere else."
-        }
-        readMore_link={"/about/skills/1"}
-      />
-      <hr width="2" size="700" color="gray" />
-      <SkillsAbout
-        title={"Slick range of labels"}
-        num={"02"}
-        img={two}
-        desc={
-          "As well as our roster of ASOS Brands, we’ve also got a slick range of labels you won’t find anywhere else."
-        }
-        readMore_link={"/about/skills/2"}
-      />
-      <hr className={style.hr2} width="2" size="700" color="gray" />
-      <SkillsAbout
-        title={"Slick range of labels"}
-        num={"03"}
-        img={three}
-        desc={
-          "As well as our roster of ASOS Brands, we’ve also got a slick range of labels you won’t find anywhere else."
-        }
-        readMore_link={"/about/skills/3"}
-      />
+      {
+        data && 
+        data.map((skill, index) => 
+            <>
+               <SkillsAbout
+                  key={index}
+                  title={skill.title_uz}
+                  num={`${skill.categoryID}`.padStart(2, "0")}
+                  img={skill.imageUrl}
+                  desc={skill.description_uz}
+                  readMore_link={`engine/${skill.id}`}
+                />
+                <hr width="2" size="700" color="gray" />
+            </>  
+          )
+      }
     </div>
   );
 };
+
+export default Skills

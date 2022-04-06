@@ -32,7 +32,7 @@ function SignInForm(props) {
     const dbCheckEmail = TEST_EMAIL_REGX.test(email);
     const dbCheckPassword = TEST_PASSWORD_REGX.test(password);
 
-    if (dbCheckEmail && !dbCheckPassword) {
+    if (dbCheckEmail && dbCheckPassword) {
       props.authUser({ email, password });
     } else {
       setError("Invalid data!");
@@ -81,4 +81,3 @@ function SignInForm(props) {
 }
 
 export default connect(null, { authUser })(SignInForm);
-//

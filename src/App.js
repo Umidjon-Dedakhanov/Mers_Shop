@@ -21,10 +21,9 @@ function App() {
     }))
   );
   const About = lazy(() =>
-    import("./components/about/About").then((module) => ({
-      default: module.About,
-    }))
-  );
+  import("./components/about/About").then((module) => ({
+    default: module.About,
+  })));
   const Products = lazy(() =>
     import("./components/products/Products").then((module) => ({
       default: module.Products,
@@ -68,6 +67,7 @@ function App() {
         <Private path="/karzinka/submission" component={KarzinkaSubmission} />
         <Route path="/about" render={withSuspense(About)} />
         <Route path="/engine" render={withSuspense(EngineRepair)} />
+        <Route path="/engine/:id" render={withSuspense((props) => <EngineRepair {...props}/>) } type="id"/>
         <Route path="/product" render={withSuspense(Products)} />
         <Route path="/contact" render={withSuspense(Contact)} />
         <Route path="/new" render={withSuspense(News)} />
