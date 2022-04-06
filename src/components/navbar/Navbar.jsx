@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
-
 import logo from "../../assets/home/logo.png";
 import person from "../../assets/home/person.png";
-
 import { Search } from "./search/Search";
 import { Select } from "./select/Select";
 import { Switch } from "./switch/Switch";
-
 import style from "./Navbar.module.css";
+import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
   const [scroll, setScroll] = useState();
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   window.addEventListener("scroll", () => {
     if (window.scrollY < 40) {
@@ -23,9 +22,13 @@ export const Navbar = () => {
     }
   });
 
-  const { isAuthenticated } = useSelector(state => state.authReducer);
+  const { isAuthenticated } = useSelector((state) => state.authReducer);
+
   return (
-    <nav className={style.navbar + " " + scroll} style={pathname.includes("account") ? {background: "#333"} : null}>
+    <nav
+      className={style.navbar + " " + scroll}
+      style={pathname.includes("account") ? { background: "#333" } : null}
+    >
       <div className={style.navbar_container + " " + style.container}>
         <input type="checkbox" name="" id="" />
         <div className={style.hamburger_lines}>
@@ -35,37 +38,75 @@ export const Navbar = () => {
         </div>
         <ul className={style.menu_items}>
           <li>
-            <NavLink exact className={style.item__inactive} activeClassName={style.item__active} to="/">Home</NavLink>
+            <NavLink
+              exact
+              className={style.item__inactive}
+              activeClassName={style.item__active}
+              to="/"
+            >
+              {t("navbar.home")}
+            </NavLink>
           </li>
           <li>
-            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/about">About Us</NavLink>
-            
+            <NavLink
+              exact
+              className={style.item__inactive}
+              activeClassName={style.item__active}
+              to="/about"
+            >
+              {t("navbar.about")}
+            </NavLink>
           </li>
           <li>
-            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/product">Products</NavLink>
+            <NavLink
+              exact
+              className={style.item__inactive}
+              activeClassName={style.item__active}
+              to="/product"
+            >
+              {t("navbar.product")}
+            </NavLink>
           </li>
           <li>
-            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/new">News</NavLink>
+            <NavLink
+              exact
+              className={style.item__inactive}
+              activeClassName={style.item__active}
+              to="/new"
+            >
+              {t("navbar.news")}
+            </NavLink>
           </li>
           <li>
-            <NavLink exact className={style.item__inactive} activeClassName={style.item__active}  to="/contact">Contact Us</NavLink>
+            <NavLink
+              exact
+              className={style.item__inactive}
+              activeClassName={style.item__active}
+              to="/contact"
+            >
+              {t("navbar.contact")}
+            </NavLink>
           </li>
           <li className={style.forSearch}>
-          {window.innerWidth <= 769 ? null : <Search />}
-
+            {window.innerWidth <= 769 ? null : <Search />}
           </li>
           <li>
             <Select />
-            {isAuthenticated
-              ?<img src={person} alt="" />
-              : <NavLink exact to={'/login'}>Login</NavLink>
-            } 
+            {isAuthenticated ? (
+              <img src={person} alt="" />
+            ) : (
+              <NavLink exact to={"/login"}>
+                {t("navbar.login")}
+              </NavLink>
+            )}
           </li>
           <li>
             <Switch />
           </li>
         </ul>
-        <NavLink to={'/'}><img src={logo} alt="" className={style.logo} /></NavLink>
+        <NavLink to={"/"}>
+          <img src={logo} alt="" className={style.logo} />
+        </NavLink>
       </div>
     </nav>
   );
