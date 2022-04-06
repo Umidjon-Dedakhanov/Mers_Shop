@@ -48,7 +48,7 @@
 .menu_items {
   order: 2;
   display: flex;
-  width: 83%;
+  width: 65%;
   align-items: center;
   justify-content: space-between;
 }
@@ -63,7 +63,6 @@
 }
 .menu_items li {
   list-style: none;
-  margin-left: 1.5rem;
   font-size: 1.1rem;
   display: flex;
   align-items: center;
@@ -82,9 +81,18 @@
   border-bottom: 3px solid #fff;
 }
 
+.forSearch{
+  width: 5%;
+  transition: .3s all linear;
+}
+
+.forSearch:focus-within{
+  width: 20%;
+}
+
 @media (min-width: 760px) and (max-width: 980.9px) {
   .logo {
-    width: 10%;
+    width: 30%;
   }
 
   .navbar a {
@@ -110,7 +118,7 @@
 
 @media (min-width: 981px) and (max-width: 1449px) {
   .logo {
-    width: 10%;
+    height: 10%;
   }
 
   .navbar a {

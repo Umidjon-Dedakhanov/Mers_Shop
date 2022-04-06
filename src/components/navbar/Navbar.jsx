@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useSelector } from 'react-redux';
+import { NavLink, useLocation } from "react-router-dom";
 
 import logo from "../../assets/home/logo.png";
 import person from "../../assets/home/person.png";
@@ -8,8 +10,6 @@ import { Select } from "./select/Select";
 import { Switch } from "./switch/Switch";
 
 import style from "./Navbar.module.css";
-import { NavLink, useLocation } from "react-router-dom";
-import { useSelector } from 'react-redux';
 
 export const Navbar = () => {
   const [scroll, setScroll] = useState();

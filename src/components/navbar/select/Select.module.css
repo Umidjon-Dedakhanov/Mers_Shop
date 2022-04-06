@@ -8,15 +8,15 @@
 	padding: .6em 1.4em .5em .8em;
 	width: 60px;
 	box-sizing: border-box;
+	border: none;
 	border-radius: .5em;
 	-webkit-appearance: none;
 	appearance: none;
-    background: rgba(51, 51, 51, 0.5);
+    background: rgba(51, 51, 51, 0.2);
 	background-image: url('../../../assets/home/vector.png');
 	background-repeat: no-repeat, repeat;
 	background-position: right .7em top 50%, 0 0;
 	background-size: .65em auto, 100%;
-	margin: 0 20px;
 }
 .select_css::-ms-expand {
 	display: none;
