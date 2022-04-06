@@ -10,9 +10,7 @@ import { Navbar } from "./components/navbar/Navbar";
 import { Card } from "./components/news/card/Card";
 import Karzinka from "./routes/karzinka/Karzinka";
 import { withSuspense } from "./hoc/withSuspense";
-import { Login } from "./components/login/Login";
 import Account from "./routes/account/Account";
-import { News } from "./components/news/News";
 
 import "./App.css";
 
@@ -52,8 +50,6 @@ function App() {
       default: module.Login,
     }))
   );
-
-
 
   const { pathname } = useLocation();
   return (
