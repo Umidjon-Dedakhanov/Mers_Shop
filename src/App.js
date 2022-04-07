@@ -66,7 +66,7 @@ function App() {
         <Private path="/karzinka" component={Karzinka} />
         <Private path="/karzinka/submission" component={KarzinkaSubmission} />
         <Route path="/about" render={withSuspense(About)} />
-        <Route path="/engine" render={withSuspense(EngineRepair)} />
+        <Route exact path="/engine" render={withSuspense(EngineRepair)} />
         <Route path="/engine/:id" render={withSuspense((props) => <EngineRepair {...props}/>) } type="id"/>
         <Route path="/product" render={withSuspense(Products)} />
         <Route path="/contact" render={withSuspense(Contact)} />
