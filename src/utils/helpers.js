@@ -158,15 +158,20 @@ export const InformationCard = ({ img, title, desc }) => {
 
 // footer/links
 
-export const LinksFooter = ({ title, links }) => {
+export const LinksFooter = ({ title, links, phone }) => {
   return (
     <div className={style.LinksFooter}>
       <h1>{title}</h1>
-      {links.map((l) => (
-        <NavLink key={l.id} to={l.path}>
-          {l.name}
+      {links && links.map((l, index) => (
+        <NavLink key={index} to={`/${l.split(" ").join("").toLowerCase()}`}>
+          {l}
         </NavLink>
       ))}
+      {
+        phone && phone.map((ph, index) => 
+          <a key={index} href={`tel:${ph}`}>{ph}</a>  
+        )
+      }
     </div>
   );
 };

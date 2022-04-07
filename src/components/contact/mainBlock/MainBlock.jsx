@@ -33,8 +33,8 @@ export const MainBlock = () => {
     },
   ];
 
-  const dataMap = data.map((d) => (
-    <Title title={d.title} desc={d.desc} img={d.img} info={d.info} />
+  const dataMap = data.map((d, index) => (
+    <Title key={index} title={d.title} desc={d.desc} img={d.img} info={d.info} />
   ));
   return (
     <div className={style.body}>

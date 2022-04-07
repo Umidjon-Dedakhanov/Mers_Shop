@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import classes from "./Account.module.css";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import FilterNavbar from "../../components/UI/filter-navbar/FilterNavbar";
@@ -16,18 +15,14 @@ import AccountBook from "./account-book/AccountBook";
 import AccountFavourites from "./account-favourites/AccountFavourites";
 import AccountResetPwd from "./account-resetpwd/AccountResetPwd";
 import ProductDetails from "./product-details/ProductDetails";
-import { fetchData } from '../../redux/actions/getActions';
-import useFetchWithAuth from "../../hooks/useFetchWithAuth";
 
-const Account = (props) => {
+const Account = () => {
   const filter_items = [
     ["All products", "products", "Lorem 1"],
     ["All products", "products", "Lorem 1"],
     ["All products", "products", "Lorem 1"],
     ["All products", "products", "Lorem 1"],
   ];
-  const { data } = useFetchWithAuth(props, "aboutCategoriesAPI", null);
-  console.log(data)
   const { path } = useRouteMatch();
   return (
     <div>
@@ -77,4 +72,4 @@ const Account = (props) => {
   );
 };
 
-export default connect(null, { fetchData })(Account);
+export default Account;

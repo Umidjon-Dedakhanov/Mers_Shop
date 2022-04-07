@@ -1,14 +1,14 @@
 import React from "react";
-
-import main from "../../assets/home/main.webp";
-
 import { Heading } from "../UI/Heading";
 import { MainBlock } from "./mainBlock/MainBlock";
+import useAuthFetch from "../../hooks/useAuthFetch";
+const CONTACT_HEADERS_ENDPOINT = 'contactHeadersAPI';
 
 export const Contact = () => {
+  const { data } = useAuthFetch(CONTACT_HEADERS_ENDPOINT, null);
   return (
     <div>
-      <Heading img={main} routePathName="Contact" title={"Contact Us"} />
+      <Heading img={data[0]?.imageUrl} routePathName="Contact" title={data[0]?.title_uz} />
       <MainBlock />
     </div>
   );
