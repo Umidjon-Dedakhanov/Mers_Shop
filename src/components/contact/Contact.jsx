@@ -1,11 +1,11 @@
 import React from "react";
 import { Heading } from "../UI/Heading";
-import { MainBlock } from "./mainBlock/MainBlock";
-import useAuthFetch from "../../hooks/useAuthFetch";
+import MainBlock from "./mainBlock/MainBlock";
+import useFetch from "../../hooks/useFetch";
 const CONTACT_HEADERS_ENDPOINT = "contactHeaders";
 
 export const Contact = () => {
-  const { data } = useAuthFetch(CONTACT_HEADERS_ENDPOINT, null);
+  const { data } = useFetch(CONTACT_HEADERS_ENDPOINT, null);
   return (
     <div>
       <Heading

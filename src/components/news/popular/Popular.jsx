@@ -1,89 +1,28 @@
 import React from "react";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useRouteMatch } from "react-router-dom";
 
 import style from "./Popular.module.css";
 import "swiper/css";
+import useFetch from "../../../hooks/useFetch";
+const NEWS_SLIDER_ENDPOINT = "newsSliders";
 
 export const Popular = () => {
-  const data = [
-    {
-      id: 1,
-      link: "toLink",
-      redTxt: "Featured",
-      title: "The mystery of the home where the Queen was born",
-      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
-    },
-    {
-      id: 2,
-      link: "toLink",
-      redTxt: "Featured",
-      title: "The mystery of the home where the Queen was born",
-      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
-    },
-    {
-      id: 3,
-      link: "toLink",
-      redTxt: "Featured",
-      title: "The mystery of the home where the Queen was born",
-      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
-    },
-    {
-      id: 4,
-      link: "toLink",
-      redTxt: "Featured",
-      title: "The mystery of the home where the Queen was born",
-      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
-    },
-    {
-      id: 5,
-      link: "toLink",
-      redTxt: "Featured",
-      title: "The mystery of the home where the Queen was born",
-      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
-    },
-    {
-      id: 6,
-      link: "toLink",
-      redTxt: "Featured",
-      title: "The mystery of the home where the Queen was born",
-      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
-    },
-    {
-      id: 7,
-      link: "toLink",
-      redTxt: "Featured",
-      title: "The mystery of the home where the Queen was born",
-      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
-    },
-    {
-      id: 8,
-      link: "toLink",
-      redTxt: "Featured",
-      title: "The mystery of the home where the Queen was born",
-      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
-    },
-    {
-      id: 9,
-      link: "toLink",
-      redTxt: "Featured",
-      title: "The mystery of the home where the Queen was born",
-      txt: "Her parents had moved into the house, belonging to her Scottish grandparents, the Earl and Countess of Strathmore, only a few weeks before her birth.",
-    },
-  ];
-
+  const { url } = useRouteMatch();
+  const {data} = useFetch(NEWS_SLIDER_ENDPOINT, null);
+  console.log(data)
   const dataMap = data.map((d) => (
     <SwiperSlide key={d.id}>
       <div className={style.featured}>
-        <NavLink to={d.link} className={style.link}>
+        <NavLink to={`${url}/${d.id}`} className={style.link}>
           <p className={style.featuredRed}>
-            <b>{d.redTxt}</b>
+            <b>Popular</b>
           </p>
           <p className={style.featuredTitle}>
-            <b>{d.title}</b>
+            <b>{d.title_en}</b>
           </p>
-          <p className={style.featuredText}>{d.txt}</p>
+          <p className={style.featuredText}>{d.description_en}</p>
         </NavLink>
       </div>
     </SwiperSlide>

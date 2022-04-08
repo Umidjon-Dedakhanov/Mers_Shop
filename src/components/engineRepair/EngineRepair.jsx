@@ -11,7 +11,7 @@ import useFetch from "../../hooks/useFetch";
 const CATEGORY_ID_ENDPOINT = "aboutMains"
 
 export const EngineRepair = (props) => {
-  const CATEGORY_ID  = props?.match.params.id;
+  const CATEGORY_ID  = props?.match?.params.id;
   const { data } = useFetch(`${CATEGORY_ID_ENDPOINT}/${+CATEGORY_ID}`);
   console.log(data);
   return (
