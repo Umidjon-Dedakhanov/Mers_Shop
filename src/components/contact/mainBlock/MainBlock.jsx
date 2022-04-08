@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Title } from "../../UI/mainBlock/Title";
 import message from "../../../assets/contact/message.png";
 import location from "../../../assets/contact/location.png";
@@ -34,7 +33,13 @@ export const MainBlock = () => {
   ];
 
   const dataMap = data.map((d, index) => (
-    <Title key={index} title={d.title} desc={d.desc} img={d.img} info={d.info} />
+    <Title
+      key={index}
+      title={d.title}
+      desc={d.desc}
+      img={d.img}
+      info={d.info}
+    />
   ));
   return (
     <div className={style.body}>
@@ -48,12 +53,12 @@ export const MainBlock = () => {
           before her birth.
         </p>
         <div className={style.inp_gr}>
-          <input placeholder="Name"/>
-          <input placeholder="Email Address"/>
-          <input placeholder="Surname"/>
-          <input placeholder="Phone number"/>
+          <input placeholder="Name" />
+          <input placeholder="Email Address" />
+          <input placeholder="Surname" />
+          <input placeholder="Phone number" />
         </div>
-        <input className={style.message_inp} placeholder="Message"/>
+        <input className={style.message_inp} placeholder="Message" />
         <button className={style.btn}>Send</button>
       </div>
       <hr className={style.hr2} width="1" size="550" color="gray" />
