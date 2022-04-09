@@ -89,8 +89,7 @@
 .navbar__select {
   position: absolute;
   z-index: 2;
-  display: none
-
+  display: none;
 }
 
 .forSearch:focus-within {

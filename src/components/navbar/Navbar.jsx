@@ -96,9 +96,6 @@ export const Navbar = () => {
               {t("navbar.contact")}
             </NavLink>
           </li>
-          <li className={style.forSearch}>
-            {window.innerWidth <= 769 ? null : <Search />}
-          </li>
           {window.innerWidth <= 769 ? null : (
             <li className={style.forSearch}>
               <Search />
