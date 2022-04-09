@@ -5,14 +5,7 @@ import { Selects } from "./../home/selects/Selects";
 import { BrakeDiscMachineParts } from "./../home/machineParts/BrakeDiscMachineParts";
 import { BrakeDiscProducts } from "./../home/popularProduct/BrakeDiscProducts";
 import { PopularProducts } from "./../home/popularProduct/PopularProducts";
-
 import img from "../../assets/home/main1.webp";
-import mainProduct from "../../assets/products/1.png";
-import one from "../../assets/products/1_1.png";
-import two from "../../assets/products/1_2.png";
-import three from "../../assets/products/1_3.png";
-import four from "../../assets/products/1_4.png";
-
 import { Heading } from "./../UI/Heading";
 import { FeaturedProducts } from "./../home/featuredProducts/FeaturedProducts";
 import { Information } from "./../home/information/Information";
@@ -38,17 +31,10 @@ export const Products = () => {
       <div className={style.box}>
         <Switch>
           <Route
-            path="/product/1"
+            path="/product/:id"
             component={() => (
               <Card
                 sortBy={"Car side tools"}
-                title="Customized Front Carbon Brake Disc"
-                txt={"Hyundai Motor and its affiliate Kia Motors will provide lifetime warranties to owners of vehicles equipped with Theta 2 gasoline direct injection (GDi) engines, the companies said Friday. ar owners here and in the United States, who have experienced engine failure, will be able to receive various cash compensation options and lifetime warranties."}
-                img={mainProduct}
-                one={one}
-                two={two}
-                three={three}
-                four={four}
               />
             )}
           />
@@ -129,7 +115,7 @@ export const Products = () => {
           />
         </Switch>
       </div>
-      {!pathname.includes("/product/1") && (
+      {!pathname.includes("/product/") && (
         <PopularProducts color="#fff" />
       )}
 
