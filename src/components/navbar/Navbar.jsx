@@ -23,7 +23,6 @@ export const Navbar = () => {
   });
 
   const { isAuthenticated } = useSelector((state) => state.authReducer);
-
   return (
     <nav
       className={style.navbar + " " + scroll}
@@ -35,6 +34,16 @@ export const Navbar = () => {
           <span className={style.line + " " + style.line1}></span>
           <span className={style.line + " " + style.line2}></span>
           <span className={style.line + " " + style.line3}></span>
+        </div>
+        <div className={style.navbar__select}>
+          <Select />
+          {isAuthenticated ? (
+            <img src={person} alt="" />
+          ) : (
+            <NavLink exact to={"/login"}>
+              Login
+            </NavLink>
+          )}
         </div>
         <ul className={style.menu_items}>
           <li>
@@ -90,7 +99,12 @@ export const Navbar = () => {
           <li className={style.forSearch}>
             {window.innerWidth <= 769 ? null : <Search />}
           </li>
-          <li>
+          {window.innerWidth <= 769 ? null : (
+            <li className={style.forSearch}>
+              <Search />
+            </li>
+          )}
+          <li className={style.navbar__selectLG}>
             <Select />
             {isAuthenticated ? (
               <img src={person} alt="" />
