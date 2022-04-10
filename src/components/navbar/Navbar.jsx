@@ -23,6 +23,7 @@ export const Navbar = () => {
   });
 
   const { isAuthenticated } = useSelector((state) => state.authReducer);
+
   return (
     <nav
       className={style.navbar + " " + scroll}
@@ -40,15 +41,12 @@ export const Navbar = () => {
           {isAuthenticated ? (
             <img src={person} alt="" />
           ) : (
-            <NavLink exact to={"/login"}>
-              Login
-            </NavLink>
+            <NavLink to={"/login"}>Login</NavLink>
           )}
         </div>
         <ul className={style.menu_items}>
           <li>
             <NavLink
-              exact
               className={style.item__inactive}
               activeClassName={style.item__active}
               to="/"
@@ -58,7 +56,6 @@ export const Navbar = () => {
           </li>
           <li>
             <NavLink
-              exact
               className={style.item__inactive}
               activeClassName={style.item__active}
               to="/about"
@@ -68,7 +65,6 @@ export const Navbar = () => {
           </li>
           <li>
             <NavLink
-              exact
               className={style.item__inactive}
               activeClassName={style.item__active}
               to="/product"
@@ -78,7 +74,6 @@ export const Navbar = () => {
           </li>
           <li>
             <NavLink
-              exact
               className={style.item__inactive}
               activeClassName={style.item__active}
               to="/new"
@@ -88,7 +83,6 @@ export const Navbar = () => {
           </li>
           <li>
             <NavLink
-              exact
               className={style.item__inactive}
               activeClassName={style.item__active}
               to="/contact"
