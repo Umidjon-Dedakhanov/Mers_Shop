@@ -14,6 +14,9 @@
   background-color: #f8f8f8;
   margin-right: 100px;
   width: 36%;
+  height: 450px;
+  min-height: 450px;
+  object-fit: cover;
 }
 
 .block1 .info {
@@ -118,6 +121,11 @@
   display: inherit;
 }
 
+.image_gallery{
+  width: 100px;
+  margin: 10px;
+}
+
 @media (min-width: 0) and (max-width: 769.9px) {
   .lg_btn {
     display: none;
@@ -162,7 +170,7 @@
   }
 
   .pctGroup img {
-    width: 100%;
+    width: 100px;
   }
 
   .block1 h1 {

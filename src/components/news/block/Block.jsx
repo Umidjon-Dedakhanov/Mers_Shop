@@ -6,7 +6,6 @@ import jumbotronPosts1 from '../../../assets/news/jumbotronPost1.png'
 import jumbotronPosts2 from '../../../assets/news/jumbotronPost2.png'
 import jumbotronPosts3 from '../../../assets/news/jumbotronPost3.png'
 import { JumbotronPosts } from '../../UI/newsBlock/NewsBlock';
-
 import style from './Block.module.css'
 
 export const Block = () => {

@@ -8,7 +8,6 @@ const HOME_HEADER_ENDPOINT = "homeHeaders";
 
 export const MyCarousel = () => {
   const { data } = useFetch(HOME_HEADER_ENDPOINT, null)
-  console.log(data)
   return (
     <Carousel showThumbs={false} autoplay>
       {

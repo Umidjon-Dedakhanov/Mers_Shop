@@ -11,7 +11,6 @@ const NEWS_SLIDER_ENDPOINT = "newsSliders";
 export const Popular = () => {
   const { url } = useRouteMatch();
   const {data} = useFetch(NEWS_SLIDER_ENDPOINT, null);
-  console.log(data)
   const dataMap = data.map((d) => (
     <SwiperSlide key={d.id}>
       <div className={style.featured}>
