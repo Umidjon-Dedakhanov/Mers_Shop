@@ -21,9 +21,10 @@ function App() {
     }))
   );
   const About = lazy(() =>
-  import("./components/about/About").then((module) => ({
-    default: module.About,
-  })));
+    import("./components/about/About").then((module) => ({
+      default: module.About,
+    }))
+  );
   const Products = lazy(() =>
     import("./components/products/Products").then((module) => ({
       default: module.Products,
@@ -67,11 +68,17 @@ function App() {
         <Private path="/karzinka/submission" component={KarzinkaSubmission} />
         <Route path="/about" render={withSuspense(About)} />
         <Route exact path="/engine" render={withSuspense(EngineRepair)} />
-        <Route path="/engine/:id" render={withSuspense((props) => <EngineRepair {...props}/>) } type="id"/>
+        <Route
+          path="/engine/:id"
+          render={withSuspense((props) => (
+            <EngineRepair {...props} />
+          ))}
+          type="id"
+        />
         <Route path="/product" render={withSuspense(Products)} />
         <Route path="/contact" render={withSuspense(Contact)} />
-        <Route exact path="/new" render={withSuspense(News)} />
-        <Route path="/new/:id" render={withSuspense(CardBlock)} />
+        <Route exact path="/news" render={withSuspense(News)} />
+        <Route path="/news/:id" render={withSuspense(CardBlock)} />
         <Route path="/account" render={withSuspense(EngineRepair)} />
         <Route path="/karzinka/payment" render={withSuspense(EngineRepair)} />
         <Route path="/karzinka" render={withSuspense(EngineRepair)} />

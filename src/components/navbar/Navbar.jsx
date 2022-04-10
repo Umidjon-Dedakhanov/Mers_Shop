@@ -47,6 +47,7 @@ export const Navbar = () => {
         <ul className={style.menu_items}>
           <li>
             <NavLink
+              exact
               className={style.item__inactive}
               activeClassName={style.item__active}
               to="/"
@@ -76,7 +77,7 @@ export const Navbar = () => {
             <NavLink
               className={style.item__inactive}
               activeClassName={style.item__active}
-              to="/new"
+              to="/news"
             >
               {t("navbar.news")}
             </NavLink>

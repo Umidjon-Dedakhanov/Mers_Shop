@@ -128,12 +128,11 @@
   }
 
   .navbar a {
-    font-size: 64%;
-    width: 50px;
+    font-size: 84%;
   }
 
   .menu_items li {
-    margin-left: 10px;
+    margin-left: 25px;
   }
   .container {
     width: 95%;
