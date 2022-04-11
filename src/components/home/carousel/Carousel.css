@@ -99,14 +99,20 @@
 
 @media (min-width: 850px) and (max-width: 1299.9px) {
   .carousel_block h1 {
-    font-size: 45px;
-    line-height: 55px;
+    font-size: 100%;
+    line-height: normal;
     width: 70%;
   }
 
   .carousel_block p {
-    width: 80%;
-    font-size: 22px;
-    line-height: 26px;
+    width: 70%;
+    font-size: 100%;
+    line-height: normal;
   }
+
+  .carousel_block button{
+    width: 15%;
+    height: auto;
+  }
+
 }

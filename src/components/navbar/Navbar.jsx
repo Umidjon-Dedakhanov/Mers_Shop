@@ -110,7 +110,7 @@ export const Navbar = () => {
             <Switch />
           </li>
         </ul>
-        <NavLink to={"/"}>
+        <NavLink to={"/"} className={style.navbar__logo_block}>
           <img src={logo} alt="" className={style.logo} />
         </NavLink>
       </div>

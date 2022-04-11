@@ -98,7 +98,11 @@
 
 @media (min-width: 760px) and (max-width: 980.9px) {
   .logo {
-    width: 30%;
+    width: 100%;
+  }
+
+  .navbar__logo_block{
+    width: 100px !important
   }
 
   .navbar a {
@@ -113,12 +117,12 @@
     width: 95%;
   }
   .menu_items {
-    width: 85%;
+    width: 60%;
     justify-content: flex-end;
   }
 
   .forSearch {
-    width: 200px;
+    width: 250px;
   }
 }
 
