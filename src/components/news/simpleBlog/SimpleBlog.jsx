@@ -1,11 +1,11 @@
 import React from "react";
 import style from "./SimpleBlog.module.css";
-import useFetch from '../../../hooks/useFetch';
+import useFetchService from '../../../hooks/useFetchService';
 import { SimpleBlogBlock } from "./../../UI/newsSimpleBlog/SimpleBlog";
 const NEWS_MAIN_ENDPOINT = "newsMains";
 
 export const SimpleBlog = () => {
-  const { data } = useFetch(NEWS_MAIN_ENDPOINT, null);
+  const { data } = useFetchService(NEWS_MAIN_ENDPOINT, null);
   var perChunk = Math.floor(data.length / 3); 
   let result = data.reduce((resultArray, item, index) => { 
   const chunkIndex = Math.floor(index/perChunk)
