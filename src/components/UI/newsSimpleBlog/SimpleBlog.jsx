@@ -14,7 +14,7 @@ export const SimpleBlogBlock = ({
           <div key={index} className={style.parent}>
             <div className={style.imgParent}>
               <NavLink to={`/new/${news_item.id}`} className={style.link}>
-                <img src={news_item.imageUrl} alt="Blog 1" />
+                <img src={`${!news_item?.fileUrl.includes("https") ? process.env.REACT_APP_API_SERVICE_FILEPATH + news_item?.fileUrl : news_item?.fileUrl}`} alt="Blog 1" />
               </NavLink>
             </div>
             <div>
