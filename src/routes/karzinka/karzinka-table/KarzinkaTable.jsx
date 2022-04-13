@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import productImage from "../../../assets/karzinka/product.png";
 import KarzinkaProducts from "../karzinka-products/KarzinkaProducts";
 import classes from "./KarzinkaTable.module.css";
 
-const KarzinkaTable = ({checkBox}) => {
+const KarzinkaTable = ({checkBox, cart, setDelIds, ids, allSelected}) => {
   return (
     <table className={classes.product__table}>
       <thead className={classes.table__head}>
@@ -17,15 +16,19 @@ const KarzinkaTable = ({checkBox}) => {
         </tr>
       </thead>
       <tbody className={classes.table__body}>
-        {new Array(3).fill().map((_, index) => (
+        {cart.map((cartItem, index) => (
           <KarzinkaProducts
+            productId={cartItem.product?.id}
+            setDelIds={setDelIds}
+            ids={ids}
             key={index}
-            price={12.99}
+            price={cartItem.product?.cost_usd}
             counters={!checkBox}
             checkBox={checkBox}
-            initialAmount={1}
-            img={productImage}
-            title={`Black/Red/Blue 1" Extra Flow Breather 1" Push In Vent Filter for Valve Cover`}
+            initialAmount={cartItem.quantity}
+            img={cartItem.product?.imageUrl}
+            title={cartItem.product?.name_en}
+            allSelected={allSelected}
           />
         ))}
       </tbody>

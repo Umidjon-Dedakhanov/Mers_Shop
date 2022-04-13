@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import classes from './Karzinka.module.css';
@@ -14,8 +14,14 @@ import KarzinkaFooter from './karzinka-footer/KarzinkaFooter';
 import KarzinkaRecommendations from './karzinka-recommendations/KarzinkaRecommendations';
 import KarzinkaMethods from './karzinka-methods/KarzinkaMethods'
 import KarzinkaTable from './karzinka-table/KarzinkaTable'
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from '../../redux/actions/cartActions';
 
 const Karzinka = () => {
+    const [delIds, setDelIds] = useState([]);
+    const dispatch = useDispatch();
+    const {cart} = useSelector(state => state.cart);
+    console.log(delIds    )
     const link_style={
         textDecoration :"none",
         color: "#fff",
@@ -24,7 +30,19 @@ const Karzinka = () => {
         fontFamily: "var(--main-font-family)",
         display: "flex"
     }
-   
+
+    const handleRemoveBasketElements = () => {
+       let all = cart.map((item) => item.product.id)
+        if(allSelected){
+            dispatch(removeFromCart(all))
+        }
+        else{
+            dispatch(removeFromCart(delIds))
+        }
+    }
+    const subTotal = cart?.map((item) => item.product?.cost_usd * item?.quantity).reduce((acc, inc) => acc + inc, 0)
+    const items = cart?.map((item) => item.quantity).reduce((acc, inc) => acc + inc, 0);
+    const [allSelected, setAllSelected ] = useState(false);
     return (
         <div>
             <KarzinkaNavbar title="ewbfejwkb" JSXcomponent={<Link style={link_style}  to='/pokupka'>Продолжить покупки <FiChevronRight/></Link>}/>
@@ -33,17 +51,17 @@ const Karzinka = () => {
                 <div className={classes.container__checkout}>
                     <div className={classes.container__products}>
                         <div className={classes.container__count}>
-                            <h1 className={classes.count__indicator}>Корзина (6)</h1>
+                            <h1 className={classes.count__indicator}>Корзина ({items})</h1>
                             <ul className={classes.count__collection}>
-                                <li><input type="checkbox" />Выбрать все</li>
+                                <li ><input type="checkbox" onChange={(e) => setAllSelected(e.target.checked)}/>Выбрать все</li>
                                 <li>Move to wishlist</li>
-                                <li>Remove</li>
+                                <li onClick={handleRemoveBasketElements}>Remove</li>
                             </ul>
                         </div>
-                        <KarzinkaTable noChecBox={false}/>
+                        <KarzinkaTable setDelIds={setDelIds} ids={delIds} cart={cart} noChecBox={false} allSelected={allSelected}/>
                     </div>
                     <div className={classes.container__payment}>
-                       <KarzinkaMethods/>
+                       <KarzinkaMethods items={items} subTotal={subTotal}/>
                         <p>Мы принимаем:</p>
                         <ul className={classes.collection_payment}>
                             <li><img src={masterCard} alt="" /></li>

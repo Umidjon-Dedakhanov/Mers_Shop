@@ -5,8 +5,8 @@ import { Route, Redirect, useLocation } from "react-router-dom";
 const Private = (props) => {
   const user = useSelector((state) => state.authReducer);
   const location = useLocation();
-
-  return user.isAuthenticated && user ? (
+  console.log(user)
+  return user.isAuthenticated ? (
     <Route {...props} />
   ) : (
     <Redirect

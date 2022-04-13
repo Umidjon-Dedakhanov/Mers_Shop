@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from './KarzinkaProducts.module.css';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { increaseQuantity, decreaseQuantity } from '../../../redux/actions/cartActions';
 
-const KarzinkaProducts = ({img, title, price, counters, initialAmount, checkBox}) => {
-    const [initialProductAmount, setInitialProductAmount] = useState(initialAmount);
+const KarzinkaProducts = ({img, title, price, counters, initialAmount, checkBox, productId, setDelIds, ids, allSelected}) => {
+    console.log(allSelected)
+    const dispatch = useDispatch();
+    const handleCheckedProduct = (index) => {
+        setDelIds([...ids, index])
+    }
+    const handleUnCheckedProduct = (index) => {
+        setDelIds(ids.filter(i => i !== index))
+    }
     return (
         <tr className={classes.product__item}>
-            <td  className={classes.product__cell}>{!checkBox && <div className={classes.cell__check}><input type="checkbox" /></div>}</td>
-            <td style={checkBox ? {paddingLeft: "1e0px"} : null} className={classes.product__cell + ' ' + classes.product__block}> <div><img src={img} alt=""/> <p>{title}</p></div> </td>
-            <td className={classes.product__cell}><div className={classes.cell__info}>{price}</div></td>
-            <td className={classes.product__cell}> <div className={classes.cell__counter}>{counters && <button onClick={() => setInitialProductAmount(prev => prev - 1)}>-</button>} {initialProductAmount} {counters && <button onClick={() => setInitialProductAmount(prev => prev + 1)}>+</button>}</div></td>
-            <td className={classes.product__cell}><div className={classes.cell__info}>{price * initialProductAmount}</div></td>
+            <td  className={classes.product__cell}>{!checkBox && <div className={classes.cell__check}><input type="checkbox" checked={allSelected ? allSelected : null} onChange={(e) => e.target.checked ? handleCheckedProduct(productId) : handleUnCheckedProduct(productId)}/></div>}</td>
+            <td style={checkBox ? {paddingLeft: "1e0px"} : null} className={classes.product__cell + ' ' + classes.product__block}> <div><img className={classes.product__cell__image} src={img} alt=""/> <p>{title}</p></div> </td>
+            <td className={classes.product__cell}><div className={classes.cell__info}>${price}</div></td>
+            <td className={classes.product__cell}> <div className={classes.cell__counter}>{counters && <button onClick={() => dispatch(decreaseQuantity({id: productId}))}>-</button>} {initialAmount} {counters && <button onClick={() => dispatch(increaseQuantity({id: productId}))}>+</button>}</div></td>
+            <td className={classes.product__cell}><div className={classes.cell__info}>${price * initialAmount}</div></td>
         </tr>
     )
 }
@@ -20,7 +29,8 @@ KarzinkaProducts.propTypes = {
     title: PropTypes.string,
     initialAmount: PropTypes.number,
     counters: PropTypes.bool,
-    price: PropTypes.number
+    price: PropTypes.number,
+    index: PropTypes.number
 };
 
 export default KarzinkaProducts

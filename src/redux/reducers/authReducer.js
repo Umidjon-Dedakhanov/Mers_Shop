@@ -2,7 +2,7 @@ import { AUTH_FAIL, AUTH_USER, AUTH_LOADING } from "../actions/types";
 
 const inititalState = {
   user: null,
-  isAuthenticated: true,
+  isAuthenticated: false,
   message: null,
   error: null,
   code: null,

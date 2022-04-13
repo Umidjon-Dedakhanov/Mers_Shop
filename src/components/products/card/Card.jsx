@@ -1,19 +1,26 @@
 import React, { useState } from "react";
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, Link } from 'react-router-dom';
 import useFetch from "../../../hooks/useFetch";
 import style from './Card.module.css';
 import { FiStar } from 'react-icons/fi';
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/actions/cartActions";
 const CARD_MAINS_ENDPOINT_WITHID = "productMains";
 
 export const Card = ({sortBy}) => {
+  const dispatch = useDispatch();
   const params = useParams();
   const [selectedImage, setSelectedImage] = useState(0);
   const { data } = useFetch(`${CARD_MAINS_ENDPOINT_WITHID}/${+params.id}`, null)
-  console.log(data)
 
   const handleQuantity = (e) => {
     console.log(e.target.value)
   }
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  }
+
   return (
     <div className={style.body}>
       <div className={style.block + ' ' + style.block1}>
@@ -54,7 +61,8 @@ export const Card = ({sortBy}) => {
               )
             }
           </div>
-          <button  className={style.btn  + ' ' + style.lg_btn}>Add to bag</button>
+          <Link to="/karzinka">karzinka</Link>
+          <button onClick={() => handleAddToCart(data)}  className={style.btn  + ' ' + style.lg_btn}>Add to bag</button>
       </div>
     </div>
   );

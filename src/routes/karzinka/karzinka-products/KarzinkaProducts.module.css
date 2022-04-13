@@ -39,6 +39,11 @@
   text-align: center;
 }
 
+.product__cell__image{
+  max-width: 200px;
+  max-height: 200px;
+}
+
 @media (min-width: 0) and (max-width: 700.9px) {
 
   .product__item {
