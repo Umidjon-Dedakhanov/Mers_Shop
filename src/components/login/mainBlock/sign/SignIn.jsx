@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Sign.module.css";
 import { connect, useSelector } from "react-redux";
-import { authUser } from "../../../../redux/actions/index";
+import { authUser } from "../../../../redux/actions/authActions";
 const TEST_EMAIL_REGX =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const TEST_PASSWORD_REGX =
@@ -39,7 +39,6 @@ function SignInForm(props) {
       return;
     }
   };
-  console.log(authStatus);
 
   return (
     <div className={style.main}>
@@ -82,4 +81,3 @@ function SignInForm(props) {
 }
 
 export default connect(null, { authUser })(SignInForm);
-//

@@ -7,7 +7,7 @@ import KarzinkaPayment from "./routes/karzinka-payment/KarzinkaPayment";
 import Private from "./routes/private/PrivateRoute";
 import { Footer } from "./components/footer/Footer";
 import { Navbar } from "./components/navbar/Navbar";
-import { Card } from "./components/news/card/Card";
+import { CardBlock } from "./components/news/card/Card";
 import Karzinka from "./routes/karzinka/Karzinka";
 import { withSuspense } from "./hoc/withSuspense";
 import Account from "./routes/account/Account";
@@ -60,25 +60,36 @@ function App() {
           <Navbar />
         </>
       )}
-      <Card />
+      {/* <Card /> */}
       <Switch>
         <Private path="/account" component={Account} />
         <Private path="/karzinka/payment" component={KarzinkaPayment} />
         <Private path="/karzinka" component={Karzinka} />
         <Private path="/karzinka/submission" component={KarzinkaSubmission} />
         <Route path="/about" render={withSuspense(About)} />
-        <Route path="/engine" render={withSuspense(EngineRepair)} />
+        <Route exact path="/engine" render={withSuspense(EngineRepair)} />
+        <Route
+          path="/engine/:id"
+          render={withSuspense((props) => (
+            <EngineRepair {...props} />
+          ))}
+          type="id"
+        />
         <Route path="/product" render={withSuspense(Products)} />
         <Route path="/contact" render={withSuspense(Contact)} />
-        <Route path="/new" render={withSuspense(News)} />
+        <Route exact path="/news" render={withSuspense(News)} />
+        <Route path="/news/:id" render={withSuspense(CardBlock)} />
         <Route path="/account" render={withSuspense(EngineRepair)} />
         <Route path="/karzinka/payment" render={withSuspense(EngineRepair)} />
         <Route path="/karzinka" render={withSuspense(EngineRepair)} />
-        <Route path="/karzinka/submission" render={withSuspense(EngineRepair)} />
+        <Route
+          path="/karzinka/submission"
+          render={withSuspense(EngineRepair)}
+        />
         <Route path="/login" render={withSuspense(Login)} />
-        <Route path="/" render={withSuspense(Home)} />
+        <Route exact path="/" render={withSuspense(Home)} />
 
-        <Route path="*" render={withSuspense(Login)} />
+        {/* <Route path="*" render={withSuspense(Login)} /> */}
       </Switch>
       {!pathname.includes("/karzinka") && !pathname.includes("/login") && (
         <Footer />

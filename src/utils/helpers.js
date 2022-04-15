@@ -62,12 +62,12 @@ export const MachineParts = ({
 
 // home/card
 
-export const CardProduct = ({ img, desc, price, path='/product/1' }) => {
+export const CardProduct = ({ img, desc, price, path = "/product/1" }) => {
   const history = useHistory();
 
-  const onClick = () =>{
-    history.push(path)
-  }
+  const onClick = () => {
+    history.push(path);
+  };
 
   return (
     <div className={style.CardProduct} onClick={onClick}>
@@ -158,15 +158,22 @@ export const InformationCard = ({ img, title, desc }) => {
 
 // footer/links
 
-export const LinksFooter = ({ title, links }) => {
+export const LinksFooter = ({ title, links, phone }) => {
   return (
     <div className={style.LinksFooter}>
       <h1>{title}</h1>
-      {links.map((l) => (
-        <NavLink key={l.id} to={l.path}>
-          {l.name}
-        </NavLink>
-      ))}
+      {links &&
+        links.map((l, index) => (
+          <NavLink key={index} to={`/${l.split(" ").join("").toLowerCase()}`}>
+            {l}
+          </NavLink>
+        ))}
+      {phone &&
+        phone.map((ph, index) => (
+          <a key={index} href={`tel:${ph}`}>
+            {ph}
+          </a>
+        ))}
     </div>
   );
 };

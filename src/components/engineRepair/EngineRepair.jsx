@@ -7,8 +7,13 @@ import { Heading } from "./../UI/Heading";
 import { Title } from "./../UI/engineRepair/Title";
 
 import style from "./EngineRepair.module.css";
+import useFetch from "../../hooks/useFetch";
+const CATEGORY_ID_ENDPOINT = "aboutMains"
 
-export const EngineRepair = () => {
+export const EngineRepair = (props) => {
+  const CATEGORY_ID  = props?.match?.params.id;
+  const { data } = useFetch(`${CATEGORY_ID_ENDPOINT}/${+CATEGORY_ID}`);
+  console.log(data);
   return (
     <div className={style.body}>
       <Heading

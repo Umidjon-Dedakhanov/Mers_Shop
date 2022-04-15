@@ -11,7 +11,7 @@ const Private = (props) => {
   ) : (
     <Redirect
       to={{
-        pathname: "/forgetPassword",
+        pathname: "/login",
         state: {
           from: location.pathname,
         },

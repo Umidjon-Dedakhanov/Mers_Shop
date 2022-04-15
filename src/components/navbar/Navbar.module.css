@@ -89,8 +89,7 @@
 .navbar__select {
   position: absolute;
   z-index: 2;
-  display: none
-
+  display: none;
 }
 
 .forSearch:focus-within {
@@ -133,12 +132,11 @@
   }
 
   .navbar a {
-    font-size: 64%;
-    width: 50px;
+    font-size: 84%;
   }
 
   .menu_items li {
-    margin-left: 10px;
+    margin-left: 25px;
   }
   .container {
     width: 95%;

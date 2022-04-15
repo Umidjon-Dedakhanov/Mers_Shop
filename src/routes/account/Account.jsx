@@ -23,7 +23,6 @@ const Account = () => {
     ["All products", "products", "Lorem 1"],
     ["All products", "products", "Lorem 1"],
   ];
-
   const { path } = useRouteMatch();
   return (
     <div>
