@@ -13,7 +13,7 @@
 .block1 img {
   background-color: #f8f8f8;
   margin-right: 100px;
-  width: 36%;
+  width: 450px;
   height: 450px;
   min-height: 450px;
   object-fit: cover;
@@ -126,6 +126,30 @@
   margin: 10px;
 }
 
+.pctGroup {
+  width: 450px;
+  margin-left: 20px;
+}
+
+.checkout__btn{
+  padding: 0px 100px;
+  height: 55px;
+  background-color: #6a7d8e;
+  color: #fff;
+  font-size: 20px;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-family: var(--main-font-family-bold);
+}
+
+.checkout__btn > svg{
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
 @media (min-width: 0) and (max-width: 769.9px) {
   .lg_btn {
     display: none;
@@ -163,6 +187,7 @@
   }
 
   .pctGroup {
+    background-color: red;
     width: 100%;
     overflow: auto;
     display: flex;

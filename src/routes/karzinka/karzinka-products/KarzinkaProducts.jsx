@@ -18,7 +18,7 @@ const KarzinkaProducts = ({img, title, price, counters, initialAmount, checkBox,
             <td  className={classes.product__cell}>{!checkBox && <div className={classes.cell__check}><input type="checkbox" checked={allSelected ? allSelected : null} onChange={(e) => e.target.checked ? handleCheckedProduct(productId) : handleUnCheckedProduct(productId)}/></div>}</td>
             <td style={checkBox ? {paddingLeft: "1e0px"} : null} className={classes.product__cell + ' ' + classes.product__block}> <div><img className={classes.product__cell__image} src={img} alt=""/> <p>{title}</p></div> </td>
             <td className={classes.product__cell}><div className={classes.cell__info}>${price}</div></td>
-            <td className={classes.product__cell}> <div className={classes.cell__counter}>{counters && <button onClick={() => dispatch(decreaseQuantity({id: productId}))}>-</button>} {initialAmount} {counters && <button onClick={() => dispatch(increaseQuantity({id: productId}))}>+</button>}</div></td>
+            <td className={classes.product__cell}> <div className={classes.cell__counter}>{counters && <button onClick={initialAmount > 1 ? () => dispatch(decreaseQuantity({id: productId})) : () => {}}>-</button>} {initialAmount} {counters && <button onClick={() => dispatch(increaseQuantity({id: productId}))}>+</button>}</div></td>
             <td className={classes.product__cell}><div className={classes.cell__info}>${price * initialAmount}</div></td>
         </tr>
     )
