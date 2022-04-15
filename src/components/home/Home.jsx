@@ -52,8 +52,8 @@ export const Home = () => {
         />
       </Switch>
 
-      <System />
       <FeaturedProducts />
+      <System />
       <AllProducts />
       <Information />
     </div>

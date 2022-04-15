@@ -62,10 +62,22 @@
   height: 54px;
   background: #152a59;
   border-radius: 0;
+  border: none;
+  font-size: 18px;
   color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
 }
+.carousel_block button:hover {
+  background: #fff;
+  color: #152a59;
+}
+/* .carousel_block button:hover {
+  background: linear-gradient(45deg, #eea949, #ff3984) center/0% 100% no-repeat;
+  background-size: 100% 100%;
+} */
 
-.carousel.carousel-slider .control-arrow{
+.carousel.carousel-slider .control-arrow {
   display: none;
 }
 
@@ -110,9 +122,8 @@
     line-height: normal;
   }
 
-  .carousel_block button{
+  .carousel_block button {
     width: 15%;
     height: auto;
   }
-
 }
