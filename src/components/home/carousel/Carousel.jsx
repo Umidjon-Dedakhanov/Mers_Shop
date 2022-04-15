@@ -6,9 +6,9 @@ import main from "../../../assets/home/main.webp";
 import main1 from "../../../assets/home/main1.webp";
 import main2 from "../../../assets/home/main2.webp";
 import main3 from "../../../assets/home/main3.png";
+import { Search } from "./../../navbar/search/Search";
 
 import "./Carousel.css";
-import { Search } from "./../../navbar/search/Search";
 
 export const MyCarousel = () => {
   return (
@@ -18,6 +18,8 @@ export const MyCarousel = () => {
           style={{ backgroundImage: `url(${main})` }}
           className="carousel_block"
         >
+          <div className={"darken"}></div>
+
           {window.innerWidth <= 769 ? <Search /> : null}
 
           <h1>All existing and newly added spare parts can be found</h1>
@@ -33,6 +35,7 @@ export const MyCarousel = () => {
           style={{ backgroundImage: `url(${main1})` }}
           className="carousel_block"
         >
+          <div className={"darken"}></div>
           <h1>All existing and newly added spare parts can be found</h1>
           <p>
             The automotive industry is strong, and drivers will always need a
@@ -46,6 +49,8 @@ export const MyCarousel = () => {
           style={{ backgroundImage: `url(${main2})` }}
           className="carousel_block"
         >
+          <div className={"darken"}></div>
+
           <h1>All existing and newly added spare parts can be found</h1>
           <p>
             The automotive industry is strong, and drivers will always need a
@@ -59,6 +64,8 @@ export const MyCarousel = () => {
           style={{ backgroundImage: `url(${main3})` }}
           className="carousel_block"
         >
+          <div className={"darken"}>ytutyu</div>
+
           <h1>All existing and newly added spare parts can be found</h1>
           <p>
             The automotive industry is strong, and drivers will always need a

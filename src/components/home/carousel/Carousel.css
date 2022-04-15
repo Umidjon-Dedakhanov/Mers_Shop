@@ -25,7 +25,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
-  height: 95vh;
+  height: 90vh;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -39,6 +39,7 @@
   text-align: center;
   color: #ffffff;
   width: 600px;
+  position: relative;
 }
 
 .carousel_block p {
@@ -50,6 +51,7 @@
   text-align: center;
   color: #ffffff;
   margin: 15px 0 30px 0;
+  position: relative;
 }
 
 .carousel_block button {
@@ -63,10 +65,18 @@
   background: #152a59;
   border-radius: 0;
   color: #fff;
+  position: relative;
 }
 
-.carousel.carousel-slider .control-arrow{
+.carousel.carousel-slider .control-arrow {
   display: none;
+}
+
+.darken {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
 }
 
 @media (min-width: 0) and (max-width: 549.9px) {
@@ -110,9 +120,8 @@
     line-height: normal;
   }
 
-  .carousel_block button{
+  .carousel_block button {
     width: 15%;
     height: auto;
   }
-
 }

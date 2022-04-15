@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import { BrakeDiscMachineParts } from "./machineParts/BrakeDiscMachineParts";
 import { FeaturedProducts } from "./featuredProducts/FeaturedProducts";
@@ -22,7 +22,7 @@ export const Home = () => {
     ["All products", "products", "Lorem 1"],
     ["All products", "products", "Lorem 1"],
     ["All products", "products", "Lorem 1"],
-    ["All products", "products", "Lorem 1"],
+    ["All products", "products", "Lorem 1"]
   ];
 
   return (
@@ -30,27 +30,26 @@ export const Home = () => {
       <MyCarousel />
       {/* <Selects /> */}
       <FilterNavbar filterNavData={filter_items} />
-
-      <Switch>
+      <AllMachineParts />
+      <PopularProducts />
         <Route
-          path="/all"
-          element={
+          path="/"
+          render={() => {
             <>
               <AllMachineParts />
               <PopularProducts />
-            </>
-          }
+            </>;
+          }}
         />
         <Route
-          path="/brakeDisc"
-          element={
+          path="/rtetert"
+          render={() => {
             <>
               <BrakeDiscMachineParts />
               <BrakeDiscProducts />
-            </>
-          }
+            </>;
+          }}
         />
-      </Switch>
 
       <System />
       <FeaturedProducts />
