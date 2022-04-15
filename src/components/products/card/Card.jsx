@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useParams, Link } from 'react-router-dom';
 import useFetch from "../../../hooks/useFetch";
 import style from './Card.module.css';
-import { FiStar } from 'react-icons/fi';
+import { FiShoppingCart, FiStar } from 'react-icons/fi';
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/actions/cartActions";
 const CARD_MAINS_ENDPOINT_WITHID = "productMains";
@@ -16,7 +16,6 @@ export const Card = ({sortBy}) => {
   const handleQuantity = (e) => {
     console.log(e.target.value)
   }
-
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
   }
@@ -61,8 +60,9 @@ export const Card = ({sortBy}) => {
               )
             }
           </div>
-          <Link to="/karzinka">karzinka</Link>
           <button onClick={() => handleAddToCart(data)}  className={style.btn  + ' ' + style.lg_btn}>Add to bag</button>
+          <Link className={style.checkout__btn} to="/karzinka">Checkout <FiShoppingCart/> </Link>
+
       </div>
     </div>
   );
