@@ -106,7 +106,7 @@ export const SystemBigBox = ({ title, link, img }) => {
     >
       <h1>{title}</h1>
       <NavLink to={link}>
-        <button>Browse all</button>
+        <button className={style.browse_btn}>Hammasini ko'rish</button>
       </NavLink>
     </div>
   );
