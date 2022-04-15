@@ -1,9 +1,10 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import "./Carousel.css";
 import { Search } from "./../../navbar/search/Search";
 import useFetch from "../../../hooks/useFetch";
+import "./Carousel.css";
+
 const HOME_HEADER_ENDPOINT = "homeHeaders";
 
 export const MyCarousel = () => {
@@ -17,6 +18,7 @@ export const MyCarousel = () => {
               style={{ backgroundImage: `url(${carousel_item.imageUrl})` }}
               className="carousel_block"
             >
+              <div className="darken"></div>
               {window.innerWidth <= 769 ? <Search /> : null}
 
               <h1>{carousel_item.title_en}</h1>
