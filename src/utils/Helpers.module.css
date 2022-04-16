@@ -53,6 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .body .box {
@@ -87,6 +88,7 @@
   width: 200px;
   margin-top: 5px;
   height: 50px;
+  position: relative;
 }
 
 .body .box .sale strong {
@@ -108,9 +110,11 @@
 }
 
 .body .box a {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  opacity: 0;
+  visibility: hidden;
   padding: 10px 20px;
   width: 127px;
   height: 40px;
@@ -124,9 +128,16 @@
 
   text-align: center;
   text-transform: uppercase;
-
+  position: absolute;
+  bottom: -10px;
   color: #ffffff;
   margin-top: 20px;
+  transition: 0.2s ease;
+}
+.body:hover .box a {
+  opacity: 1;
+  visibility: visible;
+  bottom: 30px;
 }
 
 .CardProduct {
@@ -204,8 +215,11 @@
 }
 
 .SystemBigBox button {
-  width: 126px;
-  height: 40px;
+  /* width: 126px; */
+  padding: 15px 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  /* height: 40px; */
   border: 1px solid #ffffff;
   box-sizing: border-box;
   background-color: transparent;
@@ -219,19 +233,24 @@
   color: #ffffff;
   margin-top: 15px;
 }
-
+.SystemBigBox button:hover {
+  backdrop-filter: blur(10px);
+}
 .SystemBigBox a {
   text-decoration: none;
 }
 
 .SystemSmallBox {
   width: 26%;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 .SystemSmallBox img {
+  transition: 0.3s ease-in-out;
   width: 100%;
 }
-
+.SystemSmallBox img:hover {
+  transform: scale(1.05, 1.05);
+}
 .SystemSmallBox h3 {
   font-weight: 400;
   font-size: 16px;
@@ -299,12 +318,50 @@
 }
 
 .InformationCard {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
+.InformationCard img {
+  animation: rounded_images 2s ease-in-out infinite;
+}
+@keyframes rounded_images {
+  0% {
+    transform: rotate(-15deg);
+  }
+  10% {
+    transform: rotate(-30deg);
+  }
+  20% {
+    transform: rotate(-45deg);
+  }
+  30% {
+    transform: rotate(-30deg);
+  }
+  40% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(15deg);
+  }
+  70% {
+    transform: rotate(30deg);
+  }
+  80% {
+    transform: rotate(45deg);
+  }
+  90% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 .InformationCard h1 {
   font-weight: 700;
   font-size: 20px;
