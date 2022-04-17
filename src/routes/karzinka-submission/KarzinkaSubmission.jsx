@@ -13,11 +13,15 @@ import KarzinkaTable from '../karzinka/karzinka-table/KarzinkaTable';
 import KarzinkaMethods from '../karzinka/karzinka-methods/KarzinkaMethods'
 import KarzinkaForm from './karzinka-form/KarzinkaForm';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const KarzinkaSubmission = () => {
+    const { cart } = useSelector(state => state.cart);
+    const subTotal = cart?.map((item) => item.product?.cost_usd * item?.quantity).reduce((acc, inc) => acc + inc, 0)
+    const items = cart?.map((item) => item.quantity).reduce((acc, inc) => acc + inc, 0);
     return (
         <div>
-            <KarzinkaNavbar title="ewbfejwkb" JSXcomponent={<KarzinkaProcess activeColor="#fff" lineColor="#fff" />}/>
+            <KarzinkaNavbar title="ewbfejwkb" JSXcomponent={<KarzinkaProcess active={2} activeColor="#fff" lineColor="#fff" />}/>
             <div className={classes.submission__container}>
                 <div className={classes.container__form }>
                     <h1 className={classes.form__title}> <FiMapPin/> Пожалуйста, подтвердите свой адрес доставки <FiInfo/> </h1>
@@ -40,11 +44,11 @@ const KarzinkaSubmission = () => {
                         </div>
                     </div>
                 </div>
-                    <KarzinkaTable checkBox={true}/>
+                    <KarzinkaTable cart={cart} checkBox={true}/>
                     
                 </div>
                 <div className={classes.payment__methodadd}>
-                    <KarzinkaMethods/>
+                    <KarzinkaMethods items={items} subTotal={subTotal}/>
                     <div className={classes.payment__agreement}>
                         <input type="checkbox"  />
                         <p>Я принимаю <Link to="/"> Условия и положения</Link> а также <Link to="/">политика конфиденциальности</Link></p>
@@ -55,7 +59,7 @@ const KarzinkaSubmission = () => {
             </div>
             
             <div className={classes.total}>
-                <h2>Пакет 1 (6 шт.)</h2>
+                <h2>Пакет 1 ({items} шт.)</h2>
                 <p>доставить из CN | Время отправки: <span>10-20 рабочих дней</span></p>
             </div>
             

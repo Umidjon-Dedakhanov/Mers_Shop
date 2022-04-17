@@ -64,7 +64,7 @@ function App() {
       <Switch>
         <Private path="/account" component={Account} />
         <Private path="/karzinka/payment" component={KarzinkaPayment} />
-        <Route path="/karzinka" component={Karzinka} />
+        <Route exact path="/karzinka" component={Karzinka} />
         <Private path="/karzinka/submission" component={KarzinkaSubmission} />
         <Route path="/about" render={withSuspense(About)} />
         <Route exact path="/engine" render={withSuspense(EngineRepair)} />
@@ -80,9 +80,10 @@ function App() {
         <Route exact path="/news" render={withSuspense(News)} />
         <Route path="/news/:id" render={withSuspense(CardBlock)} />
         <Route path="/account" render={withSuspense(EngineRepair)} />
-        <Route path="/karzinka/payment" render={withSuspense(EngineRepair)} />
-        <Route path="/karzinka" render={withSuspense(EngineRepair)} />
+        <Route exact path="/karzinka/payment" render={withSuspense(EngineRepair)} />
+        <Route exact path="/karzinka" render={withSuspense(EngineRepair)} />
         <Route
+        exact
           path="/karzinka/submission"
           render={withSuspense(EngineRepair)}
         />

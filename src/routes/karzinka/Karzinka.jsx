@@ -21,7 +21,6 @@ const Karzinka = () => {
     const [delIds, setDelIds] = useState([]);
     const dispatch = useDispatch();
     const {cart} = useSelector(state => state.cart);
-    console.log(delIds    )
     const link_style={
         textDecoration :"none",
         color: "#fff",
@@ -47,7 +46,7 @@ const Karzinka = () => {
         <div>
             <KarzinkaNavbar title="ewbfejwkb" JSXcomponent={<Link style={link_style}  to='/pokupka'>Продолжить покупки <FiChevronRight/></Link>}/>
             <div className={classes.main__container}>
-                <KarzinkaProcess activeColor="#000"/>
+                <KarzinkaProcess active={1} activeColor="#000"/>
                 <div className={classes.container__checkout}>
                     <div className={classes.container__products}>
                         <div className={classes.container__count}>

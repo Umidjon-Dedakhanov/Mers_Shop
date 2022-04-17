@@ -1,5 +1,5 @@
 import React from "react";
-import Button from '../../../components/UI/button/Button';
+import { Link } from "react-router-dom";
 import classes from '../Karzinka.module.css'
 
 const KarzinkaMethods = ({items, subTotal}) => {
@@ -21,12 +21,7 @@ const KarzinkaMethods = ({items, subTotal}) => {
           <p>Oбщий :</p> <b>${subTotal}</b>{" "}
         </div>
       </div>
-      <Button
-        title="Оформить заказ"
-        disabled={false}
-        loading={false}
-        loadingText="Loading..."
-      />
+      <Link className={classes.link__submit} to="/karzinka/submission">Оформить заказ</Link>
     </div>
   );
 };

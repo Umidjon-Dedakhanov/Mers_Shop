@@ -16,7 +16,7 @@ const KarzinkaTable = ({checkBox, cart, setDelIds, ids, allSelected}) => {
         </tr>
       </thead>
       <tbody className={classes.table__body}>
-        {cart.map((cartItem, index) => (
+        {cart?.map((cartItem, index) => (
           <KarzinkaProducts
             productId={cartItem.product?.id}
             setDelIds={setDelIds}

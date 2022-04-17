@@ -3,9 +3,11 @@
     height: auto;
     margin: 0px auto;
     display: flex;
+    justify-content: space-between;
 }
 
 .container__form{
+    width: 100%;
     margin-right: 20px;
 }
 
@@ -27,11 +29,13 @@
 }
 
 .payment__methodadd{
+    width: 300px;
     margin-top: -50px;
 }
 
 .payment__agreement{
     display: flex;
+    margin-top: 20px;
 }
 
 .payment__agreement > input{
