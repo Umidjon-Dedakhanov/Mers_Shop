@@ -60,7 +60,7 @@ const Karzinka = () => {
                         <KarzinkaTable setDelIds={setDelIds} ids={delIds} cart={cart} noChecBox={false} allSelected={allSelected}/>
                     </div>
                     <div className={classes.container__payment}>
-                       <KarzinkaMethods items={items} subTotal={subTotal}/>
+                       <KarzinkaMethods btn={false} items={items} subTotal={subTotal}/>
                         <p>Мы принимаем:</p>
                         <ul className={classes.collection_payment}>
                             <li><img src={masterCard} alt="" /></li>

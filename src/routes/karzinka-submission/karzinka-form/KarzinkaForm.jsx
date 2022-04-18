@@ -69,7 +69,7 @@ const KarzinkaForm = (props) => {
     const handleKarzinkaSubmissionForm = (e) => {
         e.preventDefault();
         if(isValidPhone && isValidFname &&  isValidLname && isValidCountry && isValidProvince &&  isValidCity &&  isValidAddress){
-            props.orderProducts(cart[0]?.product, user, {
+            props.orderProducts(cart[0]?.product, cart[0]?.quantity, user, {
                 fname: fName,
                 lname: lName,
                 address: address,

@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 import KarzinkaSubmission from "./routes/karzinka-submission/KarzinkaSubmission";
 import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
 import KarzinkaPayment from "./routes/karzinka-payment/KarzinkaPayment";
@@ -15,6 +15,8 @@ import Account from "./routes/account/Account";
 import "./App.css";
 
 function App() {
+  const order = useSelector(state => state.order);
+  console.log(order);
   const Home = lazy(() =>
     import("./components/home/Home").then((module) => ({
       default: module.Home,

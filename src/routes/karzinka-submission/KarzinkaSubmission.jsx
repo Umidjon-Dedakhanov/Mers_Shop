@@ -48,7 +48,7 @@ const KarzinkaSubmission = () => {
                     
                 </div>
                 <div className={classes.payment__methodadd}>
-                    <KarzinkaMethods items={items} subTotal={subTotal}/>
+                    <KarzinkaMethods btn={true} items={items} subTotal={subTotal}/>
                     <div className={classes.payment__agreement}>
                         <input type="checkbox"  />
                         <p>Я принимаю <Link to="/"> Условия и положения</Link> а также <Link to="/">политика конфиденциальности</Link></p>
