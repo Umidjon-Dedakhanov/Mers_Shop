@@ -5,13 +5,12 @@ import { useDispatch } from 'react-redux';
 import { increaseQuantity, decreaseQuantity } from '../../../redux/actions/cartActions';
 
 const KarzinkaProducts = ({img, title, price, counters, initialAmount, checkBox, productId, setDelIds, ids, allSelected}) => {
-    console.log(allSelected)
     const dispatch = useDispatch();
     const handleCheckedProduct = (index) => {
         setDelIds([...ids, index])
     }
     const handleUnCheckedProduct = (index) => {
-        setDelIds(ids.filter(i => i !== index))
+        setDelIds(ids.filter(i => i !== index));
     }
     return (
         <tr className={classes.product__item}>

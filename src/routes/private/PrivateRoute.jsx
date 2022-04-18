@@ -11,10 +11,10 @@ const Private = (props) => {
   ) : (
     <Redirect
       to={{
-        pathname: "/login",
+        pathname: "/login/sign-in",
         state: {
           from: location.pathname,
-        },
+        }
       }}
     />
   );

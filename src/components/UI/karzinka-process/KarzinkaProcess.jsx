@@ -1,30 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from './KarzinkaProcess.module.css';
 import { FiShoppingBag, FiFileText, FiCreditCard, FiArchive } from 'react-icons/fi';
 
-const KarzinkaProcess = ({procCss, activeColor, lineColor}) => {
+const KarzinkaProcess = ({procCss, activeColor, lineColor, active}) => {
     return (
         <div className={classes.karzinka__process} style={procCss}>
             <ul className={classes.karzinka__collection}>
-                <li style={{color: activeColor}} className={classes.collection__item}>
+                <li style={active > 0 ? {color: activeColor} : {color: "gray"}}  className={classes.collection__item}>
                     <FiShoppingBag/>
-                    <span>Корзина</span>
+                    <Link style={active > 0 ? {color: activeColor} : {color: "gray"}} to="/karzinka">Корзина</Link>
                 </li>
                 <div style={lineColor ? {background: lineColor} : {background: "#000"}} className={classes.line}></div>
-                <li style={{color: activeColor}} className={classes.collection__item}>
+                <li style={active > 1 ? {color: activeColor} : {color: "gray"}} className={classes.collection__item}>
                     <FiFileText/>
-                    <span>Разместить заказ</span>
+                    <Link style={active > 1 ? {color: activeColor} : {color: "gray"}} to="/karzinka/submission">Разместить заказ</Link>
                 </li>
                 <div style={lineColor ? {background: lineColor} : {background: "#000"}} className={classes.line}></div>
 
-                <li className={classes.collection__item}>
+                <li style={active > 2 ? {color: activeColor} : {color: "gray"}} className={classes.collection__item}>
                     <FiCreditCard/>
-                    <span>Платить</span>
+                    <Link style={active > 2 ? {color: activeColor} : {color: "gray"}} to="/karzinka/payment">Платить</Link>
                 </li>
                 <div style={lineColor ? {background: lineColor} : {background: "#000"}} className={classes.line}></div>
-                <li className={classes.collection__item}>
+                <li  style={active > 3 ? {color: activeColor} : {color: "gray"}} className={classes.collection__item}>
                     <FiArchive/>
-                    <span>Заказ выполнен</span>
+                    <Link style={active > 3 ? {color: activeColor} : {color: "gray"}} to="/">Заказ выполнен</Link>
                 </li>
             </ul>
         </div>

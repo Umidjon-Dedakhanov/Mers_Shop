@@ -130,6 +130,18 @@
   margin-top: 11px;
 }
 
+.link__submit{
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 40px;
+  margin-top: 20px;
+  background-color: #152A59;
+}
+
 @media (min-width: 0) and (max-width: 700.9px) {
   .container__count {
     margin-top: 40px;
