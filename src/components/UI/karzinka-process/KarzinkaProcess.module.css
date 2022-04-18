@@ -20,9 +20,10 @@
   font-family: var(--main-font-family-bold);
 }
 
-.collection__item > span {
+.collection__item > a {
   margin-left: 14px;
   font-weight: 900;
+  text-decoration: none;
 }
 
 .collection__item > svg {

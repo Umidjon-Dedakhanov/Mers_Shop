@@ -16,7 +16,7 @@ const KarzinkaPaymentPanel = () => {
             <div className={classes.panel__container}>
                 <div className={classes.container__title}>
                     <h1>Реквизиты платежа</h1>
-                    <p>* Обязательное поле</p>
+                    <p>*Обязательное поле</p>
                 </div>
                 <form className={classes.panel__form}>
                     <div className={classes.payment__type}>
