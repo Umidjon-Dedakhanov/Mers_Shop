@@ -117,9 +117,15 @@ export const SystemBigBox = ({ title, link, img }) => {
 export const SystemSmallBox = ({ img, desc, price }) => {
   return (
     <div className={style.SystemSmallBox}>
-      <img src={img} alt="" />
-      <h3>{desc}</h3>
-      <strong>{price}</strong>
+      <div className={style.SystemSmallBoxWrapper}>
+        <a href="#topproduct">
+          <img src={img} alt="" />
+          <div className={style.SystemSmallBoxText}>
+            <h3>{desc}</h3>
+            <strong>{price}</strong>
+          </div>
+        </a>
+      </div>
     </div>
   );
 };

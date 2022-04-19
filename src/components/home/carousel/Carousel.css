@@ -40,6 +40,7 @@
   color: #ffffff;
   width: 600px;
   position: relative;
+  z-index: 10;
 }
 
 .carousel_block p {
@@ -52,6 +53,7 @@
   color: #ffffff;
   margin: 15px 0 30px 0;
   position: relative;
+  z-index: 10;
 }
 
 .carousel_block button {
@@ -69,6 +71,7 @@
   color: #fff;
   transition: 0.5s;
   cursor: pointer;
+  z-index: 10;
 }
 .carousel_block button:hover {
   background: #fff;
@@ -88,6 +91,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
+  z-index: 1;
 }
 
 @media (min-width: 0) and (max-width: 549.9px) {
