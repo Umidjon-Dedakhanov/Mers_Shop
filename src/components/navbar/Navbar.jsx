@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { NavLink, useLocation } from "react-router-dom";
+
 import logo from "../../assets/home/logo.png";
 import person from "../../assets/home/person.png";
+
 import { Search } from "./search/Search";
 import { Select } from "./select/Select";
 import { Switch } from "./switch/Switch";
+
 import style from "./Navbar.module.css";
-import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
   const [scroll, setScroll] = useState();

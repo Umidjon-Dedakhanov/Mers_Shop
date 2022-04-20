@@ -10,9 +10,8 @@ const Skills = () => {
     <div className={style.body}>
       {data &&
         data.map((skill, index) => (
-          <>
+          <React.Fragment key={index}>
             <SkillsAbout
-              key={index}
               title={skill.title_uz}
               num={`${skill.categoryID}`.padStart(2, "0")}
               img={skill.imageUrl}
@@ -20,7 +19,7 @@ const Skills = () => {
               readMore_link={`engine/${skill.id}`}
             />
             <hr width="2" size="700" color="gray" />
-          </>
+          </React.Fragment>
         ))}
     </div>
   );
