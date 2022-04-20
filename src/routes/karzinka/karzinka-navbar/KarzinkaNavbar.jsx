@@ -4,7 +4,6 @@ import classes from './KarzinkaNavbar.module.css';
 import { Link } from 'react-router-dom';
 
 const KarzinkaNavbar = ({JSXcomponent}) => {
-    // console.log(JSXcomponent);
     return (
         <div>
             <div style={!JSXcomponent ? {justifyContent: "center"} : {padding: "0px 58px"}} className={classes.karzinka__navbar}>
@@ -18,4 +17,3 @@ const KarzinkaNavbar = ({JSXcomponent}) => {
 }
 
 export default KarzinkaNavbar
-

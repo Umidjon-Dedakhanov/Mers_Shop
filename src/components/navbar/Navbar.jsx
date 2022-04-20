@@ -101,10 +101,24 @@ export const Navbar = () => {
           )}
           <li className={style.navbar__selectLG}>
             <Select />
+            {/* {isAuthenticated ? (
+              <img src={person} alt="" />
+            ) : (
+              <NavLink to={"/login"}>{t("navbar.login")}</NavLink>
+            )} */}
+          </li>
+          <li>
             {isAuthenticated ? (
               <img src={person} alt="" />
             ) : (
-              <NavLink exact to={"/login"}>
+              // <NavLink to={"/login"}>{t("navbar.login")}</NavLink>
+              <NavLink
+                className={style.navbarLoginIcon}
+                activeClassName={style.item__active}
+                exact
+                to="/login"
+              >
+                <img src={person} ALt="Log in icon" />
                 {t("navbar.login")}
               </NavLink>
             )}

@@ -13,7 +13,9 @@ export const System = () => {
       <SystemBigBox img={engine} title={"Mator qismlari"} link={"engine"} />
       <SystemSmallBox
         img={system}
-        desc={"Customized Front Carbon Brakdisc..."}
+        desc={
+          "Customized Front Carbon Brakdisc Lorem ipsum dolor sit loe etxt..."
+        }
         price={"$44.28"}
       />
       <SystemSmallBox

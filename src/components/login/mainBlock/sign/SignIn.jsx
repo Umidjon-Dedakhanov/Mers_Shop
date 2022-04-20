@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import style from "./Sign.module.css";
 import { connect, useSelector } from "react-redux";
 import { authUser } from "../../../../redux/actions/authActions";
@@ -9,13 +9,14 @@ const TEST_PASSWORD_REGX =
   /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])([a-zA-Z0-9@$!%*?&]{8,})$/;
 
 function SignInForm(props) {
+  const location = useLocation();
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
   const authStatus = useSelector((state) => state.authReducer);
-
   useEffect(() => {
     const emailRGXTest = TEST_EMAIL_REGX.test(email);
     setIsValidEmail(emailRGXTest);
@@ -32,13 +33,20 @@ function SignInForm(props) {
     const dbCheckEmail = TEST_EMAIL_REGX.test(email);
     const dbCheckPassword = TEST_PASSWORD_REGX.test(password);
 
-    if (dbCheckEmail && dbCheckPassword) {
+    if (dbCheckEmail && !dbCheckPassword) {
       props.authUser({ email, password });
     } else {
       setError("Invalid data!");
       return;
     }
   };
+
+  useEffect(() => {
+    if(authStatus.isAuthenticated){
+      history.push(location.state.from)
+
+    }
+  },[authStatus.isAuthenticated, history])
 
   return (
     <div className={style.main}>
@@ -80,4 +88,4 @@ function SignInForm(props) {
   );
 }
 
-export default connect(null, { authUser })(SignInForm);
+export default connect(null, { authUser})(SignInForm);

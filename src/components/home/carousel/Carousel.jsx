@@ -14,16 +14,17 @@ export const MyCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   setTimeout(() => {
-  setCurrentSlide(data && data.length === currentSlide ? currentSlide - data.length : currentSlide + 1);
-    
-  }, 2000);
-
+    setCurrentSlide(
+      data && data.length === currentSlide
+        ? currentSlide - data.length
+        : currentSlide + 1
+    );
+  }, 3000);
 
   const dataMap =
     data &&
     data.map((carousel_item, index) => (
       <div key={index}>
-        {console.log(carousel_item, index)}
         <div
           style={{ backgroundImage: `url(${carousel_item.imageUrl})` }}
           className="carousel_block"

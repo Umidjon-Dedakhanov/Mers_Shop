@@ -43,8 +43,11 @@
 
 .end div:nth-child(2) img {
   margin: 0 25px;
+  transition: 0.2s;
 }
-
+.end div:nth-child(2) a:hover {
+  transform: translateY(-5px);
+}
 .end h1 {
   font-style: normal;
   font-weight: 400;
@@ -56,7 +59,14 @@
 
   color: #ffffff;
 }
-
+.copyright {
+  color: #ffffff;
+}
+.copyright a {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
 @media (min-width: 0) and (max-width: 500.9px) {
   .body {
     flex-direction: column;
@@ -74,14 +84,14 @@
   }
 
   .end {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .end div{
-      width: 80% !important;
-      margin-bottom: 3rem;
-      justify-content: center;
+  .end div {
+    width: 80% !important;
+    margin-bottom: 3rem;
+    justify-content: center;
   }
 }
 
@@ -90,19 +100,17 @@
     width: 40%;
   }
 
-  
-  .end div{
+  .end div {
     width: 40% !important;
     margin-bottom: 3rem;
     justify-content: center;
-}
+  }
 }
 
 @media (min-width: 981px) and (max-width: 1250.9px) {
-  
-    .end div{
-        width: 30% !important;
-        margin-bottom: 3rem;
-        justify-content: center;
-    }
+  .end div {
+    width: 30% !important;
+    margin-bottom: 3rem;
+    justify-content: center;
+  }
 }

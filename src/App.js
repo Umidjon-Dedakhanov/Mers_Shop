@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 import KarzinkaSubmission from "./routes/karzinka-submission/KarzinkaSubmission";
 import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
 import KarzinkaPayment from "./routes/karzinka-payment/KarzinkaPayment";
@@ -15,6 +15,8 @@ import Account from "./routes/account/Account";
 import "./App.css";
 
 function App() {
+  const order = useSelector(state => state.order);
+  console.log(order);
   const Home = lazy(() =>
     import("./components/home/Home").then((module) => ({
       default: module.Home,
@@ -64,7 +66,7 @@ function App() {
       <Switch>
         <Private path="/account" component={Account} />
         <Private path="/karzinka/payment" component={KarzinkaPayment} />
-        <Route path="/karzinka" component={Karzinka} />
+        <Route exact path="/karzinka" component={Karzinka} />
         <Private path="/karzinka/submission" component={KarzinkaSubmission} />
         <Route path="/about" render={withSuspense(About)} />
         <Route exact path="/engine" render={withSuspense(EngineRepair)} />
@@ -80,9 +82,10 @@ function App() {
         <Route exact path="/news" render={withSuspense(News)} />
         <Route path="/news/:id" render={withSuspense(CardBlock)} />
         <Route path="/account" render={withSuspense(EngineRepair)} />
-        <Route path="/karzinka/payment" render={withSuspense(EngineRepair)} />
-        <Route path="/karzinka" render={withSuspense(EngineRepair)} />
+        <Route exact path="/karzinka/payment" render={withSuspense(EngineRepair)} />
+        <Route exact path="/karzinka" render={withSuspense(EngineRepair)} />
         <Route
+        exact
           path="/karzinka/submission"
           render={withSuspense(EngineRepair)}
         />

@@ -7,7 +7,6 @@ import { BrakeDiscProducts } from "./popularProduct/BrakeDiscProducts";
 import { PopularProducts } from "./popularProduct/PopularProducts";
 import { AllMachineParts } from "./machineParts/AllMachineParts";
 import FilterNavbar from "./../UI/filter-navbar/FilterNavbar";
-import { AllProducts } from "./allProducts/AllProducts";
 import { Information } from "./information/Information";
 import { MyCarousel } from "./carousel/Carousel";
 import { System } from "./sytem/System";
@@ -22,7 +21,7 @@ export const Home = () => {
     ["All products", "products", "Lorem 1"],
     ["All products", "products", "Lorem 1"],
     ["All products", "products", "Lorem 1"],
-    ["All products", "products", "Lorem 1"]
+    ["All products", "products", "Lorem 1"],
   ];
 
   return (
@@ -32,28 +31,28 @@ export const Home = () => {
       <FilterNavbar filterNavData={filter_items} />
       <AllMachineParts />
       <PopularProducts />
-        <Route
-          path="/"
-          render={() => {
-            <>
-              <AllMachineParts />
-              <PopularProducts />
-            </>;
-          }}
-        />
-        <Route
-          path="/rtetert"
-          render={() => {
-            <>
-              <BrakeDiscMachineParts />
-              <BrakeDiscProducts />
-            </>;
-          }}
-        />
+      <Route
+        path="/"
+        render={() => {
+          <>
+            <AllMachineParts />
+            <PopularProducts />
+          </>;
+        }}
+      />
+      <Route
+        path="/rtetert"
+        render={() => {
+          <>
+            <BrakeDiscMachineParts />
+            <BrakeDiscProducts />
+          </>;
+        }}
+      />
 
       <FeaturedProducts />
       <System />
-      <AllProducts />
+      {/* <AllProducts /> */}
       <Information />
     </div>
   );
