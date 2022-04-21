@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+.featuredProducts__mainBlock {
+  width: 30%;
+}
+
 .carousel {
   width: 300px;
   height: 400px;
@@ -46,6 +50,31 @@
   box-sizing: border-box;
 }
 
+.featuredProducts__buttonWrapper{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 60%;
+}
+
+.disable{
+  background: #BDBDBD;
+}
+
+
+.featuredProducts__buttonWrapper button.featuredProducts__button, .disable{
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  border: none;
+}
+
+.featuredProducts__buttonWrapper button.featuredProducts__button {
+  background: #152a59;
+}
+
 .darkBox strong {
   font-weight: 700;
   font-size: 20px;
@@ -67,6 +96,10 @@
   align-items: flex-start;
   width: 70%;
   margin-left: 0rem;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px;
 }
 
 @media (min-width: 0) and (max-width: 500.9px) {
