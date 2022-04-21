@@ -26,7 +26,19 @@
   width: 90%;
   margin: auto;
 }
-
+.navbarLoginIcon {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  align-items: center;
+}
+.navbarLoginIcon img {
+  margin-right: 5px;
+}
 .navbar {
   position: fixed;
   width: 100%;
@@ -54,7 +66,7 @@
 }
 
 .menu_items img {
-  margin-left: 30px;
+  margin-left: 0px;
 }
 
 .logo {
@@ -101,8 +113,8 @@
     width: 100%;
   }
 
-  .navbar__logo_block{
-    width: 100px !important
+  .navbar__logo_block {
+    width: 100px !important;
   }
 
   .navbar a {

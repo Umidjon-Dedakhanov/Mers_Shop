@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { NavLink, useLocation } from "react-router-dom";
+
 import logo from "../../assets/home/logo.png";
 import person from "../../assets/home/person.png";
+
 import { Search } from "./search/Search";
 import { Select } from "./select/Select";
 import { Switch } from "./switch/Switch";
+
 import style from "./Navbar.module.css";
-import { useTranslation } from "react-i18next";
 
 export const Navbar = () => {
   const [scroll, setScroll] = useState();
@@ -98,10 +101,24 @@ export const Navbar = () => {
           )}
           <li className={style.navbar__selectLG}>
             <Select />
+            {/* {isAuthenticated ? (
+              <img src={person} alt="" />
+            ) : (
+              <NavLink to={"/login"}>{t("navbar.login")}</NavLink>
+            )} */}
+          </li>
+          <li>
             {isAuthenticated ? (
               <img src={person} alt="" />
             ) : (
-              <NavLink exact to={"/login"}>
+              // <NavLink to={"/login"}>{t("navbar.login")}</NavLink>
+              <NavLink
+                className={style.navbarLoginIcon}
+                activeClassName={style.item__active}
+                exact
+                to="/login"
+              >
+                <img src={person} ALt="Log in icon" />
                 {t("navbar.login")}
               </NavLink>
             )}

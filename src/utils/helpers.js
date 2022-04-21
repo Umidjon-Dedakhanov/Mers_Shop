@@ -73,7 +73,6 @@ export const CardProduct = ({ img, desc, price, path = "/product/1" }) => {
     <div className={style.CardProduct} onClick={onClick}>
       <div className={style.btnGroup}>
         <NavLink to={"/"}>
-          {" "}
           <img src={korzina} alt="" />
         </NavLink>
         <NavLink to={"/"}>
@@ -117,9 +116,15 @@ export const SystemBigBox = ({ title, link, img }) => {
 export const SystemSmallBox = ({ img, desc, price }) => {
   return (
     <div className={style.SystemSmallBox}>
-      <img src={img} alt="" />
-      <h3>{desc}</h3>
-      <strong>{price}</strong>
+      <div className={style.SystemSmallBoxWrapper}>
+        <a href="#topproduct">
+          <img src={img} alt="" />
+          <div className={style.SystemSmallBoxText}>
+            <h3>{desc}</h3>
+            <strong>{price}</strong>
+          </div>
+        </a>
+      </div>
     </div>
   );
 };
@@ -213,4 +218,16 @@ export const BlockOptions = ({ num, title, desc }) => {
       <p>{desc}</p>
     </div>
   );
+};
+
+
+export const sideScroll = (element, speed, distance, step) => {
+  let scrollAmount = 0;
+  const slideTimer = setInterval(() => {
+    element.scrollLeft += step;
+    scrollAmount += Math.abs(step);
+    if (scrollAmount >= distance) {
+      clearInterval(slideTimer);
+    }
+  }, speed);
 };
