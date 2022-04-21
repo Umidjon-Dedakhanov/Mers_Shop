@@ -5,7 +5,8 @@ import classes from './KarzinkaForm.module.css';
 import { orderProducts } from '../../../redux/actions/orderActions';
 const TEST_PHONENUMBER_REGX = /^\+?[1-9][0-9]{11,11}$/;
 const TEST_PLACESS_REGX = /[a-zA-Z]+/;
-const TEST_NAME_REGX = /^[-a-zA-Z]+$/;
+const TEST_NAME_REGX = /^[A-Z][-a-zA-Z]+$/;
+const TEST_ZIP_REGX = /^[0-9]{4,6}$/
 
 const KarzinkaForm = (props) => {
     const {cart} = useSelector(state => state.cart);
@@ -28,8 +29,10 @@ const KarzinkaForm = (props) => {
     const [isValidCountry, setIsValidCountry] = useState(false);
     const [isValidProvince, setIsValidProvince] = useState(false);
     const [isValidCity, setIsValidCity] = useState(false);
+    const [isValidZip, setIsValidZip] = useState(false);
     const [isValidAddress, setIsValidAddress] = useState(false);
     const [validationError, setValidationError] = useState('');
+    
 
     useEffect(() => {
         let testPhoneREGX = TEST_PHONENUMBER_REGX.test(phone);
@@ -43,6 +46,7 @@ const KarzinkaForm = (props) => {
 
     useEffect(() => {
         let testLNameREGX = TEST_NAME_REGX.test(lName);
+    
         setIsValidLname(testLNameREGX)
     }, [lName])
 
@@ -60,6 +64,11 @@ const KarzinkaForm = (props) => {
         let testCityREGX = TEST_PLACESS_REGX.test(city);
         setIsValidCity(testCityREGX)
     }, [city])
+
+    useEffect(() => {
+        let testZipREGX = TEST_ZIP_REGX.test(zip);
+        setIsValidZip(testZipREGX)
+    }, [zip])
 
     useEffect(() => {
         let testAddressREGX = TEST_PLACESS_REGX.test(address);
@@ -83,7 +92,6 @@ const KarzinkaForm = (props) => {
             setValidationError("Please provide all information correctly!")
         }
     }
-    
     return (
         <form className={classes.karzinka__form} onSubmit={handleKarzinkaSubmissionForm}>
             <ul className={classes.form__collection}>
@@ -91,23 +99,42 @@ const KarzinkaForm = (props) => {
                     <label htmlFor="name"> <span>*</span> Ваше имя :</label>
                     <input required className={classes.form__name} value={fName} onChange={e => setFname(e.target.value)} id="name" type="text" placeholder="Имя" />
                     <input required className={classes.form__surname} value={lName} onChange={e => setLName(e.target.value)}  id="surname" type="text" placeholder=" Фамилия"/>
+                    
                 </li>
+                    {
+                        !isValidFname && fName.length > 0 ? <p className={classes.validation__ins}>Enter valid name</p> : <></>
+                    }
+                    {
+                        !isValidLname && lName.length > 0 ? <p className={classes.validation__ins}>Enter valid surname</p> : <></>
+                    }
                 <li>
                     <label htmlFor="region"> <span>*</span>Страна / регион :</label>
                     <input required id="region" type="text" value={country} onChange={e => setCountry(e.target.value)} placeholder="Укажите регион доставки"/>
+                    {
+                        !isValidCountry && country.length > 0 ? <p className={classes.validation__ins}>Enter valid country</p> : <></>
+                    }
                 </li>
                 <li>
                     <label htmlFor="province"> <span>*</span>Государство / Провинция /<br></br> Регион :</label>
                     <input required id="province" type="text" value={province}  onChange={e => setProvince(e.target.value)} placeholder="Выберите состояние"/>
                 </li>
+                    {
+                        !isValidProvince && province.length > 0 ? <p className={classes.validation__ins}>Enter valid Province</p> : <></>
+                    }
                 <li>
                     <label htmlFor="country"> <span>*</span>Город :</label>
                     <input required id="country" type="text" value={city} onChange={e => setCity(e.target.value)} placeholder="Город"/>
                 </li>
+                    {
+                        !isValidCity && city.length > 0 ? <p className={classes.validation__ins}>Enter valid city</p> : <></>
+                    }
                 <li>
                     <label htmlFor="address"> <span>*</span>Адрес:</label>
                     <input required id="address" type="text" value={address} onChange={e => setAddress(e.target.value)} placeholder="Адрес улитцы"/>
                 </li>
+                    {
+                        !isValidAddress && address.length > 0 ? <p className={classes.validation__ins}>Enter valid address</p> : <></>
+                    }
                 <li>
                     <label htmlFor="address2">Адрес 2 :</label>
                     <input id="address2" type="text" value={address2} onChange={e => setAddess2(e.target.value)} placeholder="Квартира, номер комната…"/>
@@ -116,10 +143,16 @@ const KarzinkaForm = (props) => {
                     <label htmlFor="zip"> <span>*</span>ZIP / Почтовый индекс :</label>
                     <input required id="zip" maxLength={6} minLength={4} value={zip} onChange={e => setZip(e.target.value)} type="text" placeholder="Почтовый индекс "/>
                 </li>
+                    {
+                         !isValidZip && zip.length > 0  ? <p className={classes.validation__ins}>Enter 4 or 6 digits</p> : <></>
+                    }
                 <li>
                     <label htmlFor="telephone"> <span>*</span>Номер телефона :</label>
                     <input required id="telephone" value={phone} onChange={e => setPhone(e.target.value)} type="text" placeholder="Ваш номер телефона"/>
                 </li>
+                    {
+                        !isValidPhone && phone.length > 0 ? <p className={classes.validation__ins}>Enter phone number in international format</p> : <></>
+                    }
             </ul>
            <div className={classes.btn_wrapper}>
             <div>

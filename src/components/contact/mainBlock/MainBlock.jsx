@@ -83,6 +83,7 @@ const MainBlock = (props) => {
     setIsSurnameValid(testSurname);
   }, [surname]);
 
+
   const handleSendMessage = (e) => {
     e.preventDefault();
     // Prevent XXS submit change

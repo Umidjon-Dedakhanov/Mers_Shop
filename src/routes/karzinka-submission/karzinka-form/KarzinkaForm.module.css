@@ -70,3 +70,8 @@
     flex-direction: column;
     align-items: flex-start;
 }
+
+.validation__ins{
+    color: red;
+    margin-left: 14%;
+}
