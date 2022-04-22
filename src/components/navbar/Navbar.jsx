@@ -99,9 +99,11 @@ export const Navbar = () => {
           <li className={style.navbar__selectLG}>
             <Select />
             {isAuthenticated ? (
-              <img src={person} alt="" />
+              <NavLink exact to={"/login/sign-in"}>
+                <img src={person} alt="" />
+              </NavLink>
             ) : (
-              <NavLink exact to={"/login"}>
+              <NavLink exact to={"/login/sign-in"}>
                 {t("navbar.login")}
               </NavLink>
             )}

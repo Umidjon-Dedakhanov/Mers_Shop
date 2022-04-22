@@ -1,4 +1,4 @@
-import { AUTH_FAIL, AUTH_USER, AUTH_LOADING } from "../actions/types";
+import { AUTH_FAIL, AUTH_USER, AUTH_LOADING, AUTH_SIGNOUT } from "../actions/types";
 
 const inititalState = {
   user: null,
@@ -37,9 +37,24 @@ const authReducer = (state = inititalState, action) => {
       };
     case AUTH_LOADING:
       return {
-        ...state,
+        user: null,
+        isAuthenticated: false,
+        message: 'Loading...',
+        error: false,
+        code: null,
         loading: true,
       };
+    case AUTH_SIGNOUT:
+      localStorage.removeItem("access-token");
+      localStorage.removeItem("refresh-token");
+      return {
+        user: null,
+        isAuthenticated: false,
+        message: 'Signed Out...',
+        error: false,
+        code: null,
+        loading: false,
+      }
     default:
       return state;
   }

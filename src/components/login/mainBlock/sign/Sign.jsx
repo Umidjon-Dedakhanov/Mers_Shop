@@ -9,7 +9,17 @@ import { Redirect } from "react-router-dom";
 export function Sign() {
   const { pathname } = useLocation();
   const user = useSelector((state) => state.authReducer);
-  return <>
+  return   user.isAuthenticated && user ? (
+    <Redirect
+      to={{
+        pathname: "/account/myaccount",
+        state: {
+          from: pathname,
+        },
+      }}
+    />
+  ) : (
+     <>
       <div className={style.title}>
         <div className={style.title2}>
           <NavLink to={"/login/sign-in"}>Sign In</NavLink>
@@ -37,5 +47,5 @@ export function Sign() {
           />
         </Switch>
       </div>
-    </>
+    </>)
 }

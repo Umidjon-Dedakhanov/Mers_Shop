@@ -56,15 +56,6 @@
   line-height: 20px;
 }
 
-.input__wrapper:nth-child(4) {
-  justify-content: flex-start;
-}
-
-.input__wrapper:nth-child(4) > input {
-  width: 107px;
-  margin-right: 20px;
-}
-
 @media (min-width: 0) and (max-width: 700.9px) {
   .input__container {
     width: 100%;
