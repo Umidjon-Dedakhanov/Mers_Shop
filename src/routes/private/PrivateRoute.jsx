@@ -1,13 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Route, Redirect, useLocation } from "react-router-dom";
+import PersistContainer from "../../utils/PersistContainer";
 
 const Private = (props) => {
   const user = useSelector((state) => state.authReducer);
   const location = useLocation();
-  console.log(user)
   return user.isAuthenticated ? (
-    <Route {...props} />
+    <PersistContainer>
+      <Route {...props} />
+    </PersistContainer>
   ) : (
     <Redirect
       to={{

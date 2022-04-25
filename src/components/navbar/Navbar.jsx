@@ -109,16 +109,11 @@ export const Navbar = () => {
           </li>
           <li>
             {isAuthenticated ? (
-              <img src={person} alt="" />
+              <NavLink exact to={"/login/sign-in"}>
+                <img src={person} alt="" />
+              </NavLink>
             ) : (
-              // <NavLink to={"/login"}>{t("navbar.login")}</NavLink>
-              <NavLink
-                className={style.navbarLoginIcon}
-                activeClassName={style.item__active}
-                exact
-                to="/login"
-              >
-                <img src={person} ALt="Log in icon" />
+              <NavLink exact to={"/login/sign-in"}>
                 {t("navbar.login")}
               </NavLink>
             )}

@@ -1,6 +1,5 @@
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 import KarzinkaSubmission from "./routes/karzinka-submission/KarzinkaSubmission";
 import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
 import KarzinkaPayment from "./routes/karzinka-payment/KarzinkaPayment";
@@ -11,12 +10,9 @@ import { CardBlock } from "./components/news/card/Card";
 import Karzinka from "./routes/karzinka/Karzinka";
 import { withSuspense } from "./hoc/withSuspense";
 import Account from "./routes/account/Account";
-
 import "./App.css";
 
 function App() {
-  const order = useSelector(state => state.order);
-  console.log(order);
   const Home = lazy(() =>
     import("./components/home/Home").then((module) => ({
       default: module.Home,
@@ -81,7 +77,7 @@ function App() {
         <Route path="/contact" render={withSuspense(Contact)} />
         <Route exact path="/news" render={withSuspense(News)} />
         <Route path="/news/:id" render={withSuspense(CardBlock)} />
-        <Route path="/account" render={withSuspense(EngineRepair)} />
+        {/* <Route path="/account" render={withSuspense(EngineRepair)} /> */}
         <Route exact path="/karzinka/payment" render={withSuspense(EngineRepair)} />
         <Route exact path="/karzinka" render={withSuspense(EngineRepair)} />
         <Route

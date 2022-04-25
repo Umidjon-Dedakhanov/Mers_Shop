@@ -43,7 +43,7 @@ const AccountProduct = ({ data, tableHeaders, details }) => {
                       ${table__item.productCost}{" "}
                       {tableHeaders && !details ? (
                         <p style={{ paddingLeft: "20px", fontWeight: "300" }}>
-                          x{table__item.productCount}
+                          x{table__item.count}
                         </p>
                       ) : (
                         <></>
