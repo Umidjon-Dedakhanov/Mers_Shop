@@ -1,4 +1,4 @@
-import { PERSONAL_INFO, PERSONAL_INFO_LOADING, PERSONAL_INFO_FAILED } from './types';
+import { PERSONAL_INFO_LOADING } from './types';
 import authApiInstance from '../../api/authApi';
 const PERSONALINFO_API_ENDPOINT = "clientMainsAPI";
 
