@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { CardProduct } from "../../../utils/helpers";
+import  CardProduct  from "../../../utils/CardProduct";
 import picture1 from "../../../assets/home/card1.png";
 
 import style from "./AllProducts.module.css";
@@ -24,7 +24,7 @@ export const AllProducts = () => {
           <CardProduct
             desc={"Customized Front Carbon Brake Disc"}
             img={picture1}
-            price={"$122.56"}
+            price={"$124.56"}
           />
           <CardProduct
             desc={"Customized Front Carbon Brake Disc"}

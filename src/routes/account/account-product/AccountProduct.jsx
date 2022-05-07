@@ -39,7 +39,7 @@ const AccountProduct = ({ data, tableHeaders, details }) => {
                         <></>
                       )}
                     </div>
-                    <p className={classes.product__cost}>
+                    <div className={classes.product__cost}>
                       ${table__item.productCost}{" "}
                       {tableHeaders && !details ? (
                         <p style={{ paddingLeft: "20px", fontWeight: "300" }}>
@@ -48,7 +48,7 @@ const AccountProduct = ({ data, tableHeaders, details }) => {
                       ) : (
                         <></>
                       )}
-                    </p>
+                    </div>
                   </div>
                 </div>
               </td>

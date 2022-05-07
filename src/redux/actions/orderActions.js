@@ -3,6 +3,7 @@ import { ORDER_PRODUCTS_FAILED, ORDER_PRODUCTS, ORDER_PRODUCTS_LOADING } from ".
 const ORDER_FORM_ENDPOINT = "orderMainsAPI";
 
 export const orderProducts = (productMain, quantity, user, user_info) => async dispatch => {
+  console.log(productMain)
   user.userID = 0;
   user.roleID = 0;
   user.status = 0;
@@ -13,7 +14,7 @@ export const orderProducts = (productMain, quantity, user, user_info) => async d
   productMain.productCategory.id = 0;
   productMain.productCategory.parentId = 0;
   productMain.categoryID = 0;
-  productMain.basketMain[0].id = 0;
+  productMain.id = 0;
   productMain.homeTopProduct[0].id = 0;
   productMain.productNews[0].productID = 0;
   productMain.productNews[0].id = 0;
@@ -23,9 +24,6 @@ export const orderProducts = (productMain, quantity, user, user_info) => async d
     type: ORDER_PRODUCTS_LOADING
   });
   authApiInstance.post(ORDER_FORM_ENDPOINT, {
-    id: 0,
-    basketID: 0,
-    basketMain: {
       id: 0,
       count: quantity,
       productID: 0,
@@ -42,7 +40,6 @@ export const orderProducts = (productMain, quantity, user, user_info) => async d
         mainUser: [
          user
         ]
-      }
     }
   }
   )

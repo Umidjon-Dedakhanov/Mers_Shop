@@ -7,7 +7,7 @@ const useFetch = (endpoint, params) => {
     const abortionRequest = new AbortController();
     function getData() {
       unAuthApi
-        .get(endpoint, { signal: abortionRequest.signal }, { params: params })
+        .get(endpoint,{ params: params }, { signal: abortionRequest.signal })
         .then((response) => {
           setData(response.data);
         })

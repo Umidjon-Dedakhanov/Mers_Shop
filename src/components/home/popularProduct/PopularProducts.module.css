@@ -11,12 +11,11 @@
   border-radius: 10px;
 }
 
-
 .popularProducts__mainBlock {
   width: 30%;
 }
 
-.popularProducts__buttonWrapper{
+.popularProducts__buttonWrapper {
   width: 50%;
   display: flex;
   justify-content: space-around;
@@ -24,11 +23,12 @@
   height: 60%;
 }
 
-.disable{
-  background: #BDBDBD;
+.disable {
+  background: #bdbdbd;
 }
 
-.popularProducts__buttonWrapper button.popularProducts__button, .disable{
+.popularProducts__buttonWrapper button.popularProducts__button,
+.disable {
   border-radius: 100px;
   width: 40px;
   height: 40px;

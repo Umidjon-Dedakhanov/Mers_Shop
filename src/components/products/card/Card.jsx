@@ -23,10 +23,10 @@ export const Card = ({sortBy}) => {
   return (
     <div className={style.body}>
       <div className={style.block + ' ' + style.block1}>
-        <img src={data.allImageUrl?.split(";")[selectedImage]} alt="" />
+        <img src={data.allImageUrl?.split(",")[selectedImage]} alt="" />
         <div className={style.pctGroup + ' ' + style.sm_pct}>
             {
-              data && data.allImageUrl?.split(";").map((productImage, index) => 
+              data && data.allImageUrl?.split(",").map((productImage, index) => 
                 <img key={index} src={`${productImage.replace(" ", "")}`} alt="" />
               )
             }
@@ -55,7 +55,7 @@ export const Card = ({sortBy}) => {
       <div className={style.block + ' ' + style.block2}>
           <div className={style.pctGroup + ' ' + style.lg_pct}>
           {
-              data && data.allImageUrl?.split(";").map((productImage, index) => 
+              data && data.allImageUrl?.split(",").map((productImage, index) => 
                 <img style={index === selectedImage ? {border: "2px solid darkblue"} : {border: "2px solid transparent"}} key={index} className={style.image_gallery} src={`${productImage.replace(" ", "")}`}  onClick={() => setSelectedImage(index)} alt="" />
               )
             }

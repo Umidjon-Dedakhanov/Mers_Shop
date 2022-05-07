@@ -2,7 +2,9 @@ import React from 'react';
 import classes from './AccountSending.module.css';
 import KarzinkaProcess from '../../../components/UI/karzinka-process/KarzinkaProcess';
 import AccountProduct from '../account-product/AccountProduct';
-import productImage from "../../../assets/karzinka/product.png";
+import { useSelector } from 'react-redux';
+import useAuthFetch from '../../../hooks/useAuthFetch';
+const ALL_BASKET_PRODUCTS_ENDPOINT = "clientMainsAPI";
 
 
 const AccountSending = () => {
@@ -11,23 +13,17 @@ const AccountSending = () => {
         justifyContent: "space-between",
         marginBottom: "37px"
     }
-    const data = [
-        {
-          id: 0,
-          productImage: productImage,
-          productTitle: `Black/Red/Blue 1" Extra Flow Breather 1" Push In Vent Filter for Valve Cover`,
-          productRatings: 4,
-          productCost: 12.99,
-          productCount: 3
-        }
-      ]
+    
+      const {user} = useSelector(state => state.authReducer);
+      const { data } = useAuthFetch(`${ALL_BASKET_PRODUCTS_ENDPOINT}/${user?.userID}`, null);
+      const sending = data?.basketMain?.filter(product => product.status === 3); //STATUS === 3 => SENDING
     return (
         <div className={classes.account__sending}>
             <div className={classes.sending__header}>
                 <h1>Высылаем</h1>
             </div>
             <KarzinkaProcess procCss={procCss} activeColor="#000" lineColor="#000"/>
-            <AccountProduct data={data} tableHeaders={["Продукты", "Количество", "Статус заказа", "Опции"]}/>
+            <AccountProduct data={sending} tableHeaders={["Продукты", "Количество", "Статус заказа", "Опции"]}/>
         </div>
     )
 }

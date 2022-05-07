@@ -1,7 +1,8 @@
 import React from "react";
 
-import { CardProduct, Products } from "../../../utils/helpers";
-import card1 from "../../../assets/products/8 1.png";
+import { Products } from "../../../utils/helpers";
+import CardProduct from "../../../utils/CardProduct";
+import card1 from "../../../assets/home/card1.png";
 
 import style from "./PopularProducts.module.css";
 

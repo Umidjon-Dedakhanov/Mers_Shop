@@ -13,12 +13,12 @@ export const SimpleBlogBlock = ({
         arr && arr.map((news_item, index) => 
           <div key={index} className={style.parent}>
             <div className={style.imgParent}>
-              <NavLink to={`/new/${news_item.id}`} className={style.link}>
+              <NavLink to={`/news/${news_item.id}`} className={style.link}>
                 <img src={`${!news_item?.fileUrl.includes("https") ? process.env.REACT_APP_API_SERVICE_FILEPATH + news_item?.fileUrl : news_item?.fileUrl}`} alt="Blog 1" />
               </NavLink>
             </div>
             <div>
-              <NavLink to={`/new/${news_item.id}`} className={style.link}>
+              <NavLink to={`/news/${news_item.id}`} className={style.link}>
                 <h2 className={style.title}>
                   <b>{news_item.title_uz}</b>
                 </h2>
