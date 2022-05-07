@@ -1,4 +1,4 @@
-import { lazy, useEffect } from "react";
+import { lazy } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import KarzinkaSubmission from "./routes/karzinka-submission/KarzinkaSubmission";
 import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
@@ -10,6 +10,7 @@ import { CardBlock } from "./components/news/card/Card";
 import Karzinka from "./routes/karzinka/Karzinka";
 import { withSuspense } from "./hoc/withSuspense";
 import Account from "./routes/account/Account";
+import Liked from './routes/liked/Liked';
 import "./App.css";
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
           type="id"
         />
         <Route path="/product" render={withSuspense(Products)} />
+        <Route path="/liked" render={withSuspense(Liked)} />
         <Route path="/contact" render={withSuspense(Contact)} />
         <Route exact path="/news" render={withSuspense(News)} />
         <Route path="/news/:id" render={withSuspense(CardBlock)} />

@@ -1,33 +1,21 @@
 import React from 'react';
 import AccountProduct from '../account-product/AccountProduct';
 import classes from './AccountNotpaid.module.css';
-import productImage from "../../../assets/karzinka/product.png";
+import useAuthFetch from '../../../hooks/useAuthFetch';
+import { useSelector } from 'react-redux';
+const ALL_BASKET_PRODUCTS_ENDPOINT = "clientMainsAPI";
+
 
 const AccountNotpaid = () => {
-    const data = [
-        {
-          id: 0,
-          productImage: productImage,
-          productTitle: `Black/Red/Blue 1" Extra Flow Breather 1" Push In Vent Filter for Valve Cover`,
-          productRatings: 4,
-          productCost: 12.99,
-          productCount: 3
-        },
-        {
-          id: 1,
-          productImage: productImage,
-          productTitle: `Black/Red/Blue 1" Extra Flow Breather 1" Push In Vent Filter for Valve Cover`,
-          productRatings: 4,
-          productCost: 12.99,
-          productCount: 5
-        }
-      ]
+  const {user} = useSelector(state => state.authReducer);
+  const { data } = useAuthFetch(`${ALL_BASKET_PRODUCTS_ENDPOINT}/${user?.userID}`, null);
+  const notPaidData = data?.basketMain?.filter(product => product.status === 1); //STATUS === 1 => NOT PAID
     return (
         <div className={classes.account__notpaid}>
             <div className={classes.notpaid__header}>
                 <h1>Неоплаченный</h1>
             </div>
-            <AccountProduct data={data} tableHeaders={["Продукты", "Количество", "Статус заказа", "Опции"]} />
+            <AccountProduct data={notPaidData} tableHeaders={["Продукты", "Количество", "Статус заказа", "Опции"]} />
         </div>
     )
 }

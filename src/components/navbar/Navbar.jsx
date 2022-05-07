@@ -8,9 +8,17 @@ import { Select } from "./select/Select";
 import { Switch } from "./switch/Switch";
 import style from "./Navbar.module.css";
 import { useTranslation } from "react-i18next";
+import { FiHeart, FiShoppingCart } from "react-icons/fi";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 export const Navbar = () => {
+  const [outside, setOutSide] = useState(true);
+  const ref = useOutsideClick(() => {
+    setOutSide(true);
+  });
   const [scroll, setScroll] = useState();
+  const {liked} = useSelector(state => state.liked);
+  const {cart} = useSelector(state => state.cart);
   const { pathname } = useLocation();
   const { t } = useTranslation();
 
@@ -23,6 +31,8 @@ export const Navbar = () => {
   });
 
   const { isAuthenticated } = useSelector((state) => state.authReducer);
+
+
 
   return (
     <nav
@@ -92,12 +102,13 @@ export const Navbar = () => {
             </NavLink>
           </li>
           {window.innerWidth <= 769 ? null : (
-            <li className={style.forSearch}>
-              <Search />
+            <li ref={ref} onClick={() => setOutSide(false)} className={style.forSearch}>
+              <Search outside={outside}/>
             </li>
           )}
           <li className={style.navbar__selectLG}>
             <Select />
+            
             {isAuthenticated ? (
               <NavLink exact to={"/login/sign-in"}>
                 <img src={person} alt="" />
@@ -107,6 +118,18 @@ export const Navbar = () => {
                 {t("navbar.login")}
               </NavLink>
             )}
+          </li>
+          <li className={style.navbar__selectLG}>
+            <NavLink className={style.navbar__links} style={{color: "#fff"}} to="/liked">
+              <p className={style.counter}>{liked?.length}</p>
+              <FiHeart className={style.navbar__icons}/>
+            </NavLink>
+          </li>
+          <li className={style.navbar__selectLG}>
+            <NavLink className={style.navbar__links}  style={{color: "#fff"}} to="/karzinka">
+              <p className={style.counter}>{cart?.map((item) => item.quantity).reduce((acc, inc) => acc + inc, 0)}</p>
+              <FiShoppingCart className={style.navbar__icons}/>
+            </NavLink>
           </li>
           <li>
             <Switch />

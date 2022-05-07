@@ -1,9 +1,5 @@
 import React from "react";
-import { NavLink, useHistory } from "react-router-dom";
-
-import korzina from "../assets/home/korzina.png";
-import favorite from "../assets/home/favorite.png";
-
+import { NavLink } from "react-router-dom";
 import style from "./Helpers.module.css";
 
 export const SelectNav = ({ names }) => {
@@ -61,40 +57,6 @@ export const MachineParts = ({
 };
 
 // home/card
-
-export const CardProduct = ({ img, desc, price, path = "/product/1" }) => {
-  const history = useHistory();
-
-  const onClick = () => {
-    history.push(path);
-  };
-
-  return (
-    <div className={style.CardProduct} onClick={onClick}>
-      <div className={style.btnGroup}>
-        <NavLink to={"/"}>
-          {" "}
-          <img src={korzina} alt="" />
-        </NavLink>
-        <NavLink to={"/"}>
-          <img src={favorite} alt="" />
-        </NavLink>
-      </div>
-      <div className={style.cardImg}>
-        <img src={img} alt="" />
-      </div>
-      <div className={style.stars}>
-        &#x2605; &#x2605; &#x2605; &#x2605; &#x2606;
-      </div>
-      <div>
-        <h1>{desc}</h1>
-      </div>
-      <div>
-        <h2>{price}</h2>
-      </div>
-    </div>
-  );
-};
 
 // home/system
 

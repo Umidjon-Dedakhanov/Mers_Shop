@@ -1,7 +1,5 @@
 import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
-
-import { Selects } from "./../home/selects/Selects";
 import { BrakeDiscMachineParts } from "./../home/machineParts/BrakeDiscMachineParts";
 import { BrakeDiscProducts } from "./../home/popularProduct/BrakeDiscProducts";
 import { PopularProducts } from "./../home/popularProduct/PopularProducts";
@@ -12,22 +10,25 @@ import { Information } from "./../home/information/Information";
 
 import style from "./Products.module.css";
 import { Card } from "./card/Card";
+import DropdownMenu from "../../utils/DropdownMenu";
 
 export const Products = () => {
   const { pathname } = useLocation();
 
+  const categoryItems = [
+    {title: "All Categories", id: 1, subcategories: ["Sub one", "Sub two"]},
+    {title: "Brake Discs", id: 2, subcategories: ["Sub one", "Sub two"]},
+    {title: "Brake Pads", id: 3, subcategories: ["Sub one", "Sub two"]},
+    {title: "Brake Drums", id: 4, subcategories: ["Sub one", "Sub two"]},
+    {title: "Hot Products", id: 5, subcategories: ["Sub one", "Sub two"]},
+    {title: "Popular products", id: 6, subcategories: ["Sub one", "Sub two"]},
+    {title: "Brake Discs", id: 7, subcategories: ["Sub one", "Sub two"]},
+  ]
+
   return (
     <div className={style.body}>
-      <Heading title={"ABOUT US"} routePathName="About" img={img} />
-      <Selects
-        to1="/product/all"
-        to2="/product/brakeDiscs"
-        to3="/product/brakePads"
-        to4="/product/brakeDrums"
-        to5="/product/hotProducts"
-        to6="/product/popularProducts"
-        to7="/product/brakeDisc"
-      />
+      <DropdownMenu categoryItems={categoryItems}/>
+      <Heading title={"CAR SIDE DOORS"} routePathName="product" img={img} />
       <div className={style.box}>
         <Switch>
           <Route

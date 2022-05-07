@@ -16,10 +16,11 @@ const CardBlock = ({
 }) => {
   const params = useParams();
   const { data } = useFetchService(`${NEWS_MAIN_ENDPOINT_WITHID}/${+params.id}`, null)
+  console.log(data)
   return (
     <div className={style.body}>
       <div className={style.headerBLock}>
-        <img src={data?.fileUrl} alt="" />
+        <img src={`${!data?.fileUrl?.includes("https") ? process.env.REACT_APP_API_SERVICE_FILEPATH + data?.fileUrl : data?.fileUrl}`} alt="" />
         <div className={style.headerText}>
           <h1>{data?.title_en}</h1>
           <h2>{data?.updated?.split("T")[0]}</h2>
