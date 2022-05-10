@@ -9,12 +9,17 @@ import person from "../../assets/home/person.png";
 import { Search } from "./search/Search";
 import { Select } from "./select/Select";
 import { Switch } from "./switch/Switch";
+import { currency_change } from '../../redux/actions/currencyActions';
+import { connect } from "react-redux";
 
 import style from "./Navbar.module.css";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import useOutsideClick from "../../hooks/useOutsideClick";
 
-export const Navbar = () => {
+
+
+const Navbar = (props) => {
+  const { currency } = useSelector(state => state.currency);
   const [outside, setOutSide] = useState(true);
   const ref = useOutsideClick(() => {
     setOutSide(true);
@@ -34,6 +39,10 @@ export const Navbar = () => {
   });
 
   const { isAuthenticated } = useSelector((state) => state.authReducer);
+
+  const handleCurrencyChange = (e) => {
+      props.currency_change(e.target.value)
+  }
 
   return (
     <nav
@@ -107,6 +116,10 @@ export const Navbar = () => {
               <Search outside={outside}/>
             </li>
           )}
+          <select onChange={handleCurrencyChange} value={currency}>
+            <option value="usd">USD</option>
+            <option value="uzs">UZS</option>
+          </select>
           <li className={style.navbar__selectLG}>
             <Select />            
             {isAuthenticated ? (
@@ -142,3 +155,6 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+
+export default connect(null, { currency_change })(Navbar);

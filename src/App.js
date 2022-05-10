@@ -5,7 +5,7 @@ import { HeaderOrder } from "./components/home/headerOrder/HeaderOrder";
 import KarzinkaPayment from "./routes/karzinka-payment/KarzinkaPayment";
 import Private from "./routes/private/PrivateRoute";
 import { Footer } from "./components/footer/Footer";
-import { Navbar } from "./components/navbar/Navbar";
+import  Navbar  from "./components/navbar/Navbar";
 import { CardBlock } from "./components/news/card/Card";
 import Karzinka from "./routes/karzinka/Karzinka";
 import { withSuspense } from "./hoc/withSuspense";

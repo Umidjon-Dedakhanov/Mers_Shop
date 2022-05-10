@@ -17,7 +17,9 @@ import { useSelector } from 'react-redux';
 
 const KarzinkaSubmission = () => {
     const { cart } = useSelector(state => state.cart);
-    const subTotal = cart?.map((item) => item.product?.cost_usd * item?.quantity).reduce((acc, inc) => acc + inc, 0)
+    const { currency } = useSelector(state => state.currency);
+    console.log(cart)
+    const subTotal = cart?.map((item) => currency === "usd" ?  (item.product?.cost_usd *  item?.quantity) : (item.product?.cost_uzs * item?.quantity)).reduce((acc, inc) => acc + inc, 0)
     const items = cart?.map((item) => item.quantity).reduce((acc, inc) => acc + inc, 0);
     return (
         <div>

@@ -21,6 +21,7 @@ const Karzinka = () => {
     const [delIds, setDelIds] = useState([]);
     const dispatch = useDispatch();
     const {cart} = useSelector(state => state.cart);
+    const {currency} = useSelector(state => state.currency);
     const link_style={
         textDecoration :"none",
         color: "#fff",
@@ -39,7 +40,7 @@ const Karzinka = () => {
             dispatch(removeFromCart(delIds))
         }
     }
-    const subTotal = cart?.map((item) => item.product?.cost_usd * item?.quantity).reduce((acc, inc) => acc + inc, 0)
+    const subTotal = cart?.map((item) => currency === "usd" ? item.product?.cost_usd * item?.quantity : item.product?.cost_uzs * item?.quantity).reduce((acc, inc) => acc + inc, 0)
     const items = cart?.map((item) => item.quantity).reduce((acc, inc) => acc + inc, 0);
     const [allSelected, setAllSelected ] = useState(false);
     return (

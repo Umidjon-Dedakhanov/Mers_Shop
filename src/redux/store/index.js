@@ -8,7 +8,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 const persistConfig = {
   key: 'reducer',
   storage: storage,
-  whitelist: ['cart', 'authReducer', "liked"]
+  whitelist: ['cart', 'authReducer', "liked", "currency"]
 };
 
 const presistedReducer = persistReducer(persistConfig, rootReducers );

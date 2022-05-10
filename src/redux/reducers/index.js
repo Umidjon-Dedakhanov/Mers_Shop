@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import authReducer from "./authReducer";
 import cartReducer from "./cartReducer";
 import categoryReducer from "./categoryReducer";
+import currencyReducer from "./currencyReducer";
 import likeReducer from "./likeReducer";
 import orderReducer from "./orderReducer";
 import resetPwdReducer from "./resetPwdReducer";
@@ -12,7 +13,8 @@ const rootReducers = combineReducers({
   liked: likeReducer,
   order: orderReducer,
   resetPwd: resetPwdReducer,
-  categories: categoryReducer
+  categories: categoryReducer,
+  currency: currencyReducer
 });
 
 export default rootReducers;

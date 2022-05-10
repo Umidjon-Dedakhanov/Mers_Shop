@@ -2,8 +2,10 @@ import React from "react";
 import PropTypes from 'prop-types';
 import KarzinkaProducts from "../karzinka-products/KarzinkaProducts";
 import classes from "./KarzinkaTable.module.css";
+import { useSelector } from "react-redux";
 
 const KarzinkaTable = ({checkBox, cart, setDelIds, ids, allSelected}) => {
+  const { currency } = useSelector(state => state.currency);
   return (
     <table className={classes.product__table}>
       <thead className={classes.table__head}>
@@ -22,7 +24,7 @@ const KarzinkaTable = ({checkBox, cart, setDelIds, ids, allSelected}) => {
             setDelIds={setDelIds}
             ids={ids}
             key={index}
-            price={cartItem.product?.cost_usd}
+            price={currency === "usd" ? cartItem.product?.cost_usd : cartItem.product?.cost_uzs}
             counters={!checkBox}
             checkBox={checkBox}
             initialAmount={cartItem.quantity}

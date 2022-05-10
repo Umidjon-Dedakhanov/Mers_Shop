@@ -84,6 +84,10 @@
   border-bottom: 1px solid #ccc;
 }
 
+.search__link{
+  text-decoration: none;
+}
+
 .loader{
   color: #000;
   animation: rot 1s infinite linear;
