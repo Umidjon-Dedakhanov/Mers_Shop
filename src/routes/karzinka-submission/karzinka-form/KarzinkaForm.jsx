@@ -77,7 +77,7 @@ const KarzinkaForm = (props) => {
 
     const handleKarzinkaSubmissionForm = (e) => {
         e.preventDefault();
-        if(isValidPhone && isValidFname &&  isValidLname && isValidCountry && isValidProvince &&  isValidCity &&  isValidAddress){
+        if(isValidPhone && isValidFname &&  isValidLname && isValidCountry && isValidProvince &&  isValidCity &&  isValidAddress && cart && user && localStorage.getItem("access-token")){
             props.orderProducts(cart[0]?.product, cart[0]?.quantity, user, {
                 fname: fName,
                 lname: lName,
@@ -85,7 +85,7 @@ const KarzinkaForm = (props) => {
                 phone: phone,
                 email: user.email,
                 basketMain: []
-            });
+            }, cart);
         }
         else{
             console.log(isValidPhone , isValidFname ,  isValidLname , isValidCountry , isValidProvince ,  isValidCity ,  isValidAddress)
