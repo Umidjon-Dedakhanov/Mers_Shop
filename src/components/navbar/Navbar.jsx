@@ -116,23 +116,26 @@ const Navbar = (props) => {
               <Search outside={outside}/>
             </li>
           )}
-          <select onChange={handleCurrencyChange} value={currency}>
+          <select className={style.currency} onChange={handleCurrencyChange} value={currency}>
             <option value="usd">USD</option>
             <option value="uzs">UZS</option>
           </select>
           <li className={style.navbar__selectLG}>
             <Select />            
+          </li>
+          <li className={style.details}>
+            <Switch/>
+            <div className={style.secondary}>
             {isAuthenticated ? (
               <NavLink exact to={"/login/sign-in"}>
                 <img src={person} alt="" />
               </NavLink>
             ) : (
-              <NavLink exact to={"/login/sign-in"}>
+              <NavLink className={style.login} exact to={"/login/sign-in"}>
                 {t("navbar.login")}
               </NavLink>
             )}
-          </li>
-          <li className={style.navbar__selectLG}>
+            <li className={style.navbar__selectLG}>
             <NavLink className={style.navbar__links} style={{color: "#fff"}} to="/liked">
               <p className={style.counter}>{liked?.length}</p>
               <FiHeart className={style.navbar__icons}/>
@@ -144,8 +147,7 @@ const Navbar = (props) => {
               <FiShoppingCart className={style.navbar__icons}/>
             </NavLink>
           </li>
-          <li>
-            <Switch />
+          </div>
           </li>
         </ul>
         <NavLink to={"/"} className={style.navbar__logo_block}>

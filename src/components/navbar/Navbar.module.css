@@ -131,9 +131,42 @@
   padding-top: 3px;
 }
 
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.secondary {
+  width: 80%;
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.navbar__icons {
+  font-size: 20px;
+  margin-bottom: -10px;
+}
+
+.login {
+  margin-bottom: -5px;
+}
+
+.currency {
+  border-radius: 4px;
+  padding: 2px 7px;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
 @media (min-width: 760px) and (max-width: 980.9px) {
   .logo {
-    width: 100%;
+    width: 80%;
   }
 
   .navbar__logo_block {
@@ -158,6 +191,11 @@
 
   .forSearch {
     width: 250px;
+  }
+
+  .currency {
+    padding: 1px 5px;
+    font-size: 10px;
   }
 }
 

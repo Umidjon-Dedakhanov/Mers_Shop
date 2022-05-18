@@ -1,10 +1,12 @@
 .search_block {
   width: 500px;
-  height: 40px;
+  height: 30px;
   background: transparent;
   overflow: hidden;
   position: relative;
   margin-left: 0;
+  margin-right: 10px;
+  border-radius: 20px;
 }
 
 .search_block .icon {
@@ -160,8 +162,8 @@
 
 @media (min-width: 760px) and (max-width: 980.9px) {
   .search_block {
-    width: 100px;
-    height: 30px;
+    width: 125px;
+    height: 20px;
   }
 
   .search_block .icon:before {
@@ -171,7 +173,32 @@
   }
 
   .search_block input[type="search"] {
-    padding: 0px 10px 0px 35px;
+    height: 20px;
+    padding: 0px 10px 0px 15px;
+    font-size: 10px;
+  }
+
+  .search_block input[type="search"]::placeholder {
+    font-family: 10px;
+  }
+
+  .search__results {
+    width: 125px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 10px;
+  }
+
+  .result__product {
+    width: 125px;
+  }
+
+  .product__infosearch {
+    width: 80%;
+  }
+
+  .product__infosearch h2 {
+    font-size: 10px;
   }
 }
 @media (min-width: 981px) and (max-width: 1300px) {
