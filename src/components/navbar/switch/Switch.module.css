@@ -1,10 +1,11 @@
 .switch {
   width: 192px;
-  height: 50px;
+  height: 27px;
   border-radius: 23px;
   border: 1px solid #e6e6e6;
   background: #9ca2b0;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   vertical-align: middle;
   cursor: pointer;
   position: relative;
@@ -16,13 +17,12 @@
 .switch::after {
   transition: left 0.2s ease;
   position: absolute;
-  top: 0.4px;
-  left: 0.4px;
+  left: 0px;
   display: flex;
   content: "";
   background: #39546c;
-  width: 50%;
-  height: 48px;
+  width: 51%;
+  height: 25px;
   border: 1px solid #9ca2b0;
   box-sizing: border-box;
   border-radius: 50px;
@@ -31,13 +31,15 @@
 .switch > span {
   color: #000000;
   width: 50%;
-  display: inline-block;
+  display: flex;
   text-align: center;
+  justify-content: space-evenly;
   letter-spacing: 0.5px;
   position: relative;
   z-index: 5;
   text-transform: uppercase;
-  vertical-align: sub;
+  margin-top: 5px;
+  font-size: 14px;
 }
 
 .switch .active {
@@ -56,34 +58,38 @@
 }
 @media (min-width: 760px) and (max-width: 980.9px) {
   .switch {
-    width: 80px;
-    height: 30px;
+    width: 120px;
+    height: 25px;
     display: flex;
     align-items: center;
   }
   .switch::after {
-    height: 25px;
+    height: 23px;
   }
   .switch > span {
     font-size: 8px;
     height: 100%;
+    display: flex;
+    align-items: center;
     vertical-align: middle;
   }
 }
 @media (min-width: 981px) and (max-width: 1300px) {
   .switch {
-    width: 100px;
-    height: 40px;
+    width: 150px;
+    height: 25px;
     align-items: center;
   }
 
   .switch::after {
-    height: 35px;
+    height: 23px;
   }
 
   .switch > span {
     font-size: 10px;
     height: 100%;
+    display: flex;
+    align-items: center;
     vertical-align: middle;
   }
 }
