@@ -1,10 +1,13 @@
 import React from 'react';
 import classes from './AccountFavourites.module.css';
-import AccountProduct from '../account-product/AccountProduct';
+import { useSelector } from 'react-redux';
+// import AccountProduct from '../account-product/AccountProduct';
 // import productImage from "../../../assets/karzinka/product.png";
 import AccountEmpty from '../account-empty/AccountEmpty';
+import Liked from '../../liked/Liked';
 
 const AccountFavourites = () => {
+    const {liked} = useSelector(state => state.liked)
     const data = [
         // {
         //   id: 0,
@@ -53,7 +56,7 @@ const AccountFavourites = () => {
                 <h1>Мое избранное</h1>
             </div>
             { /*@uncomment data to see actual results! */
-                data?.length > 0 ? <AccountProduct data={data}  /> : <AccountEmpty/>
+                liked?.length > 0 ? <Liked/> : <AccountEmpty/>
             }
             
         </div>
