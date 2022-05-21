@@ -7,6 +7,7 @@ import AccountProduct from '../account/account-product/AccountProduct';
 import PropTypes from "prop-types";
 import { FiTrash2, FiShoppingBag } from "react-icons/fi";
 import { AiFillStar } from 'react-icons/ai'
+import AccountEmpty from '../account/account-empty/AccountEmpty'
 
 const Liked = (props,{tableHeaders}) => {
   const { currency } = useSelector(state => state.currency);
@@ -22,7 +23,7 @@ const Liked = (props,{tableHeaders}) => {
   }
 
   return (
-    <div className={classes.liked}>
+   liked.length > 0 ? <div className={classes.liked}>
       {
         liked?.map(({product}) => 
             <div className={classes.likedproduct}>
@@ -57,7 +58,7 @@ const Liked = (props,{tableHeaders}) => {
             </div>
         )
       }
-    </div>
+    </div> : <div style={{marginTop: "150px"}}><AccountEmpty /></div> 
   )
 }
 
