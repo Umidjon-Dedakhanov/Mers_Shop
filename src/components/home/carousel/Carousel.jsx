@@ -12,7 +12,7 @@ const HOME_HEADER_ENDPOINT = "homeHeaders";
 export const MyCarousel = () => {
   const { data } = useFetch(HOME_HEADER_ENDPOINT, null);
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  console.log(data, "jbhdvjvdjh")
   setTimeout(() => {
     setCurrentSlide(
       data && data.length === currentSlide

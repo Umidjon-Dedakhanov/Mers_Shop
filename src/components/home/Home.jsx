@@ -10,6 +10,7 @@ import FilterNavbar from "./../UI/filter-navbar/FilterNavbar";
 import { Information } from "./information/Information";
 import { MyCarousel } from "./carousel/Carousel";
 import { System } from "./sytem/System";
+// import { AllProducts } from './allProducts/AllProducts'
 
 export const Home = () => {
   const filter_items = [

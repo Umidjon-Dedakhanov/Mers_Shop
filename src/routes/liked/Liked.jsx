@@ -13,6 +13,14 @@ const Liked = (props,{tableHeaders}) => {
   const {liked} = useSelector(state => state.liked)
   console.log(liked)
 
+  const removeFromLiked = (product) => {
+    props.remove__liked__oneproduct(product?.id)
+  }
+
+  const handleAddToCart = (product) => {
+    props.addToCart(product)
+  }
+
   return (
     <div className={classes.liked}>
       {
@@ -37,11 +45,11 @@ const Liked = (props,{tableHeaders}) => {
               </div>
               </div>
               <div className={classes.option_details}>
-                  <span>
+                  <span style={{cursor: "pointer", userSelect: "none"}} onClick={() => removeFromLiked(product)}>
                     <FiTrash2 className={classes.i}/>
                     Ochirish
                   </span>
-                  <span>
+                  <span style={{cursor: "pointer", userSelect: "none"}} onClick={() => handleAddToCart(product)}>
                     <FiShoppingBag className={classes.i}/>
                     Qoshish
                   </span>
