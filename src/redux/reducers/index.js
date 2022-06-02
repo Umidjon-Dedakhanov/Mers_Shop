@@ -6,6 +6,7 @@ import currencyReducer from "./currencyReducer";
 import likeReducer from "./likeReducer";
 import orderReducer from "./orderReducer";
 import resetPwdReducer from "./resetPwdReducer";
+import langReducer from "./langReducer";
 
 const rootReducers = combineReducers({
   authReducer: authReducer,
@@ -14,7 +15,8 @@ const rootReducers = combineReducers({
   order: orderReducer,
   resetPwd: resetPwdReducer,
   categories: categoryReducer,
-  currency: currencyReducer
+  currency: currencyReducer,
+  lang: langReducer
 });
 
 export default rootReducers;

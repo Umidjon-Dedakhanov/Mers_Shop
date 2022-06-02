@@ -7,14 +7,16 @@ import picture3 from '../../../assets/home/info3.png'
 import picture4 from '../../../assets/home/info4.png'
 
 import style from './Information.module.css'
+import { useTranslation } from 'react-i18next'
 
 export const Information = () => {
+  const {t} = useTranslation()
   return (
     <div className={style.body}>
-        <InformationCard img={picture1} title={'Качественный товар'} desc={'Купить качественные товары с низкой ценой'}/>
-        <InformationCard img={picture2} title={'Круглосуточный сервис'} desc={'Купить качественные товары с низкой ценой'}/>
-        <InformationCard img={picture3} title={'Экспресс-доставка'} desc={'Купить качественные товары с низкой ценой'}/>
-        <InformationCard img={picture4} title={'Безопасная оплата'} desc={'Купить качественные товары с низкой ценой'}/>
+        <InformationCard img={picture1} title={t("InformationCard.titles.first")} desc={t("InformationCard.desc")}/>
+        <InformationCard img={picture2} title={t("InformationCard.titles.second")} desc={t("InformationCard.desc")}/>
+        <InformationCard img={picture3} title={t("InformationCard.titles.third")} desc={t("InformationCard.desc")}/>
+        <InformationCard img={picture4} title={t("InformationCard.titles.fifth")} desc={t("InformationCard.desc")}/>
     </div>
   )
 }

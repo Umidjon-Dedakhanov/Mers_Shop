@@ -6,5 +6,61 @@
     "contact": "Aloqa",
     "login": "Kirish",
     "news": "Yangiliklar"
+  },
+  "banner": {
+    "catalog": "Katalog"
+  },
+  "allMachinePart": {
+    "first": {
+      "desc": "chiroqlar va yorug'lik",
+      "title": "mega sale",
+      "saleNum": "chegirma",
+      "discount": "-47%"
+    },
+    "second": {
+      "desc": "yon va orqa",
+      "title": "Tana qismlari",
+      "saleNum": "$145 ortiq ta'mirlash",
+      "discount": "17% chegirma"
+    },
+    "third": {
+      "title": "Dvigatel tizimi",
+      "saleNum": "chegirma",
+      "discount": "-29%"
+    }
+  },
+  "popularProducts": {
+    "title": "Mashhur mahsulotlar",
+    "desc": "Ertami kechmi, avtomobilingiz dvigatelining harakatlantiruvchi kamarlari, vaqtni belgilash kamarlari va sovutish suvi shlanglari qurib, yorilib ketadi."
+  },
+  "FeaturedProduct": {
+    "title": "Tanlangan mahsulotlar",
+    "desc": "Ertami kechmi, avtomobilingiz dvigatelining harakatlantiruvchi kamarlari, vaqtni belgilash kamarlari va sovutish suvi shlanglari qurib, yorilib ketadi.",
+    "info": "Individual old uglerod tormoz diski"
+  },
+  "System": {
+    "title": "Mator qismlari",
+    "title2": "Dvigatel tizimi",
+    "desc": "Maxsus old karbonli tormoz diski"
+  },
+  "InformationCard": {
+    "titles": {
+      "first": "Sifatli mahsulot",
+      "second": "24 soatlik xizmat",
+      "third": "Tez yetkazib berish",
+      "fifth": "Ishonchli to'lov"
+    },
+    "desc": "Sifatli mahsulotlarni arzon narxda sotib oling"
+  },
+  "CompanyInfo": {
+    "mainTitle": "Shaxsingizni ishonchli ifoda etish imkonini beradi",
+    "title": "Unutilmas lahzalar",
+    "desc": "Vijdon va o'zini namoyon qilish o'rtasida tanlov qolmagan bo'lsa-da, biz moda kelajakni shakllantirish qudratiga ega ekanligiga ishonamiz."
+  },
+  "OptionInfo": {
+    "mainTitle": "Siz sotib olishga tayyor bo'lsangiz, biz sizga variantlarni taqdim etamiz",
+    "title1": "Biz erishgan barcha toifalar",
+    "title2": "Erishilgan jami mahsulotlar",
+    "desc": "O'zingizga yoqqan mahsulotlarni tarmoqdagi eng yaxshi do'konlardan qidiring va ularni yaqin atrofda ko'ring. Narxi va yetkazib berish usulini belgilang."
   }
 }

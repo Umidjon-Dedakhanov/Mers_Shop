@@ -6,5 +6,61 @@
     "contact": "Contact",
     "login": "Login",
     "news": "News"
+  },
+  "banner": {
+    "catalog": "Catalog"
+  },
+  "allMachinePart": {
+    "first": {
+      "desc": "lamps & lights",
+      "title": "mega sale",
+      "saleNum": "sale off",
+      "discount": "-47%"
+  },
+    "second": {
+      "desc": "side & back",
+      "title": "Body parts",
+      "saleNum": "repair over $145",
+      "discount": "take a sell 17% off"
+    },
+    "third": {
+      "title": "Engine system",
+      "saleNum": "sale off",
+      "discount": "-29%"
+    }
+  },
+  "popularProducts": {
+    "title": "Popular products",
+    "desc": "Sooner or later your car’s engine accessory drive belts, timing belts, and coolant hoses will dry out and crack."
+  },
+  "FeaturedProduct": {
+    "title": "Featured products",
+    "desc": "Sooner or later your car’s engine accessory drive belts, timing belts, and coolant hoses will dry out and crack.",
+    "info": "Customized Front Carbon Brake Disc"
+  },
+  "System": {
+    "title": "engine parts",
+    "title2": "Engine System",
+    "desc": "Customized Front Carbon Brakdisc"
+  },
+  "InformationCard": {
+    "titles": {
+      "first": "Quality product",
+      "second": "24 hour service",
+      "third": "Express delivery",
+      "fifth": "Secure payment"
+    },
+    "desc": "Buy quality goods at a low price"
+  },
+  "CompanyInfo": {
+    "mainTitle": "Giving you the confidence to express your individuality",
+    "title": "Memorable moments",
+    "desc": "o longer a choice between conscience and self-expression, we believe fashion has the power to build futures."
+  },
+  "OptionInfo": {
+    "mainTitle": "When you're ready to buy, we give you options",
+    "title1": "Total categories we are reached",
+    "title2": "Total reached products",
+    "desc": "Search for the products you love from the best stores on the web and see them side by side. Decide which price, shipping method."
   }
 }

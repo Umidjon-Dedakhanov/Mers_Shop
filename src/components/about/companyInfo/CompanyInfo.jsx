@@ -1,38 +1,40 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { TitleAbout } from "../../../utils/helpers";
 
 import style from "./CompanyInfo.module.css";
 
 export const CompanyInfo = () => {
+  const {t} = useTranslation()
   return (
     <div className={style.body}>
       <h1 className={style.title}>
-        Giving you the confidence to express your individuality
+        {t("CompanyInfo.mainTitle")}
       </h1>
       <div className={style.mainBlock}>
         <TitleAbout
-          title={"Memorable moments"}
+          title={t("CompanyInfo.title")}
           desc={
-            "o longer a choice between conscience and self-expression, we believe fashion has the power to build futures."
+            t("CompanyInfo.desc")
           }
         />
         <TitleAbout
-          title={"Memorable moments"}
+          title={t("CompanyInfo.title")}
           desc={
-            "o longer a choice between conscience and self-expression, we believe fashion has the power to build futures."
+            t("CompanyInfo.desc")
           }
         />
         <TitleAbout
-          title={"Memorable moments"}
+          title={t("CompanyInfo.title")}
           desc={
-            "o longer a choice between conscience and self-expression, we believe fashion has the power to build futures."
+            t("CompanyInfo.desc")
           }
         />
         <TitleAbout
-          title={"Memorable moments"}
+          title={t("CompanyInfo.title")}
           desc={
-            "o longer a choice between conscience and self-expression, we believe fashion has the power to build futures."
+            t("CompanyInfo.desc")
           }
         />
       </div>
