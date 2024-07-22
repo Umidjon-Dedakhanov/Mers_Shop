@@ -5,9 +5,12 @@ import location from "../../../assets/contact/location.png";
 import clock from "../../../assets/contact/clock.png";
 import YandexMap from "./map/Map";
 import style from "./MainBlock.module.css";
+import axios from 'axios';
 import { useEffect } from "react";
 import authApiInstance from "../../../api/authApi";
+import { lowercaseH } from "charcodes";
 const CONTACT_MAIN_ENDPOINT = "contactMainsAPI";
+
 
 const TEST_NAME_REGX = /^[A-Z][-a-zA-Z]+$/;
 const TEST_PHONENUMBER_REGX = /^\+?[1-9][0-9]{11,11}$/;
@@ -28,38 +31,60 @@ const MainBlock = (props) => {
   const [isNameValid, setIsNameValid] = useState(false);
   const [isSurnameValid, setIsSurnameValid] = useState(false);
   const [isPhoneNumberValid, setIsPhonenumberValid] = useState(false);
+  const [infoData, setInfodata] = useState([])
 
-  const data = [
-    {
-      id: 1,
-      title: "Call Us",
-      desc: "The potential failure of President Biden to get his Build Back Better act through Congress would significantly impact the ability of...",
-      img: messageicon,
-      info: "+998 71 289-99-99",
-    },
-    {
-      id: 2,
-      title: "Visit Us",
-      desc: "The potential failure of President Biden to get his Build Back Better act through Congress would significantly impact the ability of...",
-      img: location,
-      info: "9, Ziyolilar str., M.Ulugbek district, 100170 Tashkent, Uzbekistan.",
-    },
-    {
-      id: 3,
-      title: "Visit Us",
-      desc: "The potential failure of President Biden to get his Build Back Better act through Congress would significantly impact the ability of...",
-      img: clock,
-      info: "Mon - Fri: 8:00am to 5:00pm  Sut - Sun: Close",
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: 1,
+  //     title: "Call Us",
+  //     desc: "The potential failure of President Biden to get his Build Back Better act through Congress would significantly impact the ability of...",
+  //     img: messageicon,
+  //     info: "+998 71 289-99-99",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Visit Us",
+  //     desc: "The potential failure of President Biden to get his Build Back Better act through Congress would significantly impact the ability of...",
+  //     img: location,
+  //     info: "9, Ziyolilar str., M.Ulugbek district, 100170 Tashkent, Uzbekistan.",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Visit Us",
+  //     desc: "The potential failure of President Biden to get his Build Back Better act through Congress would significantly impact the ability of...",
+  //     img: clock,
+  //     info: "Mon - Fri: 8:00am to 5:00pm  Sut - Sun: Close",
+  //   },
+  // ];
+  
+  useEffect(() => {
+    axios
+      .get("https://api.mshop.softcity.uz/api/contactInfoes", {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization' : "Bearer " + localStorage.getItem("access-token"),
+          "Accept": "*/*",
+          "Access-Control-Allow-Origin" : "*"
+        },
+      })
+      .then((response) => {
+        if (response.data) {
+          setInfodata(response.data)
+          console.log("sssssssss",response.data)
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    },[])
 
-  const dataMap = data.map((d, index) => (
+  const dataMap = infoData?.map((d, index) => (
     <Title
       key={index}
-      title={d.title}
-      desc={d.desc}
-      img={d.img}
-      info={d.info}
+      title={d.title_uz}
+      desc={d.description_uz}
+      img={d.imageUrl}
+      // info={d.info}
     />
   ));
 
